@@ -56,7 +56,12 @@
       ],
       "site": "https://minchanju.github.io/react/",
       "img": [
-        "CODING_CONTEST"
+        "CODING_CONTEST1",
+        "CODING_CONTEST2",
+        "CODING_CONTEST3",
+        "CODING_CONTEST4",
+        "CODING_CONTEST5",
+        "CODING_CONTEST6"
       ]
     },
     {
@@ -118,7 +123,10 @@
       ],
       "site": "",
       "img": [
-        "PORTFOLIO"
+        "PORTFOLIO1",
+        "PORTFOLIO2",
+        "PORTFOLIO3",
+        "PORTFOLIO4"
       ]
     }
   ],

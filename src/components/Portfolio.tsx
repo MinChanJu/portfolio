@@ -12,6 +12,7 @@ const Portfolio: React.FC = () => {
     const awardRef = useRef(null);
     const careerRef = useRef(null);
 
+
     const scrollToSection = (sectionRef: React.RefObject<HTMLDivElement>) => {
         if (sectionRef.current) {
             sectionRef.current.scrollIntoView({ behavior: 'smooth' });
@@ -95,11 +96,49 @@ const Portfolio: React.FC = () => {
                                     <div key={index}>소스코드 : <CustomLink href={href} /></div>
                                 ))}
                                 {project.site && <div>사이트 : <CustomLink href={project.site} /></div>}
-                                <div className="imageContainer">
+                                {project.img.length > 3 ? (
+                                    <div className="imageContainerWrapper">
+                                        {project.img.reduce((acc, src, index) => {
+                                        const groupIndex = Math.floor(index / 2);
+                                        if (!acc[groupIndex]) {
+                                            acc[groupIndex] = [];
+                                        }
+                                        acc[groupIndex].push(src);
+                                        return acc;
+                                        }, [] as string[][]).map((group, groupIndex) => (
+                                        <div key={groupIndex} className="imageContainer">
+                                            {group.map((src, index) => (
+                                            <img
+                                                key={index}
+                                                style={{
+                                                width: `${100 / group.length - ((group.length - 1) * 2)}%`,
+                                                }}
+                                                src={IMG[src]}
+                                                alt={`project_image_${groupIndex + 1}_${index + 1}`}
+                                            />
+                                            ))}
+                                        </div>
+                                        ))}
+                                    </div>
+                                    ) : (
+                                    <div className="imageContainer">
+                                        {project.img.map((src, index) => (
+                                        <img
+                                            key={index}
+                                            style={{
+                                            width: `${(100 / project.img.length) - ((project.img.length - 1) * 2)}%`,
+                                            }}
+                                            src={IMG[src]}
+                                            alt={`project_image_${index + 1}`}
+                                        />
+                                        ))}
+                                    </div>
+                                    )}
+                                {/* <div className="imageContainer">
                                     {project.img.map((src, index) => (
                                         <img key={index} style={{ width: `${(100 / project.img.length) - ((project.img.length - 1) * 2)}%` }} src={IMG[src]} alt={`project_image_${index + 1}`} />
                                     ))}
-                                </div>
+                                </div> */}
                                 <br /><br />
                             </div>
                         ))}

@@ -1,17 +1,30 @@
-import coding_contest from '../assets/coding_contest.png'
-import mic_app1 from '../assets/MiCapp1.jpeg'
-import mic_app2 from '../assets/MiCapp2.jpeg'
-import mic_app3 from '../assets/MiCapp3.jpeg'
+import coding_contest1 from '../assets/coding_contest1.png'
+import coding_contest2 from '../assets/coding_contest2.png'
+import coding_contest3 from '../assets/coding_contest3.png'
+import coding_contest4 from '../assets/coding_contest4.png'
+import coding_contest5 from '../assets/coding_contest5.png'
+import coding_contest6 from '../assets/coding_contest6.png'
+import mic_app1 from '../assets/MiCapp1.png'
+import mic_app2 from '../assets/MiCapp2.png'
+import mic_app3 from '../assets/MiCapp3.png'
 import chat1 from '../assets/chat1.png'
 import chat2 from '../assets/chat2.png'
 import chat3 from '../assets/chat3.png'
 import trash1 from '../assets/trash1.jpeg'
 import trash2 from '../assets/trash2.jpeg'
 import trash3 from '../assets/trash3.jpeg'
-import portfolio from '../assets/portfolio.png'
+import portfolio1 from '../assets/portfolio1.png'
+import portfolio2 from '../assets/portfolio2.png'
+import portfolio3 from '../assets/portfolio3.png'
+import portfolio4 from '../assets/portfolio4.png'
 
 export const IMG: { [key: string]: string } = {
-    "CODING_CONTEST" : coding_contest,
+    "CODING_CONTEST1" : coding_contest1,
+    "CODING_CONTEST2" : coding_contest2,
+    "CODING_CONTEST3" : coding_contest3,
+    "CODING_CONTEST4" : coding_contest4,
+    "CODING_CONTEST5" : coding_contest5,
+    "CODING_CONTEST6" : coding_contest6,
     "MIC_APP1" : mic_app1,
     "MIC_APP2" : mic_app2,
     "MIC_APP3" : mic_app3,
@@ -21,7 +34,10 @@ export const IMG: { [key: string]: string } = {
     "TRASH1" : trash1,
     "TRASH2" : trash2,
     "TRASH3" : trash3,
-    "PORTFOLIO" : portfolio,
+    "PORTFOLIO1" : portfolio1,
+    "PORTFOLIO2" : portfolio2,
+    "PORTFOLIO3" : portfolio3,
+    "PORTFOLIO4" : portfolio4,
 }
 
 export const URL = {
