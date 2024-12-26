@@ -52,16 +52,17 @@ const Portfolio: React.FC = () => {
                     <div className="info">학력</div>
                     <hr />
                     <div className="subinfo">
-                        <div>학교 : 이주대학교</div>
+                        <div>학교 : 아주대학교</div>
                         <div>입학년도 : 2020.03</div>
                         <div>제 1전공 : 수학과</div>
                         <div>복수전공 : 소프트웨어학과</div>
-                        <div>학기 : 3-2(수료) 2024.01 기준</div>
+                        <div>학기 : 3-2(수료) 2025.01 기준</div>
                     </div>
                 </div>
 
                 <div ref={skillRef}>
                     <div className="big">Skill Set</div>
+
                     <div className="info">언어</div>
                     <hr />
                     <ul className="subinfo">
@@ -69,6 +70,7 @@ const Portfolio: React.FC = () => {
                             <li key={index}>{lang.name} ({lang.level}/5)</li>
                         ))}
                     </ul>
+
                     <div className="info">프레임워크</div>
                     <hr />
                     <ul className="subinfo">
@@ -82,73 +84,54 @@ const Portfolio: React.FC = () => {
                     <div ref={projectRef}>
                         <div className="big">Project</div>
                         <div className="info">프로젝트</div>
+                        <hr /><br />
                     </div>
 
-                    <ol className="subinfo">
-                        {data.projects.map((project, index) => (
-                            <div key={index} ref={projectRefs[index]}>
-                                <h3><li>{project.project}</li></h3>
-                                <div>개발기간 : {project.time}</div>
-                                <div>개발인원 : {project.people}명 </div>
-                                <div>사용기술 : {project.skills}</div>
-                                <div>설명 : {project.description}</div>
-                                {project.sourcecode.map((href, index) => (
-                                    <div key={index}>소스코드 : <CustomLink href={href} /></div>
-                                ))}
-                                {project.site && <div>사이트 : <CustomLink href={project.site} /></div>}
-                                {project.img.length > 3 ? (
-                                    <div className="imageContainerWrapper">
-                                        {project.img.reduce((acc, src, index) => {
-                                        const groupIndex = Math.floor(index / 2);
-                                        if (!acc[groupIndex]) {
-                                            acc[groupIndex] = [];
-                                        }
-                                        acc[groupIndex].push(src);
-                                        return acc;
-                                        }, [] as string[][]).map((group, groupIndex) => (
-                                        <div key={groupIndex} className="imageContainer">
-                                            {group.map((src, index) => (
+                    {data.projects.map((project, index) => (
+                        <div key={index} ref={projectRefs[index]} className="subinfo">
+                            <br /><br />
+                            <h3>{index + 1}. {project.project}</h3>
+                            <div>개발기간 : {project.time}</div>
+                            <div>개발인원 : {project.people}명 </div>
+                            <div>사용기술 : {project.skills}</div>
+                            <div>설명 : {project.description}</div>
+                            {project.sourcecode.map((href, index) => (
+                                <div key={index}>소스코드 : <CustomLink href={href} /></div>
+                            ))}
+                            {project.site && <div>사이트 : <CustomLink href={project.site} /></div>}
+                            <div className="imageContainerWrapper">
+                                {project.img.reduce((acc, src, index) => {
+                                    let groupIndex = Math.floor(index / (project.img.length > 3 ? 2 : 3));
+                                    if (!acc[groupIndex]) {
+                                        acc[groupIndex] = [];
+                                    }
+                                    acc[groupIndex].push(src);
+                                    return acc;
+                                }, [] as string[][]).map((group, groupIndex) => (
+                                    <div key={groupIndex} className="imageContainer">
+                                        {group.map((src, index) => (
                                             <img
                                                 key={index}
                                                 style={{
-                                                width: `${100 / group.length - ((group.length - 1) * 2)}%`,
+                                                    width: `${100 / group.length - ((group.length - 1) * 2)}%`,
                                                 }}
                                                 src={IMG[src]}
                                                 alt={`project_image_${groupIndex + 1}_${index + 1}`}
                                             />
-                                            ))}
-                                        </div>
                                         ))}
                                     </div>
-                                    ) : (
-                                    <div className="imageContainer">
-                                        {project.img.map((src, index) => (
-                                        <img
-                                            key={index}
-                                            style={{
-                                            width: `${(100 / project.img.length) - ((project.img.length - 1) * 2)}%`,
-                                            }}
-                                            src={IMG[src]}
-                                            alt={`project_image_${index + 1}`}
-                                        />
-                                        ))}
-                                    </div>
-                                    )}
-                                {/* <div className="imageContainer">
-                                    {project.img.map((src, index) => (
-                                        <img key={index} style={{ width: `${(100 / project.img.length) - ((project.img.length - 1) * 2)}%` }} src={IMG[src]} alt={`project_image_${index + 1}`} />
-                                    ))}
-                                </div> */}
-                                <br /><br />
+                                ))}
                             </div>
-                        ))}
-                    </ol>
+                            <br /><br />
+                        </div>
+                    ))}
                 </div>
 
 
                 <div ref={awardRef}>
                     <div className="big">Prizes and Certificates</div>
-                    <div className="info">입상</div>
+
+                    <div className="info">수상</div>
                     <hr />
                     <table>
                         <thead>
@@ -173,7 +156,7 @@ const Portfolio: React.FC = () => {
                         </tbody>
                     </table>
 
-                    <div className="info">자격</div>
+                    <div className="info">자격증</div>
                     <hr />
                     <table>
                         <thead>
@@ -196,7 +179,6 @@ const Portfolio: React.FC = () => {
                                 </tr>
                             ))}
                         </tbody>
-
                     </table>
                 </div>
 
@@ -234,7 +216,7 @@ const Portfolio: React.FC = () => {
                 {projectRefs.map((projectRef, index) => (
                     <button key={index} onClick={() => scrollToSection(projectRef)}>{data.projects[index].project}</button>
                 ))}
-                <button onClick={() => scrollToSection(awardRef)}>입상 및 자격</button>
+                <button onClick={() => scrollToSection(awardRef)}>수상 및 자격증</button>
                 <button onClick={() => scrollToSection(careerRef)}>경력</button>
             </div>
         </div>
