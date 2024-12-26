@@ -1,0 +1,190 @@
+{
+  "languages": [
+    {
+      "name": "Python",
+      "level": 4
+    },
+    {
+      "name": "JAVA",
+      "level": 4
+    },
+    {
+      "name": "JavaScript",
+      "level": 3
+    },
+    {
+      "name": "TypeScript",
+      "level": 3
+    },
+    {
+      "name": "HTML",
+      "level": 3
+    },
+    {
+      "name": "CSS",
+      "level": 2
+    }
+  ],
+  "frameworks": [
+    {
+      "name": "Spring Boot",
+      "level": 4
+    },
+    {
+      "name": "React",
+      "level": 3
+    },
+    {
+      "name": "Flutter",
+      "level": 3
+    },
+    {
+      "name": "Unity",
+      "level": 2
+    }
+  ],
+  "projects": [
+    {
+      "project": "코딩대회 사이트",
+      "time": "2024-08-27 ~ 2024-09-14",
+      "people": 1,
+      "skills": "Spring Boot, React",
+      "description": "Spring Boot를 이용한 백엔드 개발과 React를 이용한 프론트엔드 개발",
+      "sourcecode": [
+        "https://github.com/MinChanJu/my_gradle_spring_app",
+        "https://github.com/MinChanJu/react"
+      ],
+      "site": "https://minchanju.github.io/react/",
+      "img": [
+        "CODING_CONTEST"
+      ]
+    },
+    {
+      "project": "소학회 앱",
+      "time": "2024-07-29 ~ 2024-08-01",
+      "people": 1,
+      "skills": "Flutter, Dart",
+      "description": "Flutter를 이용해 소학회 앱 개발",
+      "sourcecode": [
+        "https://github.com/MinChanJu/MIC-app"
+      ],
+      "site": "",
+      "img": [
+        "MIC_APP1",
+        "MIC_APP2",
+        "MIC_APP3"
+      ]
+    },
+    {
+      "project": "채팅 앱",
+      "time": "2024-07-04 ~ 2024-07-12",
+      "people": 1,
+      "skills": "Flutter, Dart",
+      "description": "Flutter를 이용해 채팅 앱 개발",
+      "sourcecode": [
+        "https://github.com/MinChanJu/chat-app"
+      ],
+      "site": "",
+      "img": [
+        "CHAT1",
+        "CHAT2",
+        "CHAT3"
+      ]
+    },
+    {
+      "project": "쓰레기 처리 게임",
+      "time": "2024-12-02 ~ 2024-12-05",
+      "people": 1,
+      "skills": "Unity, C#",
+      "description": "Unity를 이용해 첫 게임 개발",
+      "sourcecode": [
+        "https://github.com/MinChanJu/Trash-Flight-Unity"
+      ],
+      "site": "",
+      "img": [
+        "TRASH1",
+        "TRASH2",
+        "TRASH3"
+      ]
+    },
+    {
+      "project": "포트폴리오",
+      "time": "2024-12-26 ~ 2024-12-30",
+      "people": 1,
+      "skills": "React, TypeScript",
+      "description": "React를 이용하여 포트폴리오 완성",
+      "sourcecode": [
+        "https://github.com/MinChanJu/portfolio"
+      ],
+      "site": "",
+      "img": [
+        "PORTFOLIO"
+      ]
+    }
+  ],
+  "prizes": [
+    {
+      "name": "제 3회 산업수학 프로그래밍 경진대회",
+      "host": "이주대학교 산업수학 통계센터",
+      "date": "2023-12-11",
+      "rank": "2등"
+    },
+    {
+      "name": "2024 아주대학교 프로그래밍 경진대회 (APC) Div2",
+      "host": "이주대학교 SW중심대학사업단",
+      "date": "2024-06-07",
+      "rank": "대상(1등)"
+    }
+  ],
+  "certificates": [
+    {
+      "name": "PCCE Python3",
+      "issuer": "(주)그렙",
+      "date": "2024-08-18",
+      "score": "1000/Lv.4"
+    },
+    {
+      "name": "PCCP Python3",
+      "issuer": "(주)그렙",
+      "date": "2024-09-22",
+      "score": "689/Lv.3"
+    }
+  ],
+  "careers": [
+    {
+      "class": "고등학교",
+      "description": "성보고등학교 졸업",
+      "time": "2017-03 ~ 2020-02"
+    },
+    {
+      "class": "아르바이트",
+      "description": "대치에스에스학원 TA",
+      "time": "2019-12 ~ 2020-10"
+    },
+    {
+      "class": "대학교",
+      "description": "아주대학교 재학",
+      "time": "2020-03 ~ 2026-02"
+    },
+    {
+      "class": "군복무",
+      "description": "2022년 11월 30일 육군 병장 만기전역",
+      "time": "2021-05 ~ 2022-11"
+    },
+    {
+      "class": "아르바이트",
+      "description": "CU관악두산점",
+      "time": "2022-12 ~ 2023-02"
+    },
+    {
+      "class": "아르바이트",
+      "description": "광교에듀플렉스 튜터",
+      "time": "2023-07 ~ 2024-02"
+    },
+    {
+      "class": "동아리 활동",
+      "description": "2024년 아주대학교 수학과 소학회 MiC 회장",
+      "time": "2024-01 ~ 2024-12"
+    }
+  ]
+}

@@ -46,7 +46,6 @@
     color: blueviolet;
     font-weight: 700;
     font-style: italic;
-    margin-bottom: 20px;
     text-align: start;
 }
 
@@ -54,6 +53,7 @@
     word-wrap: break-word;
     white-space: pre-wrap;
     font-size: 30px;
+    margin-top: 30px;
     text-align: start;
     font-weight: 700;
 }
@@ -65,13 +65,27 @@
 
 .info {
     font-size: 25px;
-    margin-top: 50px;
+    font-weight: 700;
+    margin-top: 30px;
     text-align: start;
 }
 
 .subinfo {
+    width: 100%;
     font-size: 18px;
     text-align: start;
+}
+
+.imageContainer {
+    display: flex;
+    width: 100%;
+    gap: 2%;
+    margin-top: 20px;
+    justify-content: center;
+}
+
+.imageContainer > img {
+    border-radius: 10px;
 }
 
 p {
@@ -79,7 +93,13 @@ p {
     font-size: 18px;
 }
 
-img {
+table {
     width: 100%;
-    border-radius: 10px;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 5px 10px;
+    border: 1px solid #ddd;
 }
