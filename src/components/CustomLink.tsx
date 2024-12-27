@@ -1,12 +1,13 @@
-import React from 'react';
+import React from 'react'
+import './CSS/CustomLink.css'
 
 type CustomLinkProps = {
-  href: string;
-};
+  href: string
+}
 
 const CustomLink: React.FC<CustomLinkProps> = ({ href }) => {
   return (
-    <a href={href} target="_blank" rel="noopener noreferrer">
+    <a className='link' href={href} target="_blank" rel="noopener noreferrer">
       {href}
     </a>
   );

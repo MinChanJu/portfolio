@@ -1,5 +1,6 @@
 .container {
     display: flex;
+    height: auto;
     padding: 30px 50px;
     background-color: rgb(239, 251, 255);
     gap: 30px;
@@ -12,7 +13,7 @@
     flex: 5;
     padding: 0px 15px;
     display: flex;
-    gap: 100px;
+    gap: 30px;
     flex-direction: column;
 }
 
@@ -26,7 +27,7 @@
     gap: 10px;
 }
 
-.tabs button {
+.tabs > button {
     display: block;
     padding: 10px 20px;
     font-size: 16px;
@@ -42,6 +43,7 @@
 }
 
 .big {
+    margin-top: 50px;
     font-size: 40px;
     color: blueviolet;
     font-weight: 700;
@@ -58,11 +60,6 @@
     font-weight: 700;
 }
 
-.information {
-    font-size: 15px;
-    text-align: end;
-}
-
 .info {
     font-size: 25px;
     font-weight: 700;
@@ -74,32 +71,4 @@
     width: 100%;
     font-size: 18px;
     text-align: start;
-}
-
-.imageContainer {
-    display: flex;
-    width: 100%;
-    gap: 2%;
-    margin-top: 20px;
-    justify-content: center;
-}
-
-.imageContainer > img {
-    border-radius: 10px;
-}
-
-p {
-    text-align: start;
-    font-size: 18px;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-}
-
-th, td {
-    padding: 5px 10px;
-    border: 1px solid #ddd;
 }
