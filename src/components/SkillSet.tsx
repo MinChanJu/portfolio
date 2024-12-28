@@ -11,7 +11,7 @@ const SkillSet = React.forwardRef<HTMLDivElement>(({ }, ref) => {
       <hr />
       <ul className="subinfo">
         {data.languages.map((lang, index) => (
-          <li key={index}>{lang.name} ({lang.level}/5)</li>
+          <li key={index}>{lang.name} ({lang.level}/10)</li>
         ))}
       </ul>
 
@@ -19,7 +19,15 @@ const SkillSet = React.forwardRef<HTMLDivElement>(({ }, ref) => {
       <hr />
       <ul className="subinfo">
         {data.frameworks.map((framework, index) => (
-          <li key={index}>{framework.name} ({framework.level}/5)</li>
+          <li key={index}>{framework.name} ({framework.level}/10)</li>
+        ))}
+      </ul>
+
+      <div className="info">도구 및 라이브러리</div>
+      <hr />
+      <ul className="subinfo">
+        {data.tools.map((tool, index) => (
+          <li key={index}>{tool.name} ({tool.level}/10)</li>
         ))}
       </ul>
     </div>

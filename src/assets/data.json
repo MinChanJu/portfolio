@@ -2,53 +2,67 @@
   "languages": [
     {
       "name": "Python",
-      "level": 4
+      "level": 8
     },
     {
       "name": "JAVA",
-      "level": 4
+      "level": 8
     },
     {
       "name": "C언어",
-      "level": 3
+      "level": 6
     },
     {
       "name": "C++",
-      "level": 3
+      "level": 7
     },
     {
       "name": "JavaScript",
-      "level": 3
+      "level": 6
     },
     {
       "name": "TypeScript",
-      "level": 3
+      "level": 7
     },
     {
       "name": "HTML",
-      "level": 3
+      "level": 6
     },
     {
       "name": "CSS",
-      "level": 2
+      "level": 6
     }
   ],
   "frameworks": [
     {
       "name": "Spring Boot",
-      "level": 4
-    },
-    {
-      "name": "React",
-      "level": 3
+      "level": 7
     },
     {
       "name": "Flutter",
-      "level": 3
+      "level": 7
+    }
+  ],
+  "tools": [
+    {
+      "name": "Visual Studio Code",
+      "level": 8
+    },
+    {
+      "name": "React",
+      "level": 7
+    },
+    {
+      "name": "Supabase",
+      "level": 5
     },
     {
       "name": "Unity",
-      "level": 2
+      "level": 5
+    },
+    {
+      "name": "IntelliJ",
+      "level": 6
     }
   ],
   "projects": [
@@ -70,6 +84,23 @@
         "CODING_CONTEST4",
         "CODING_CONTEST5",
         "CODING_CONTEST6"
+      ]
+    },
+    {
+      "project": "포트폴리오",
+      "time": "2024-12-26 ~ 2024-12-30",
+      "people": 1,
+      "skills": "React, TypeScript",
+      "description": "React를 이용하여 포트폴리오 완성",
+      "sourcecode": [
+        "https://github.com/MinChanJu/portfolio"
+      ],
+      "site": "https://minchanju.github.io/portfolio/",
+      "img": [
+        "PORTFOLIO1",
+        "PORTFOLIO2",
+        "PORTFOLIO3",
+        "PORTFOLIO4"
       ]
     },
     {
@@ -118,23 +149,6 @@
         "TRASH1",
         "TRASH2",
         "TRASH3"
-      ]
-    },
-    {
-      "project": "포트폴리오",
-      "time": "2024-12-26 ~ 2024-12-30",
-      "people": 1,
-      "skills": "React, TypeScript",
-      "description": "React를 이용하여 포트폴리오 완성",
-      "sourcecode": [
-        "https://github.com/MinChanJu/portfolio"
-      ],
-      "site": "",
-      "img": [
-        "PORTFOLIO1",
-        "PORTFOLIO2",
-        "PORTFOLIO3",
-        "PORTFOLIO4"
       ]
     }
   ],
