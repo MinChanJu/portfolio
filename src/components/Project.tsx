@@ -47,14 +47,7 @@ const Project = React.forwardRef<HTMLDivElement, ProjectProps>(({ index, project
                 }, [] as string[][]).map((group, groupIndex) => (
                     <div key={groupIndex} className="imageContainer">
                         {group.map((src, index) => (
-                            <img
-                                key={index}
-                                style={{
-                                    width: `${100 / group.length - ((group.length - 1) * 2)}%`,
-                                }}
-                                src={IMG[src]}
-                                alt={`project_image_${groupIndex + 1}_${index + 1}`}
-                            />
+                            <img key={index} style={{ width: `${100 / group.length - ((group.length - 1) * 2)}%`, }} src={IMG[src]} alt={`project_image_${groupIndex + 1}_${index + 1}`}/>
                         ))}
                     </div>
                 ))}

@@ -13,8 +13,8 @@ const LinkSet = React.forwardRef<HTMLDivElement>(({ }, ref) => {
             <hr />
             <div className="subinfo"><CustomLink href={URL.GITHUB} /></div>
             <div className="imageContainer">
-                <img style={{ width: "45%" }} src={URL.GITHUB_TOP_LANGS} alt="Top Languages" />
-                <img style={{ width: "45%" }} src={URL.GITHUB_STATS} alt="GitHub Stats" />
+                <img style={{ width: "42.5%" }} src={URL.GITHUB_TOP_LANGS} alt="Top Languages" />
+                <img style={{ width: "55.5%" }} src={URL.GITHUB_STATS} alt="GitHub Stats" />
             </div>
 
             <br />
