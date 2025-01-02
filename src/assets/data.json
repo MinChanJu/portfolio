@@ -73,10 +73,10 @@
       "skills": "Spring Boot, React",
       "description": "Spring Boot를 이용한 백엔드 개발과 React를 이용한 프론트엔드 개발",
       "sourcecode": [
-        "https://github.com/MinChanJu/my_gradle_spring_app",
-        "https://github.com/MinChanJu/react"
+        "CODING_CONTEST_BACK",
+        "CODING_CONTEST_FRONT"
       ],
-      "site": "https://minchanju.github.io/react/",
+      "site": "CODING_CONTEST",
       "img": [
         "CODING_CONTEST1",
         "CODING_CONTEST2",
@@ -93,9 +93,9 @@
       "skills": "React, TypeScript",
       "description": "React를 이용하여 포트폴리오 완성",
       "sourcecode": [
-        "https://github.com/MinChanJu/portfolio"
+        "PORTFOLIO_CODE"
       ],
-      "site": "https://minchanju.github.io/portfolio/",
+      "site": "PORTFOLIO",
       "img": [
         "PORTFOLIO1",
         "PORTFOLIO2",
@@ -110,7 +110,7 @@
       "skills": "Flutter, Dart",
       "description": "Flutter를 이용해 소학회 앱 개발",
       "sourcecode": [
-        "https://github.com/MinChanJu/MIC-app"
+        "MIC_APP_CODE"
       ],
       "site": "",
       "img": [
@@ -126,7 +126,7 @@
       "skills": "Flutter, Dart",
       "description": "Flutter를 이용해 채팅 앱 개발",
       "sourcecode": [
-        "https://github.com/MinChanJu/chat-app"
+        "CHAT_APP_CODE"
       ],
       "site": "",
       "img": [
@@ -142,7 +142,7 @@
       "skills": "Unity, C#",
       "description": "Unity를 이용해 첫 게임 개발",
       "sourcecode": [
-        "https://github.com/MinChanJu/Trash-Flight-Unity"
+        "TRASH_FLIGHT_CODE"
       ],
       "site": "",
       "img": [
@@ -188,7 +188,7 @@
     },
     {
       "class": "아르바이트",
-      "description": "대치에스에스학원 TA",
+      "description": "대치에스에스학원 수학 TA",
       "time": "2019-01-02 ~ 2020-10-26"
     },
     {
@@ -208,7 +208,7 @@
     },
     {
       "class": "아르바이트",
-      "description": "광교에듀플렉스 튜터",
+      "description": "광교에듀플렉스 수학 튜터",
       "time": "2023-07-12 ~ 2024-02-28"
     },
     {
@@ -218,7 +218,7 @@
     },
     {
       "class": "동아리 활동",
-      "description": "2024년 아주대학교 수학과 소학회 MiC 회장",
+      "description": "2024년 아주대학교 수학과 소학회 MiC 회장 (코딩 멘토링 진행)",
       "time": "2024-01-01 ~ 2024-12-31"
     },
     {

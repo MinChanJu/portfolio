@@ -40,6 +40,19 @@ export const IMG: { [key: string]: string } = {
     "PORTFOLIO4": portfolio4,
 }
 
+export const PROJECT: { [key: string]: string } = {
+    CODING_CONTEST_BACK: 'https://github.com/MinChanJu/mic-spring',
+    CODING_CONTEST_FRONT: 'https://github.com/MinChanJu/mic-react',
+    CODING_CONTEST: 'https://minchanju.github.io/mic-react/',
+
+    PORTFOLIO_CODE: 'https://github.com/MinChanJu/portfolio',
+    PORTFOLIO: 'https://minchanju.github.io/portfolio/',
+
+    MIC_APP_CODE: 'https://github.com/MinChanJu/MIC-app',
+    CHAT_APP_CODE: 'https://github.com/MinChanJu/chat-app',
+    TRASH_FLIGHT_CODE: 'https://github.com/MinChanJu/Trash-Flight-Unity',
+}
+
 export const URL = {
     BAEKJOON_PYTHON: 'https://www.acmicpc.net/user/chany0207',
     BAEKJOON_JAVA: 'https://www.acmicpc.net/user/mcj0207',
@@ -59,13 +72,4 @@ export const URL = {
     GITHUB: 'https://github.com/MinChanJu',
     GITHUB_TOP_LANGS: 'https://github-readme-stats.vercel.app/api/top-langs/?username=MinChanJu&layout=compact&theme=radical',
     GITHUB_STATS: 'https://github-readme-stats.vercel.app/api?username=MinChanJu&show_icons=true&theme=radical',
-
-    CODING_CONTEST_BACK: 'https://github.com/MinChanJu/my_gradle_spring_app',
-    CODING_CONTEST_FRONT: 'https://github.com/MinChanJu/react',
-    CODING_CONTEST: 'https://minchanju.github.io/react/',
-
-    MIC_APP: 'https://github.com/MinChanJu/MIC-app',
-    CHAT_APP: 'https://github.com/MinChanJu/chat-app',
-    TRASH_FLIGHT: 'https://github.com/MinChanJu/Trash-Flight-Unity',
-    PORTFOLIO: 'https://github.com/MinChanJu/portfolio',
 }

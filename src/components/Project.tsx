@@ -1,5 +1,5 @@
 import React from 'react'
-import { IMG } from './URLManage'
+import { IMG, PROJECT } from './URLManage'
 import CustomLink from './CustomLink'
 import './CSS/Portfolio.css'
 import './CSS/Image.css'
@@ -34,9 +34,9 @@ const Project = React.forwardRef<HTMLDivElement, ProjectProps>(({ index, project
                 <div>사용기술 : {project.skills}</div>
                 <div>설명 : {project.description}</div>
                 {project.sourcecode.map((href, index) => (
-                    <div key={index}>소스코드 : <CustomLink href={href} /></div>
+                    <div key={index}>소스코드 : <CustomLink href={PROJECT[href]} /></div>
                 ))}
-                {project.site && <div>사이트 : <CustomLink href={project.site} /></div>}
+                {project.site && <div>사이트 : <CustomLink href={PROJECT[project.site]} /></div>}
                 {project.img.reduce((acc, src, index) => {
                     let groupIndex = Math.floor(index / (project.img.length > 3 ? 2 : 3));
                     if (!acc[groupIndex]) {

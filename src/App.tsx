@@ -26,7 +26,7 @@ const App: React.FC = () => {
 
   return (
     <div className="container">
-      <div className="content">
+      <div className="content" id="content-to-download">
         <Introduction ref={introRef} />
         <SkillSet ref={skillRef} />
         {data.projects.map((project, index) => (

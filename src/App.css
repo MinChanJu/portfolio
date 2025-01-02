@@ -13,13 +13,14 @@
   border: 1px solid #ddd;
   border-radius: 10px;
   align-items: flex-start;
+  max-width: 1000px;
 }
 
 .content {
   flex: 5;
   padding: 0px 15px;
   display: flex;
-  gap: 30px;
+  gap: 100px;
   flex-direction: column;
 }
 
