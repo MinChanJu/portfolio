@@ -17,11 +17,11 @@ const Award = React.forwardRef<HTMLDivElement, AwardProps>(({ prizes, certificat
             <table>
                 <thead>
                     <tr>
-                        <th>번호</th>
+                        <th style={{width:"28px"}}>번호</th>
                         <th>대회명</th>
                         <th>수상명</th>
                         <th>주관</th>
-                        <th>수상일</th>
+                        <th style={{width:"60px"}}>수상일</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -42,11 +42,11 @@ const Award = React.forwardRef<HTMLDivElement, AwardProps>(({ prizes, certificat
             <table>
                 <thead>
                     <tr>
-                        <th>번호</th>
+                        <th style={{width:"28px"}}>번호</th>
                         <th>자격증명</th>
                         <th>점수/급수</th>
                         <th>발급처</th>
-                        <th>취득일</th>
+                        <th style={{width:"60px"}}>취득일</th>
                     </tr>
                 </thead>
                 <tbody>

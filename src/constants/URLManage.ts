@@ -1,6 +1,3 @@
-import chat_app1 from "../assets/image/chat_app/chat_app1.png"
-import chat_app2 from "../assets/image/chat_app/chat_app2.png"
-import chat_app3 from "../assets/image/chat_app/chat_app3.png"
 import coding_contest1 from "../assets/image/coding_contest/coding_contest1.png"
 import coding_contest2 from "../assets/image/coding_contest/coding_contest2.png"
 import coding_contest3 from "../assets/image/coding_contest/coding_contest3.png"
@@ -25,7 +22,6 @@ import trash_game2 from "../assets/image/trash_game/trash_game2.jpeg"
 import trash_game3 from "../assets/image/trash_game/trash_game3.jpeg"
 
 export const IMG: { [key: string]: string[] } = {
-    "chat_app": [chat_app1, chat_app2, chat_app3],
     "coding_contest": [coding_contest1, coding_contest2, coding_contest3, coding_contest4, coding_contest5, coding_contest6],
     "mic_app": [mic_app1, mic_app2, mic_app3],
     "portfolio": [portfolio1, portfolio2, portfolio3, portfolio4],
@@ -35,7 +31,6 @@ export const IMG: { [key: string]: string[] } = {
 }
 
 export const PROJECT: { [key: string]: string[][] } = {
-    "chat_app": [["소스코드", 'https://github.com/MinChanJu/chat-app']],
     "coding_contest": [["백엔드", 'https://github.com/MinChanJu/mic-spring'], ["프론트엔드", 'https://github.com/MinChanJu/mic-react'], ["사이트", 'https://minchanju.github.io/mic-react/']],
     "mic_app": [["소스코드", 'https://github.com/MinChanJu/MIC-app']],
     "portfolio": [["소스코드", 'https://github.com/MinChanJu/portfolio'], ["사이트", 'https://minchanju.github.io/portfolio/']],

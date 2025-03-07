@@ -15,10 +15,10 @@ const Career = React.forwardRef<HTMLDivElement, CareerProps>(({ careers }, ref) 
             <table>
                 <thead>
                     <tr>
-                        <th>번호</th>
-                        <th>구분</th>
+                        <th style={{width:"28px"}}>번호</th>
+                        <th style={{width:"74px"}}>구분</th>
                         <th>내용</th>
-                        <th>기간</th>
+                        <th style={{width:"140px"}}>기간</th>
                     </tr>
                 </thead>
                 <tbody>

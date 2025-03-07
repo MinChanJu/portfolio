@@ -23,7 +23,11 @@ const Project = React.forwardRef<HTMLDivElement, ProjectProps>(({ index, project
         </div>
         <div className={styles.group}>
           <span className={styles.line}>개발인원 : </span>
-          <span className={styles.linePre}>{project.people}명 </span>
+          <span className={styles.linePre}>{project.team}</span>
+        </div>
+        <div className={styles.group}>
+          <span className={styles.line}>담당 역할 : </span>
+          <span className={styles.linePre}>{project.role}</span>
         </div>
         <div className={styles.group}>
           <span className={styles.line}>사용기술 : </span>
