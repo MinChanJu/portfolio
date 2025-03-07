@@ -17,6 +17,14 @@
       "level": 7
     },
     {
+      "name": "C#",
+      "level": 6
+    },
+    {
+      "name": "Dart",
+      "level": 6
+    },
+    {
       "name": "JavaScript",
       "level": 6
     },
@@ -30,6 +38,10 @@
     },
     {
       "name": "CSS",
+      "level": 6
+    },
+    {
+      "name": "SQL",
       "level": 6
     }
   ],
