@@ -1,5 +1,5 @@
 import React from 'react'
-import './CSS/CustomLink.css'
+import styles from "../assets/css/CustomLink.module.css"
 
 type CustomLinkProps = {
   href: string
@@ -7,7 +7,7 @@ type CustomLinkProps = {
 
 const CustomLink: React.FC<CustomLinkProps> = ({ href }) => {
   return (
-    <a className='link' href={href} target="_blank" rel="noopener noreferrer">
+    <a className={styles.link} href={href} target="_blank" rel="noopener noreferrer">
       {href}
     </a>
   );

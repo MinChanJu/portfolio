@@ -1,8 +1,6 @@
 import React from 'react'
-import { URL } from './URLManage'
+import { URL } from '../constants/URLManage'
 import CustomLink from './CustomLink'
-import './CSS/Portfolio.css'
-import './CSS/Image.css'
 
 const LinkSet = React.forwardRef<HTMLDivElement>(({ }, ref) => {
     return (

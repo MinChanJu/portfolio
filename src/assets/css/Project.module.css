@@ -1,0 +1,19 @@
+.linePre,
+.description {
+  white-space: pre-line;
+}
+
+.description {
+  color: rgb(255, 100, 0);
+}
+
+.line {
+  font-size: 20px;
+  color: darkblue;
+  white-space: nowrap;
+}
+
+.group {
+  display: flex;
+  gap: 10px;
+}

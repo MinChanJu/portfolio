@@ -8,7 +8,9 @@ import Career from "./components/Career"
 import LinkSet from "./components/LinkSet"
 
 import data from './assets/data.json'
-import './App.css'
+import './styles/Global.css'
+import './styles/Image.css'
+import './styles/Table.css'
 
 const App: React.FC = () => {
   const introRef = useRef(null);
@@ -28,23 +30,20 @@ const App: React.FC = () => {
     <div className="container">
       <div className="content" id="content-to-download">
         <Introduction ref={introRef} />
-        <SkillSet ref={skillRef} />
+        <SkillSet ref={skillRef} languages={data.languages} librarys={data.librarys} tools={data.tools} />
         {data.projects.map((project, index) => (
           <Project key={index} ref={projectRefs[index]} index={index} project={project} />
         ))}
-        <Award ref={awardRef} />
-        <Career ref={careerRef} />
+        <Award ref={awardRef} prizes={data.prizes} certificates={data.certificates} />
+        <Career ref={careerRef} careers={data.careers} />
         <LinkSet ref={linkRef} />
-        <footer>
-          <br /><br /><br /><br />
-        </footer>
       </div>
 
       <div className="tabs">
         <button onClick={() => scrollToSection(introRef)}>자기소개</button>
         <button onClick={() => scrollToSection(skillRef)}>기술스택</button>
         {projectRefs.map((projectRef, index) => (
-          <button key={index} onClick={() => scrollToSection(projectRef)}>프로젝트 {index + 1}</button>
+          <button key={index} onClick={() => scrollToSection(projectRef)}>프로젝트 {index+1}{"\n"}{data.projects[index].project}</button>
         ))}
         <button onClick={() => scrollToSection(awardRef)}>수상 및 자격증</button>
         <button onClick={() => scrollToSection(careerRef)}>경력</button>

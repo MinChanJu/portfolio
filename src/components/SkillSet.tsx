@@ -1,8 +1,13 @@
 import React from 'react'
-import data from '../assets/data.json'
-import './CSS/Portfolio.css'
+import { skill } from '../types/skill';
 
-const SkillSet = React.forwardRef<HTMLDivElement>(({ }, ref) => {
+type SkillSetProps = {
+  languages: skill[];
+  librarys: skill[];
+  tools: skill[];
+}
+
+const SkillSet = React.forwardRef<HTMLDivElement, SkillSetProps>(({ languages, librarys, tools }, ref) => {
   return (
     <div ref={ref}>
       <div className="big">Skill Set</div>
@@ -10,23 +15,23 @@ const SkillSet = React.forwardRef<HTMLDivElement>(({ }, ref) => {
       <div className="info">언어</div>
       <hr />
       <ul className="subinfo">
-        {data.languages.map((lang, index) => (
+        {languages.map((lang, index) => (
           <li key={index}>{lang.name} ({lang.level}/10)</li>
         ))}
       </ul>
 
-      <div className="info">프레임워크</div>
+      <div className="info">프레임워크 및 라이브러리</div>
       <hr />
       <ul className="subinfo">
-        {data.frameworks.map((framework, index) => (
-          <li key={index}>{framework.name} ({framework.level}/10)</li>
+        {librarys.map((library, index) => (
+          <li key={index}>{library.name} ({library.level}/10)</li>
         ))}
       </ul>
 
-      <div className="info">도구 및 라이브러리</div>
+      <div className="info">도구</div>
       <hr />
       <ul className="subinfo">
-        {data.tools.map((tool, index) => (
+        {tools.map((tool, index) => (
           <li key={index}>{tool.name} ({tool.level}/10)</li>
         ))}
       </ul>

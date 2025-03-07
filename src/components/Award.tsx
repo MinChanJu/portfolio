@@ -1,9 +1,13 @@
 import React from 'react'
-import data from '../assets/data.json'
-import './CSS/Portfolio.css'
-import './CSS/Table.css'
+import { prize } from '../types/prize';
+import { certificate } from '../types/certificate';
 
-const Award = React.forwardRef<HTMLDivElement>(({ }, ref) => {
+type AwardProps = {
+    prizes: prize[];
+    certificates: certificate[];
+}
+
+const Award = React.forwardRef<HTMLDivElement, AwardProps>(({ prizes, certificates }, ref) => {
     return (
         <div ref={ref}>
             <div className="big">Prizes and Certificates</div>
@@ -21,7 +25,7 @@ const Award = React.forwardRef<HTMLDivElement>(({ }, ref) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {data.prizes.map((prize, index) => (
+                    {prizes.map((prize, index) => (
                         <tr key={index}>
                             <td>{index + 1}</td>
                             <td>{prize.name}</td>
@@ -46,7 +50,7 @@ const Award = React.forwardRef<HTMLDivElement>(({ }, ref) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {data.certificates.map((certificate, index) => (
+                    {certificates.map((certificate, index) => (
                         <tr key={index}>
                             <td>{index + 1}</td>
                             <td>{certificate.name}</td>

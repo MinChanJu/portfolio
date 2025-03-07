@@ -1,13 +1,15 @@
 import React from 'react'
-import data from '../assets/data.json'
-import './CSS/Portfolio.css'
-import './CSS/Table.css'
+import { career } from '../types/careers';
 
-const Career = React.forwardRef<HTMLDivElement>(({ }, ref) => {
+type CareerProps = {
+    careers: career[];
+}
+
+const Career = React.forwardRef<HTMLDivElement, CareerProps>(({ careers }, ref) => {
     return (
         <div ref={ref}>
             <div className="big">Careers</div>
-            
+
             <div className="info">경력</div>
             <hr />
             <table>
@@ -20,7 +22,7 @@ const Career = React.forwardRef<HTMLDivElement>(({ }, ref) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {data.careers.map((career, index) => (
+                    {careers.map((career, index) => (
                         <tr key={index}>
                             <td>{index + 1}</td>
                             <td>{career.class}</td>

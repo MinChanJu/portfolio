@@ -1,5 +1,4 @@
 import React from 'react'
-import './CSS/Portfolio.css'
 
 const Introduction = React.forwardRef<HTMLDivElement>(({ }, ref) => {
     return (
@@ -30,9 +29,10 @@ const Introduction = React.forwardRef<HTMLDivElement>(({ }, ref) => {
             <div className="subinfo">
                 <div>학교 : 아주대학교</div>
                 <div>입학년도 : 2020.03</div>
+                <div>졸업년도(예정) : 2026.02</div>
                 <div>제 1전공 : 수학과</div>
                 <div>복수전공 : 소프트웨어학과</div>
-                <div>학기 : 3-2(수료) 2025.01 기준</div>
+                <div>학기 : 4-1(재학) 2025.03 기준</div>
             </div>
         </div>
 
