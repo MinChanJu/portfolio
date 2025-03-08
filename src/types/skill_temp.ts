@@ -1,4 +1,4 @@
-export type Skill = {
+export type skill = {
   name: string;
   level: number;
 }
