@@ -20,7 +20,7 @@ const AwardView: React.FC<AwardViewProps> = ({ prizes, certificates }) => {
                         <th>대회명</th>
                         <th>수상명</th>
                         <th>주관</th>
-                        <th style={{ width: "60px" }}>수상일</th>
+                        <th style={{ width: "90px" }}>수상일</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -45,7 +45,7 @@ const AwardView: React.FC<AwardViewProps> = ({ prizes, certificates }) => {
                         <th>자격증명</th>
                         <th>점수/급수</th>
                         <th>발급처</th>
-                        <th style={{ width: "60px" }}>취득일</th>
+                        <th style={{ width: "90px" }}>취득일</th>
                     </tr>
                 </thead>
                 <tbody>
