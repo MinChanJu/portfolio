@@ -1,10 +1,10 @@
 import React from 'react'
-import { skill } from '../types/skill';
+import { Skill } from '../types/Skill';
 
 type SkillViewProps = {
-  languages: skill[];
-  librarys: skill[];
-  tools: skill[];
+  languages: Skill[];
+  librarys: Skill[];
+  tools: Skill[];
 }
 
 const SkillView: React.FC<SkillViewProps> = ({ languages, librarys, tools }) => {
