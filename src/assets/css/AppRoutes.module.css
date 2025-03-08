@@ -11,17 +11,3 @@
 .content.closed {
   margin-left: 0px;
 }
-
-.nextBtn {
-  position: fixed;
-  bottom: 10px;
-  right: 10px;
-  width: 45px;
-  height: 45px;
-  background-color: #666;
-  border-radius: 10px;
-  color: white;
-  border: none;
-  cursor: pointer;
-  font-size: 30px;
-}

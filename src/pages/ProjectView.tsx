@@ -2,13 +2,13 @@ import React from 'react'
 import { IMG, PROJECT } from '../constants/URLManage'
 import CustomLink from '../components/CustomLink'
 import styles from "../assets/css/Project.module.css"
-import { project } from '../types/project'
 import { useParams } from 'react-router-dom'
 import Error from '../components/Error'
+import { Project } from '../types'
 
 type ProjectViewProps = {
   index?: number;
-  projects: project[];
+  projects: Project[];
 }
 
 const ProjectView: React.FC<ProjectViewProps> = ({ index, projects }) => {

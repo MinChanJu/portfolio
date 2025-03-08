@@ -2,9 +2,8 @@ import { Route, Routes } from 'react-router-dom';
 import { Portfolio } from '../types';
 import { SkillView, ProjectView, AwardView, HomeView, IntroductionView, CareerView, LinkView } from '../pages';
 import { Error, PageTitle } from '.';
-import styles from "../assets/css/AppRoutes.module.css"
-import useNavigation from '../hooks/useNavigation';
 import { ROUTES } from '../constants/routes';
+import styles from "../assets/css/AppRoutes.module.css"
 
 type AppRoutesProps = {
   isClosed: boolean;
@@ -12,8 +11,6 @@ type AppRoutesProps = {
 }
 
 const AppRoutes: React.FC<AppRoutesProps> = ({ isClosed, data }) => {
-  const { goToHome } = useNavigation();
-
   return (
     <div className={`${styles.content}  ${isClosed ? styles.closed : ""}`}>
       <PageTitle projects={data.projects} />
@@ -27,7 +24,6 @@ const AppRoutes: React.FC<AppRoutesProps> = ({ isClosed, data }) => {
         <Route path={ROUTES.LINK} element={<LinkView />} />
         <Route path={ROUTES.NOT_FOUND} element={<Error />} />
       </Routes>
-      <button className={styles.nextBtn} onClick={goToHome}>▶</button>
     </div>
 
   )

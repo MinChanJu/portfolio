@@ -9,7 +9,7 @@ const App: React.FC = () => {
 
   return (
     <BrowserRouter basename='/portfolio'>
-      <SideBar isClosed={isClosed} setIsClosed={setIsClosed} />
+      <SideBar isClosed={isClosed} setIsClosed={setIsClosed} projects={data.projects} />
       <AppRoutes isClosed={isClosed} data={data} />
     </BrowserRouter>
   )
