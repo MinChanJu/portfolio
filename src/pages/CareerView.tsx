@@ -1,8 +1,8 @@
 import React from 'react'
-import { career } from '../types/career';
+import { Career } from '../types';
 
 type CareerViewProps = {
-    careers: career[];
+    careers: Career[];
 }
 
 const CareerView: React.FC<CareerViewProps> = ({ careers }) => {

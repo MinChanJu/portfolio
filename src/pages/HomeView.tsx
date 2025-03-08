@@ -1,9 +1,9 @@
 import React from "react"
 import { AwardView, IntroductionView, ProjectView, SkillView, CareerView, LinkView } from "."
-import { portfolio } from "../types";
+import { Portfolio } from "../types";
 
 type HomeViewProps = {
-  data: portfolio;
+  data: Portfolio;
 }
 
 const HomeView: React.FC<HomeViewProps> = ({ data }) => {
