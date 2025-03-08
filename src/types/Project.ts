@@ -1,4 +1,4 @@
-export type project = {
+export type Project = {
   project: string;
   time: string;
   team: string;

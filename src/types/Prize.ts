@@ -1,4 +1,4 @@
-export type prize = {
+export type Prize = {
   name: string;
   host: string;
   date: string;

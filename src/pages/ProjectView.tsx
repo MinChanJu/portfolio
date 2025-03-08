@@ -1,18 +1,28 @@
 import React from 'react'
 import { IMG, PROJECT } from '../constants/URLManage'
-import CustomLink from './CustomLink'
+import CustomLink from '../components/CustomLink'
 import styles from "../assets/css/Project.module.css"
-import { project } from '../types/project'
+import { useParams } from 'react-router-dom'
+import Error from '../components/Error'
+import { Project } from '../types'
 
-type ProjectProps = {
-  index: number;
-  project: project;
+type ProjectViewProps = {
+  index?: number;
+  projects: Project[];
 }
 
-const Project = React.forwardRef<HTMLDivElement, ProjectProps>(({ index, project }, ref) => {
+const ProjectView: React.FC<ProjectViewProps> = ({ index, projects }) => {
+  const { projectId } = useParams();
+  let idx;
+  if (index == undefined) idx = Number(projectId) - 1;
+  else idx = index;
+  if (Number.isNaN(idx)) return <Error subMessage='index가 숫자가 아닙니다.' />
+  if (idx < 0 || idx >= projects.length) return <Error subMessage='index가 프로젝트 범위를 벗어났습니다.' />
+  const project = projects[idx];
+
   return (
-    <div ref={ref}>
-      <div className="big">Project {index + 1}</div>
+    <div>
+      <div className="big">Project {idx + 1}</div>
       <div className="info">{project.project}</div>
       <hr />
       <br />
@@ -22,19 +32,19 @@ const Project = React.forwardRef<HTMLDivElement, ProjectProps>(({ index, project
           <span className={styles.linePre}>{project.time}</span>
         </div>
         <div className={styles.group}>
-          <span className={styles.line}>개발인원 : </span>
+          <span className={styles.line}>팀구성 : </span>
           <span className={styles.linePre}>{project.team}</span>
         </div>
         <div className={styles.group}>
-          <span className={styles.line}>담당 역할 : </span>
+          <span className={styles.line}>담당역할 : </span>
           <span className={styles.linePre}>{project.role}</span>
         </div>
         <div className={styles.group}>
           <span className={styles.line}>사용기술 : </span>
           <span className={styles.linePre}>{project.skills}</span>
         </div>
-        {PROJECT[project.name].map((project, _) => (
-          <div className={styles.group}>
+        {PROJECT[project.name].map((project, idx) => (
+          <div key={idx} className={styles.group}>
             <span className={styles.line}>{project[0]} : </span>
             <span className={styles.linePre}><CustomLink href={project[1]} /></span>
           </div>
@@ -61,6 +71,6 @@ const Project = React.forwardRef<HTMLDivElement, ProjectProps>(({ index, project
       <br /><br />
     </div>
   );
-});
+};
 
-export default Project;
+export default ProjectView;
