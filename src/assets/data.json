@@ -1,88 +1,86 @@
 {
-  "skills": {
-    "languages": [
-      {
-        "name": "Python",
-        "level": 8
-      },
-      {
-        "name": "JAVA",
-        "level": 8
-      },
-      {
-        "name": "C언어",
-        "level": 6
-      },
-      {
-        "name": "C++",
-        "level": 7
-      },
-      {
-        "name": "C#",
-        "level": 6
-      },
-      {
-        "name": "Dart",
-        "level": 6
-      },
-      {
-        "name": "JavaScript",
-        "level": 6
-      },
-      {
-        "name": "TypeScript",
-        "level": 7
-      },
-      {
-        "name": "HTML",
-        "level": 6
-      },
-      {
-        "name": "CSS",
-        "level": 6
-      },
-      {
-        "name": "SQL",
-        "level": 6
-      }
-    ],
-    "librarys": [
-      {
-        "name": "Spring Boot",
-        "level": 7
-      },
-      {
-        "name": "Flutter",
-        "level": 7
-      },
-      {
-        "name": "React",
-        "level": 7
-      },
-      {
-        "name": "Unity",
-        "level": 5
-      }
-    ],
-    "tools": [
-      {
-        "name": "Git",
-        "level": 8
-      },
-      {
-        "name": "Visual Studio Code",
-        "level": 8
-      },
-      {
-        "name": "Supabase",
-        "level": 5
-      },
-      {
-        "name": "IntelliJ",
-        "level": 6
-      }
-    ]
-  },
+  "languages": [
+    {
+      "name": "Python",
+      "level": 8
+    },
+    {
+      "name": "JAVA",
+      "level": 8
+    },
+    {
+      "name": "C언어",
+      "level": 6
+    },
+    {
+      "name": "C++",
+      "level": 7
+    },
+    {
+      "name": "C#",
+      "level": 6
+    },
+    {
+      "name": "Dart",
+      "level": 6
+    },
+    {
+      "name": "JavaScript",
+      "level": 6
+    },
+    {
+      "name": "TypeScript",
+      "level": 7
+    },
+    {
+      "name": "HTML",
+      "level": 6
+    },
+    {
+      "name": "CSS",
+      "level": 6
+    },
+    {
+      "name": "SQL",
+      "level": 6
+    }
+  ],
+  "librarys": [
+    {
+      "name": "Spring Boot",
+      "level": 7
+    },
+    {
+      "name": "Flutter",
+      "level": 7
+    },
+    {
+      "name": "React",
+      "level": 7
+    },
+    {
+      "name": "Unity",
+      "level": 5
+    }
+  ],
+  "tools": [
+    {
+      "name": "Git",
+      "level": 8
+    },
+    {
+      "name": "Visual Studio Code",
+      "level": 8
+    },
+    {
+      "name": "Supabase",
+      "level": 5
+    },
+    {
+      "name": "IntelliJ",
+      "level": 6
+    }
+  ],
   "projects": [
     {
       "project": "랜덤 채팅 앱",
@@ -135,36 +133,34 @@
       "cnt": 3
     }
   ],
-  "awards": {
-    "prizes": [
-      {
-        "name": "제 3회 산업수학 프로그래밍 경진대회",
-        "host": "이주대학교 산업수학 통계센터",
-        "date": "2023.12.11",
-        "rank": "2등"
-      },
-      {
-        "name": "2024 아주대학교 프로그래밍 경진대회 (APC) Div2",
-        "host": "이주대학교 SW중심대학사업단",
-        "date": "2024.06.07",
-        "rank": "대상(1등)"
-      }
-    ],
-    "certificates": [
-      {
-        "name": "PCCE Python3",
-        "issuer": "(주)그렙",
-        "date": "2024.08.18",
-        "score": "1000/Lv.4"
-      },
-      {
-        "name": "PCCP Python3",
-        "issuer": "(주)그렙",
-        "date": "2024.09.22",
-        "score": "689/Lv.3"
-      }
-    ]
-  },
+  "prizes": [
+    {
+      "name": "제 3회 산업수학 프로그래밍 경진대회",
+      "host": "이주대학교 산업수학 통계센터",
+      "date": "2023.12.11",
+      "rank": "2등"
+    },
+    {
+      "name": "2024 아주대학교 프로그래밍 경진대회 (APC) Div2",
+      "host": "이주대학교 SW중심대학사업단",
+      "date": "2024.06.07",
+      "rank": "대상(1등)"
+    }
+  ],
+  "certificates": [
+    {
+      "name": "PCCE Python3",
+      "issuer": "(주)그렙",
+      "date": "2024.08.18",
+      "score": "1000/Lv.4"
+    },
+    {
+      "name": "PCCP Python3",
+      "issuer": "(주)그렙",
+      "date": "2024.09.22",
+      "score": "689/Lv.3"
+    }
+  ],
   "careers": [
     {
       "class": "고등학교",

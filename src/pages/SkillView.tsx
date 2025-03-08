@@ -2,16 +2,18 @@ import React from 'react'
 import { Skill } from '../types/Skill';
 
 type SkillViewProps = {
-  skills: Skill;
+  languages: Skill[];
+  librarys: Skill[];
+  tools: Skill[];
 }
 
-const SkillView: React.FC<SkillViewProps> = ({ skills }) => {
+const SkillView: React.FC<SkillViewProps> = ({ languages, librarys, tools }) => {
   const divide = 2;
 
   const getLanguage = (idx: number) => {
     let sub = [];
-    for (let index = idx; index < skills.languages.length; index += divide) {
-      sub.push(skills.languages[index]);
+    for (let index = idx; index < languages.length; index += divide) {
+      sub.push(languages[index]);
     }
 
     return (
@@ -38,7 +40,7 @@ const SkillView: React.FC<SkillViewProps> = ({ skills }) => {
           <div className="info">프레임워크 및 라이브러리</div>
           <hr />
           <ul className="subinfo">
-            {skills.librarys.map((library, index) => (
+            {librarys.map((library, index) => (
               <li key={index}>{library.name} ({library.level}/10)</li>
             ))}
           </ul>
@@ -48,7 +50,7 @@ const SkillView: React.FC<SkillViewProps> = ({ skills }) => {
           <div className="info">도구</div>
           <hr />
           <ul className="subinfo">
-            {skills.tools.map((tool, index) => (
+            {tools.map((tool, index) => (
               <li key={index}>{tool.name} ({tool.level}/10)</li>
             ))}
           </ul>

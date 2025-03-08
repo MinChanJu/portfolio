@@ -20,9 +20,9 @@ const AppRoutes: React.FC<AppRoutesProps> = ({ isClosed, data }) => {
       <Routes>
         <Route path={ROUTES.HOME} element={<HomeView data={data} />} />
         <Route path={ROUTES.INTRO} element={<IntroductionView />} />
-        <Route path={ROUTES.SKILL} element={<SkillView skills={data.skills} />} />
+        <Route path={ROUTES.SKILL} element={<SkillView languages={data.languages} librarys={data.librarys} tools={data.tools} />} />
         <Route path={ROUTES.PROJECT} element={<ProjectView projects={data.projects} />} />
-        <Route path={ROUTES.AWARD} element={<AwardView awards={data.awards} />} />
+        <Route path={ROUTES.AWARD} element={<AwardView prizes={data.prizes} certificates={data.certificates} />} />
         <Route path={ROUTES.CARRER} element={<CareerView careers={data.careers} />} />
         <Route path={ROUTES.LINK} element={<LinkView />} />
         <Route path={ROUTES.NOT_FOUND} element={<Error />} />

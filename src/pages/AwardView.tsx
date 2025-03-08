@@ -1,11 +1,12 @@
 import React from 'react'
-import { Award } from '../types';
+import { Certificate, Prize } from '../types';
 
 type AwardViewProps = {
-    awards: Award;
+    prizes: Prize[];
+    certificates: Certificate[];
 }
 
-const AwardView: React.FC<AwardViewProps> = ({ awards }) => {
+const AwardView: React.FC<AwardViewProps> = ({ prizes, certificates }) => {
     return (
         <div>
             <div className="big">Prizes and Certificates</div>
@@ -15,15 +16,15 @@ const AwardView: React.FC<AwardViewProps> = ({ awards }) => {
             <table>
                 <thead>
                     <tr>
-                        <th style={{width:"28px"}}>번호</th>
+                        <th style={{ width: "28px" }}>번호</th>
                         <th>대회명</th>
                         <th>수상명</th>
                         <th>주관</th>
-                        <th style={{width:"60px"}}>수상일</th>
+                        <th style={{ width: "60px" }}>수상일</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {awards.prizes.map((prize, index) => (
+                    {prizes.map((prize, index) => (
                         <tr key={index}>
                             <td>{index + 1}</td>
                             <td>{prize.name}</td>
@@ -40,15 +41,15 @@ const AwardView: React.FC<AwardViewProps> = ({ awards }) => {
             <table>
                 <thead>
                     <tr>
-                        <th style={{width:"28px"}}>번호</th>
+                        <th style={{ width: "28px" }}>번호</th>
                         <th>자격증명</th>
                         <th>점수/급수</th>
                         <th>발급처</th>
-                        <th style={{width:"60px"}}>취득일</th>
+                        <th style={{ width: "60px" }}>취득일</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {awards.certificates.map((certificate, index) => (
+                    {certificates.map((certificate, index) => (
                         <tr key={index}>
                             <td>{index + 1}</td>
                             <td>{certificate.name}</td>
