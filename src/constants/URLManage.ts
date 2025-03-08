@@ -1,33 +1,9 @@
-import coding_contest1 from "../assets/image/coding_contest/coding_contest1.png"
-import coding_contest2 from "../assets/image/coding_contest/coding_contest2.png"
-import coding_contest3 from "../assets/image/coding_contest/coding_contest3.png"
-import coding_contest4 from "../assets/image/coding_contest/coding_contest4.png"
-import coding_contest5 from "../assets/image/coding_contest/coding_contest5.png"
-import coding_contest6 from "../assets/image/coding_contest/coding_contest6.png"
-import mic_app1 from "../assets/image/mic_app/mic_app1.png"
-import mic_app2 from "../assets/image/mic_app/mic_app2.png"
-import mic_app3 from "../assets/image/mic_app/mic_app3.png"
-import portfolio1 from "../assets/image/portfolio/portfolio1.png"
-import portfolio2 from "../assets/image/portfolio/portfolio2.png"
-import portfolio3 from "../assets/image/portfolio/portfolio3.png"
-import portfolio4 from "../assets/image/portfolio/portfolio4.png"
-import random_chat_app1 from "../assets/image/random_chat_app/random_chat_app1.png"
-import random_chat_app2 from "../assets/image/random_chat_app/random_chat_app2.png"
-import random_chat_app3 from "../assets/image/random_chat_app/random_chat_app3.png"
-import random_chat_app4 from "../assets/image/random_chat_app/random_chat_app4.png"
-import random_chat_app5 from "../assets/image/random_chat_app/random_chat_app5.png"
-import random_chat_app6 from "../assets/image/random_chat_app/random_chat_app6.png"
-import trash_game1 from "../assets/image/trash_game/trash_game1.jpeg"
-import trash_game2 from "../assets/image/trash_game/trash_game2.jpeg"
-import trash_game3 from "../assets/image/trash_game/trash_game3.jpeg"
-
 export const IMG: { [key: string]: string[] } = {
-    "coding_contest": [coding_contest1, coding_contest2, coding_contest3, coding_contest4, coding_contest5, coding_contest6],
-    "mic_app": [mic_app1, mic_app2, mic_app3],
-    "portfolio": [portfolio1, portfolio2, portfolio3, portfolio4],
-    "random_chat_app": [random_chat_app1, random_chat_app2, random_chat_app3, random_chat_app4, random_chat_app5, random_chat_app6],
-    "trash_game": [trash_game1, trash_game2, trash_game3],
-    
+    "coding_contest": Object.values(import.meta.glob("../assets/image/coding_contest/*.{png,jpg,jpeg,svg}", { eager: true, import: "default" })),
+    "mic_app": Object.values(import.meta.glob("../assets/image/mic_app/*.{png,jpg,jpeg,svg}", { eager: true, import: "default" })),
+    "portfolio": Object.values(import.meta.glob("../assets/image/portfolio/*.{png,jpg,jpeg,svg}", { eager: true, import: "default" })),
+    "random_chat_app": Object.values(import.meta.glob("../assets/image/random_chat_app/*.{png,jpg,jpeg,svg}", { eager: true, import: "default" })),
+    "trash_game": Object.values(import.meta.glob("../assets/image/trash_game/*.{png,jpg,jpeg,svg}", { eager: true, import: "default" })),
 }
 
 export const PROJECT: { [key: string]: string[][] } = {

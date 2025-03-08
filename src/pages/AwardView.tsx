@@ -2,14 +2,14 @@ import React from 'react'
 import { prize } from '../types/prize';
 import { certificate } from '../types/certificate';
 
-type AwardProps = {
+type AwardViewProps = {
     prizes: prize[];
     certificates: certificate[];
 }
 
-const Award = React.forwardRef<HTMLDivElement, AwardProps>(({ prizes, certificates }, ref) => {
+const AwardView: React.FC<AwardViewProps> = ({ prizes, certificates }) => {
     return (
-        <div ref={ref}>
+        <div>
             <div className="big">Prizes and Certificates</div>
 
             <div className="info">수상</div>
@@ -63,6 +63,6 @@ const Award = React.forwardRef<HTMLDivElement, AwardProps>(({ prizes, certificat
             </table>
         </div>
     );
-});
+};
 
-export default Award;
+export default AwardView;

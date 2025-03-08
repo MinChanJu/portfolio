@@ -1,11 +1,11 @@
 import React from 'react'
 import { URL } from '../constants/URLManage'
-import CustomLink from './CustomLink'
+import CustomLink from '../components/CustomLink'
 
-const LinkSet = React.forwardRef<HTMLDivElement>(({ }, ref) => {
+const LinkView: React.FC = () => {
     return (
-        <div ref={ref}>
-            <div className="big">링크</div>
+        <div>
+            <div className="big">Link</div>
 
             <div className="info">GitHub</div>
             <hr />
@@ -39,6 +39,6 @@ const LinkSet = React.forwardRef<HTMLDivElement>(({ }, ref) => {
             </div>
         </div>
     );
-});
+};
 
-export default LinkSet;
+export default LinkView;

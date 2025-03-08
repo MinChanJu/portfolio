@@ -1,13 +1,13 @@
 import React from 'react'
-import { career } from '../types/careers';
+import { career } from '../types/career';
 
-type CareerProps = {
+type CareerViewProps = {
     careers: career[];
 }
 
-const Career = React.forwardRef<HTMLDivElement, CareerProps>(({ careers }, ref) => {
+const CareerView: React.FC<CareerViewProps> = ({ careers }) => {
     return (
-        <div ref={ref}>
+        <div>
             <div className="big">Careers</div>
 
             <div className="info">경력</div>
@@ -34,6 +34,6 @@ const Career = React.forwardRef<HTMLDivElement, CareerProps>(({ careers }, ref) 
             </table>
         </div>
     );
-});
+};
 
-export default Career;
+export default CareerView;

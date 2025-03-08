@@ -1,55 +1,17 @@
-import React, { useRef } from 'react'
-
-import Introduction from "./components/Introduction"
-import SkillSet from "./components/SkillSet"
-import Project from "./components/Project"
-import Award from "./components/Award"
-import Career from "./components/Career"
-import LinkSet from "./components/LinkSet"
-
+import React, { useState } from 'react'
 import data from './assets/data.json'
-import './styles/Global.css'
-import './styles/Image.css'
-import './styles/Table.css'
+import { AppRoutes, SideBar } from './components'
+import { BrowserRouter } from 'react-router-dom'
+import './styles'
 
 const App: React.FC = () => {
-  const introRef = useRef(null);
-  const skillRef = useRef(null);
-  const projectRefs = data.projects.map(() => useRef(null));
-  const awardRef = useRef(null);
-  const careerRef = useRef(null);
-  const linkRef = useRef(null);
-
-  const scrollToSection = (sectionRef: React.RefObject<HTMLDivElement>) => {
-    if (sectionRef.current) {
-      sectionRef.current.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+  const [isClosed, setIsClosed] = useState(false); // 사이드바 열림 여부
 
   return (
-    <div className="container">
-      <div className="content" id="content-to-download">
-        <Introduction ref={introRef} />
-        <SkillSet ref={skillRef} languages={data.languages} librarys={data.librarys} tools={data.tools} />
-        {data.projects.map((project, index) => (
-          <Project key={index} ref={projectRefs[index]} index={index} project={project} />
-        ))}
-        <Award ref={awardRef} prizes={data.prizes} certificates={data.certificates} />
-        <Career ref={careerRef} careers={data.careers} />
-        <LinkSet ref={linkRef} />
-      </div>
-
-      <div className="tabs">
-        <button onClick={() => scrollToSection(introRef)}>자기소개</button>
-        <button onClick={() => scrollToSection(skillRef)}>기술스택</button>
-        {projectRefs.map((projectRef, index) => (
-          <button key={index} onClick={() => scrollToSection(projectRef)}>프로젝트 {index+1}{"\n"}{data.projects[index].project}</button>
-        ))}
-        <button onClick={() => scrollToSection(awardRef)}>수상 및 자격증</button>
-        <button onClick={() => scrollToSection(careerRef)}>경력</button>
-        <button onClick={() => scrollToSection(linkRef)}>링크</button>
-      </div>
-    </div>
+    <BrowserRouter basename='/portfolio'>
+      <SideBar isClosed={isClosed} setIsClosed={setIsClosed} />
+      <AppRoutes isClosed={isClosed} data={data} />
+    </BrowserRouter>
   )
 }
 

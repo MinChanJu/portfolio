@@ -1,0 +1,5 @@
+import './Global.css'
+import './Image.css'
+import './Table.css'
+import './Color.css'
+import './Flex.css'
