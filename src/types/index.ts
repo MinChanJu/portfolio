@@ -1,6 +1,7 @@
-export type { career } from "./career";
-export type { certificate } from "./certificate";
-export type { portfolio } from "./portfolio";
-export type { prize } from "./prize";
-export type { project } from "./project";
-export type { Skill } from "./Skill";
+export type { Award } from "./Award";
+export type { Career } from "./Career";
+export type { Certificate } from "./Certificate";
+export type { Portfolio } from "./Portfolio";
+export type { Prize } from "./Prize";
+export type { Project } from "./Project";
+export type { Skill, Lang } from "./Skill";

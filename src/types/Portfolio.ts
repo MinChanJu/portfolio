@@ -1,11 +1,8 @@
-import { career, certificate, prize, project, skill } from ".";
+import { Career, Award, Project, Skill } from ".";
 
-export type portfolio = {
-  languages: skill[];
-  librarys: skill[];
-  tools: skill[];
-  projects: project[];
-  prizes: prize[];
-  certificates: certificate[];
-  careers: career[];
+export type Portfolio = {
+  skills: Skill;
+  projects: Project[];
+  awards: Award;
+  careers: Career[];
 }

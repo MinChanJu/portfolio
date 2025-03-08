@@ -1,13 +1,11 @@
 import React from 'react'
-import { prize } from '../types/prize';
-import { certificate } from '../types/certificate';
+import { Award } from '../types';
 
 type AwardViewProps = {
-    prizes: prize[];
-    certificates: certificate[];
+    awards: Award;
 }
 
-const AwardView: React.FC<AwardViewProps> = ({ prizes, certificates }) => {
+const AwardView: React.FC<AwardViewProps> = ({ awards }) => {
     return (
         <div>
             <div className="big">Prizes and Certificates</div>
@@ -25,7 +23,7 @@ const AwardView: React.FC<AwardViewProps> = ({ prizes, certificates }) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {prizes.map((prize, index) => (
+                    {awards.prizes.map((prize, index) => (
                         <tr key={index}>
                             <td>{index + 1}</td>
                             <td>{prize.name}</td>
@@ -50,7 +48,7 @@ const AwardView: React.FC<AwardViewProps> = ({ prizes, certificates }) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {certificates.map((certificate, index) => (
+                    {awards.certificates.map((certificate, index) => (
                         <tr key={index}>
                             <td>{index + 1}</td>
                             <td>{certificate.name}</td>
