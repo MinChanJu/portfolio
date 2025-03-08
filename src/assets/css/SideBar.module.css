@@ -1,6 +1,6 @@
 .sidebar {
   width: 300px;
-  background-color: #e4ffe5;
+  background-color: #f4f4f4;
   border-right: 1px solid #666;
   box-sizing: border-box;
   position: fixed;
@@ -25,49 +25,46 @@
 .sidebar > img {
   width: 80%;
   height: auto;
-  margin: 20px;
+  margin-top: 20px;
   border-radius: 40%;
   border: 0px;
-  margin-bottom: 30px;
 }
 
 .selectList {
   overflow-y: auto;
   scrollbar-width: none;
+  border-bottom: 1px solid rgb(169, 169, 169);
 }
 
 .selectBtn {
-  font-size: 17px;
-  padding: 5px 0px;
+  font-size: 20px;
+  padding: 10px 0px;
   width: 100%;
   border: 0px;
-  border-top: 1px solid black;
+  border-top: 1px solid rgb(169, 169, 169);
   background-color: inherit;
   cursor: pointer;
 }
 
 .selectBtn.project {
-  background-color: #c7f7dd;
+  background-color: #ebf9f2;
 }
 
 .selectBtn.selected {
-  background-color: #b8b8b8;
-}
-
-.last {
-  border-bottom: 1px solid black;
+  background-color: #d4d4d4;
+  font-weight: 700;
 }
 
 .toggleBtn {
   position: absolute;
   top: 10px;
-  right: -40px;
-  width: 30px;
-  height: 30px;
-  background-color: #666;
+  right: -70px;
+  width: 55px;
+  height: 55px;
+  background-color: rgba(76, 76, 76, 0.8);
   border-radius: 10px;
   color: white;
   border: none;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 40px;
 }

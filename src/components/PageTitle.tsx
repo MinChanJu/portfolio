@@ -1,7 +1,8 @@
 import { useEffect } from "react";
 import { useLocation, matchPath } from "react-router-dom";
 import { Project } from "../types";
-import { getLastPathParam, ROUTES } from "../constants/routes";
+import { ROUTES } from "../constants/routes";
+import { getLastPathParam } from "../utils/Path";
 
 type PageTitleProps = {
   projects: Project[];

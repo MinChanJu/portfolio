@@ -3,8 +3,8 @@ import styles from "../assets/css/SideBar.module.css"
 import profile from "../assets/image/profile.jpeg"
 import { useEffect, useState } from "react"
 import { useLocation } from "react-router-dom"
-import { getPathId } from "../constants/routes"
 import { Project } from "../types"
+import { getPathId } from "../utils/Path"
 
 type SideBarProps = {
   isClosed: boolean;
@@ -35,9 +35,10 @@ const SideBar: React.FC<SideBarProps> = ({ isClosed, setIsClosed, projects }) =>
     <div className={`${styles.sidebar} ${isClosed ? styles.closed : ""}`}>
       <button className={styles.toggleBtn} onClick={() => setIsClosed(!isClosed)}>{isClosed ? "☰" : "⏎"}</button>
       <img src={profile} alt="프로필 사진" />
-      <div className={`title ${styles.center}`}>신입 개발자{"\n"}주민찬</div>
+      <div className={`info ${styles.center}`}>신입 개발자{"\n"}주민찬</div>
       <br />
       <div className={styles.selectList}>
+        <button className={getSelectBtnClass(0)} onClick={goToHome}>전체 보기</button>
         <button className={getSelectBtnClass(1)} onClick={goToIntro}>자기소개</button>
         <button className={getSelectBtnClass(2)} onClick={goToSkill}>기술스택</button>
         <button className={getSelectBtnClass(-2)} onClick={() => setIsOpen(!isOpen)}>
@@ -51,7 +52,6 @@ const SideBar: React.FC<SideBarProps> = ({ isClosed, setIsClosed, projects }) =>
         <button className={getSelectBtnClass(3)} onClick={goToAward}>수상 및 자격증</button>
         <button className={getSelectBtnClass(4)} onClick={goToCarrer}>경력</button>
         <button className={getSelectBtnClass(5)} onClick={goToLink}>링크</button>
-        <button className={getSelectBtnClass(0) + " " + styles.last} onClick={goToHome}>전체 보기</button>
       </div>
     </div>
 
