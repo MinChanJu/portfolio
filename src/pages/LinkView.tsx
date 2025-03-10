@@ -4,7 +4,7 @@ import CustomLink from '../components/CustomLink'
 
 const LinkView: React.FC = () => {
   return (
-    <div>
+    <div className='margin'>
       <div className="big">Link</div>
 
       <div className="info">GitHub</div>

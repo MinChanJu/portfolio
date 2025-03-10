@@ -1,6 +1,6 @@
 .sidebar {
   width: 300px;
-  background-color: #f4f4f4;
+  background-color: #f8fffd;
   border-right: 1px solid #666;
   box-sizing: border-box;
   position: fixed;
@@ -31,9 +31,22 @@
 }
 
 .selectList {
-  overflow-y: auto;
-  scrollbar-width: none;
+  overflow-y: scroll;
+  position: relative;
+  padding-left: 10px;
   border-bottom: 1px solid rgb(169, 169, 169);
+}
+
+.selectList::-webkit-scrollbar {
+  width: 10px;
+}
+.selectList::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #b0bded, #2c515a);
+  border-radius: 10px;
+}
+
+.selectList::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #77809f, #101e22);
 }
 
 .selectBtn {
@@ -47,7 +60,7 @@
 }
 
 .selectBtn.project {
-  background-color: #ebf9f2;
+  background-color: #ebecec;
 }
 
 .selectBtn.selected {
@@ -58,13 +71,13 @@
 .toggleBtn {
   position: absolute;
   top: 10px;
-  right: -70px;
-  width: 55px;
-  height: 55px;
+  right: -50px;
+  width: 40px;
+  height: 40px;
   background-color: rgba(76, 76, 76, 0.8);
   border-radius: 10px;
   color: white;
   border: none;
   cursor: pointer;
-  font-size: 40px;
+  font-size: 20px;
 }

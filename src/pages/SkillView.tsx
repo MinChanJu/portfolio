@@ -26,7 +26,7 @@ const SkillView: React.FC<SkillViewProps> = ({ languages, librarys, tools }) => 
   }
 
   return (
-    <div>
+    <div className='margin'>
       <div className="big">Skill Set</div>
 
       <div className="info">언어</div>

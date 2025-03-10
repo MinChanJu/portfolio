@@ -1,0 +1,89 @@
+.container {
+  margin-top: 50px;
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  background-color: #d5d5d5;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.swiperContainer {
+  width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.swiper {
+  width: 100%;
+}
+
+.swiperSlide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.swiperImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+.selectContainer {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  overflow-x: auto;
+  padding-bottom: 20px;
+}
+
+.selectImageWrapper {
+  width: 100%;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.selectImageWrapper:hover {
+  filter: brightness(0.8);
+}
+
+.selectImage {
+  height: 100px;
+  border-radius: 10px;
+  object-fit: contain;
+}
+
+.selected {
+  filter: brightness(0.8);
+}
+
+.selectContainer::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.selectContainer::-webkit-scrollbar-track {
+  background: #bfbfbf;
+  border-radius: 10px;
+}
+
+.selectContainer::-webkit-scrollbar-thumb {
+  background:  linear-gradient(180deg, #878686, #45808f);
+  border-radius: 10px;
+}
+
+.selectContainer::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #4d4c4c, #274951);
+}

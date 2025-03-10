@@ -1,6 +1,6 @@
 export type Project = {
   project: string;
-  time: string;
+  period: string;
   team: string;
   role: string;
   skills: string;

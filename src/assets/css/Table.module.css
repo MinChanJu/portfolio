@@ -1,0 +1,52 @@
+.tableContainer {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tableHead,
+.tableCell {
+  border: 1px solid #ddd;
+  padding: 5px 10px;
+  word-break: break-all;
+}
+
+.tableHead {
+  background-color: rgb(241, 241, 241);
+}
+
+.cursor {
+  cursor: pointer;
+}
+
+.num {
+  width: 28px;
+  text-align: center;
+  font-size: 15px;
+}
+
+.date {
+  width: 90px;
+  font-size: 15px;
+  text-align: center;
+}
+
+.period {
+  width: 140px;
+  font-size: 15px;
+  text-align: center;
+}
+
+.class {
+  width: 74px;
+  font-size: 15px;
+  text-align: center;
+}
+
+.description {
+  font-size: 15px;
+  text-align: start;
+}
+
+.center {
+  text-align: center;
+}

@@ -5,6 +5,7 @@ import styles from "../assets/css/Project.module.css"
 import { useParams } from 'react-router-dom'
 import Error from '../components/Error'
 import { Project } from '../types'
+import { ImageSlider } from '../components'
 
 type ProjectViewProps = {
   index?: number;
@@ -21,7 +22,7 @@ const ProjectView: React.FC<ProjectViewProps> = ({ index, projects }) => {
   const project = projects[idx];
 
   return (
-    <div>
+    <div className='margin'>
       <div className="big">Project {idx + 1}</div>
       <div className="info">{project.project}</div>
       <hr />
@@ -29,7 +30,7 @@ const ProjectView: React.FC<ProjectViewProps> = ({ index, projects }) => {
       <div className="subinfo">
         <div className={styles.group}>
           <span className={styles.line}>개발기간 : </span>
-          <span className={styles.linePre}>{project.time}</span>
+          <span className={styles.linePre}>{project.period}</span>
         </div>
         <div className={styles.group}>
           <span className={styles.line}>팀구성 : </span>
@@ -53,20 +54,7 @@ const ProjectView: React.FC<ProjectViewProps> = ({ index, projects }) => {
           <div className={styles.line}>설명 : </div>
           <div className={styles.description}>{project.description}</div>
         </div>
-        {IMG[project.name].reduce((acc, src, index) => {
-          let groupIndex = Math.floor(index / project.cnt);
-          if (!acc[groupIndex]) {
-            acc[groupIndex] = [];
-          }
-          acc[groupIndex].push(src);
-          return acc;
-        }, [] as string[][]).map((group, groupIndex) => (
-          <div key={groupIndex} className="imageContainer">
-            {group.map((src, index) => (
-              <img key={index} style={{ width: `${100 / group.length - ((group.length - 1) * 2)}%`, }} src={src} alt={`project_image_${groupIndex + 1}_${index + 1}`} />
-            ))}
-          </div>
-        ))}
+        <ImageSlider title={project.project} images={IMG[project.name]} height={500} />
       </div>
       <br /><br />
     </div>

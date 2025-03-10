@@ -84,7 +84,7 @@
   "projects": [
     {
       "project": "랜덤 채팅 앱",
-      "time": "2025.01 ~ 진행중",
+      "period": "2025.01 ~ 진행중",
       "team": "2명 (팀장)",
       "role": "BackEnd - 70%\nFrontEnd - 70%\nDataBase - 100%",
       "skills": "Spring Boot, Java, Flutter, Dart, SupaBase, PostgreSQL",
@@ -94,7 +94,7 @@
     },
     {
       "project": "코딩대회 사이트",
-      "time": "2024.11 ~ 2025.01 (약 3개월)",
+      "period": "2024.11 ~ 2025.01 (약 3개월)",
       "team": "1명 (총괄)",
       "role": "BackEnd - 100%\nFrontEnd - 100%\nDataBase - 100%",
       "skills": "Spring Boot, Java, React, TypeScript, SupaBase, PostgreSQL",
@@ -104,7 +104,7 @@
     },
     {
       "project": "포트폴리오",
-      "time": "2024.12 ~ 2025.01 (약 1주일)",
+      "period": "2024.12 ~ 2025.01 (약 1주일)",
       "team": "1명 (총괄)",
       "role": "FrontEnd - 100%",
       "skills": "React, TypeScript",
@@ -114,7 +114,7 @@
     },
     {
       "project": "소학회 앱",
-      "time": "2024.07 ~ 2024.08 (4일)",
+      "period": "2024.07 ~ 2024.08 (4일)",
       "team": "1명 (총괄)",
       "role": "BackEnd - 100%\nMobile App - 100%\nDataBase - 100%",
       "skills": "Spring Boot, Java, Flutter, Dart, SupaBase, PostgreSQL",
@@ -124,7 +124,7 @@
     },
     {
       "project": "쓰레기 처리 게임",
-      "time": "2024.12 ~ 2024.12 (4일)",
+      "period": "2024.12 ~ 2024.12 (4일)",
       "team": "1명 (총괄)",
       "role": "Game Engine - 100%",
       "skills": "Unity, C#",
@@ -165,62 +165,62 @@
     {
       "class": "고등학교",
       "description": "성보고등학교 졸업",
-      "time": "2017.03 ~ 2020.02"
+      "period": "2017.03 ~ 2020.02"
     },
     {
       "class": "아르바이트",
       "description": "대치에스에스학원 수학 TA. 수학 질문에 대한 답",
-      "time": "2019.01 ~ 2020.10"
+      "period": "2019.01 ~ 2020.10"
     },
     {
       "class": "대학교",
       "description": "아주대학교 재학. 1전공 수학과, 복수전공 소프트웨어학과",
-      "time": "2020.03 ~ 2026.02"
+      "period": "2020.03 ~ 2026.02"
     },
     {
       "class": "군복무",
       "description": "2022년 11월 30일 육군 병장 만기전역",
-      "time": "2021.05 ~ 2022.11"
+      "period": "2021.05 ~ 2022.11"
     },
     {
       "class": "아르바이트",
       "description": "CU관악두산점",
-      "time": "2022.12 ~ 2023.02"
+      "period": "2022.12 ~ 2023.02"
     },
     {
       "class": "아르바이트",
       "description": "광교에듀플렉스 수학 튜터. 수학 진도를 나가며 질문에 대한 답",
-      "time": "2023.07 ~ 2024.02"
+      "period": "2023.07 ~ 2024.02"
     },
     {
       "class": "대회",
       "description": "제 3회 산업수학 프로그래밍 경진대회 2등",
-      "time": "2023.12 ~ 2023.12"
+      "period": "2023.12 ~ 2023.12"
     },
     {
       "class": "동아리 활동",
       "description": "2024년 아주대학교 수학과 소학회 MiC 회장 (코딩 멘토링 진행)",
-      "time": "2024.01 ~ 2024.12"
+      "period": "2024.01 ~ 2024.12"
     },
     {
       "class": "대회",
       "description": "2024 아주 프로그래밍 경진대회 Div.2 대상",
-      "time": "2024.05 ~ 2024.05"
+      "period": "2024.05 ~ 2024.05"
     },
     {
       "class": "대회",
       "description": "2024 ICPC Seoul Regional 예선",
-      "time": "2024.10 ~ 2024.10"
+      "period": "2024.10 ~ 2024.10"
     },
     {
       "class": "대회",
       "description": "2024 아주 프로그래밍 경진대회 Extra",
-      "time": "2024.12 ~ 2024.12"
+      "period": "2024.12 ~ 2024.12"
     },
     {
       "class": "아르바이트",
       "description": "키코랩스 코딩 트레이너. 초중학생을 대상으로 코딩 기초와 심화에 대한 수업",
-      "time": "2025.01 ~ 진행중"
+      "period": "2025.01 ~ 진행중"
     }
   ]
 }

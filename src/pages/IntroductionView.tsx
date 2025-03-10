@@ -4,7 +4,7 @@ import { CustomLink } from '../components';
 
 const IntroductionView: React.FC = () => {
   return (
-    <div>
+    <div className='margin'>
       <div className="big">Introduction</div>
 
       <div className="title">안녕하세요. 저는 신입 개발자 주민찬입니다.</div>
