@@ -83,13 +83,13 @@
   ],
   "projects": [
     {
-      "project": "랜덤 채팅 앱",
+      "project": "데이팅 앱",
       "period": "2025.01 ~ 진행중",
       "team": "2명 (팀장)",
       "role": "BackEnd - 70%\nFrontEnd - 70%\nDataBase - 100%",
       "skills": "Spring Boot, Java, Flutter, Dart, SupaBase, PostgreSQL",
       "description": "Spring Boot - BackEnd | Flutter - Mobile App | SupaBase - DataBase.\n\n이 앱은 사용자들 끼리 랜덤으로 매칭하여 채팅을 진행할 수가 있고 친구를 맺어 영구적으로 채팅도 할 수 있습니다.채팅은 웹소켓을 통해 서로 소통하며 서버에서 수신하여 각 사용자 세션에게 보내지게 하였습니다. 만약 상대방의 웹소켓 세션이 없는 경우(앱을 켠 상태가 아닌 경우) FCM을 사용하여 앱 알림이 가도록 설정하였습니다.\n\n보안성을 위해 .env 파일을 통해 api키들을 관리하였고 아직 서버를 배포하지 않았기에 cors 설정은 안되어있습니다. 추후 배포하면 cors 설정을 할 예정입니다.\n\n이 프로젝트는 현재 개발 중입니다.",
-      "name": "random_chat_app",
+      "name": "dating_app",
       "cnt": 3
     },
     {
