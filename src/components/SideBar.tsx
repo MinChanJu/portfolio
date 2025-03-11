@@ -36,7 +36,7 @@ const SideBar: React.FC<SideBarProps> = ({ isSidebarOpen, setIsSidebarOpen, proj
     <div ref={scrollRef} className={`${styles.sidebar} ${isSidebarOpen ? styles.closed : ""}`}>
       <button className={styles.toggleBtn} onClick={() => setIsSidebarOpen(!isSidebarOpen)}>{isSidebarOpen ? "☰" : "⏎"}</button>
       <img src={profile} alt="프로필 사진" />
-      <img src="https://readme-typing-svg.demolab.com/?lines=Min+Chan+Ju;Junior+Developer&font=Fira%20Code&duration=1000&pause=3000&center=true&width=200&color=BE58F7"></img>
+      <img src="https://readme-typing-svg.demolab.com/?lines=Min+Chan+Ju;Junior+Developer&font=Emblema+One&duration=1000&pause=3000&center=true&width=200&color=BE58F7"></img>
       <div className={styles.selectList}>
         <button className={getSelectBtnClass(0)} onClick={goToHome}>전체보기</button>
         <button className={getSelectBtnClass(1)} onClick={goToIntro}>자기소개</button>

@@ -9,8 +9,13 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+html, body {
+  height: 100%;
+}
+
 body {
-  margin: 0;
+  margin: 0px;
+  padding: 0px;
   overflow-x: hidden;
   text-align: center;
 }
@@ -26,10 +31,11 @@ ul, li {
 }
 
 .big {
-  font-size: 40px;
-  color: rgb(159, 110, 205);
+  font-size: 50px;
+  color: rgb(131, 13, 242);
   font-weight: 700;
   font-style: italic;
+  font-family: 'Times New Roman', Times, serif;
   text-align: start;
   margin-top: 0px;
 }
@@ -60,5 +66,5 @@ ul, li {
 }
 
 .margin {
-  margin: 0px 20px;
+  margin: 0px 50px;
 }
