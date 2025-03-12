@@ -17,6 +17,7 @@ const IntroductionView: React.FC = () => {
     <div>
       <div className="big purple italic ts">Introduction</div>
 
+      <br />
       <div className="info ts">안녕하세요. 저는 주니어 개발자 주민찬입니다.</div>
       <div className='subinfo ts'>{intro}</div>
 

@@ -12,6 +12,7 @@ const AwardView: React.FC<AwardViewProps> = ({ prizes, certificates }) => {
     <div>
       <div className="big purple italic ts">Prizes and Certificates</div>
 
+      <br />
       <div className="info ts">수상</div>
       <hr />
       <Table
@@ -20,6 +21,7 @@ const AwardView: React.FC<AwardViewProps> = ({ prizes, certificates }) => {
         data={prizes}
         dataKey={["idx", "name", "rank", "host", "date"]} />
 
+      <br />
       <div className="info ts">자격증</div>
       <hr />
       <Table

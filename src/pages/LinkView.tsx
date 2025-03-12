@@ -7,6 +7,7 @@ const LinkView: React.FC = () => {
     <div>
       <div className="big purple italic ts">Link</div>
 
+      <br />
       <div className="info ts">GitHub</div>
       <hr />
       <div className="subinfo ts"><CustomLink href={URL.GITHUB} /></div>
@@ -17,6 +18,7 @@ const LinkView: React.FC = () => {
 
       <br />
 
+      <br />
       <div className="info ts">BAEKJOON</div>
       <hr />
 

@@ -11,6 +11,7 @@ const CareerView: React.FC<CareerViewProps> = ({ careers }) => {
     <div>
       <div className="big purple italic ts">Careers</div>
 
+      <br />
       <div className="info ts">경력</div>
       <hr />
       <Table

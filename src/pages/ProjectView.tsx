@@ -23,9 +23,10 @@ const ProjectView: React.FC<ProjectViewProps> = ({ index, projects }) => {
   return (
     <div>
       <div className="big purple italic ts">Project {idx + 1}</div>
+
+      <br />
       <div className="info ts">{project.project}</div>
       <hr />
-      <br />
       <div className="subinfo ts">
         <div className="flexRow gap10">
           <span className='darkBlue nowrap'>개발기간:</span>
