@@ -8,7 +8,7 @@
   top: 0;
   bottom: 0;
   transition: transform 0.3s ease-in-out;
-  z-index: 1;
+  z-index: 5;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -34,7 +34,10 @@
   overflow-y: scroll;
   position: relative;
   padding-left: 10px;
-  border-bottom: 1px solid rgb(169, 169, 169);
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 10px;
 }
 
 .selectList::-webkit-scrollbar {
@@ -55,6 +58,7 @@
   width: 100%;
   border: 0px;
   border-top: 1px solid rgb(169, 169, 169);
+  border-bottom: 1px solid rgb(169, 169, 169);
   background-color: inherit;
   cursor: pointer;
 }
@@ -64,7 +68,7 @@
 }
 
 .selectBtn.selected {
-  background-color: #d4d4d4;
+  background-color: #d2d2d2;
   font-weight: 700;
 }
 
@@ -80,4 +84,26 @@
   border: none;
   cursor: pointer;
   font-size: 20px;
+}
+
+@media (max-width: 900px) {
+  .sidebar {
+    width: 200px;
+    margin-left: 0px;
+  }
+
+  .sidebar.closed {
+    transform: translateX(-200px);
+  }
+
+  .selectBtn {
+    font-size: 15px;
+  }
+
+  .toggleBtn {
+    width: 30px;
+    height: 30px;
+    right: -40px;
+    font-size: 17px;
+  }
 }

@@ -14,17 +14,21 @@ const IntroductionView: React.FC = () => {
 `;
 
   return (
-    <div className='margin'>
-      <div className="big">Introduction</div>
-      
-      <div className="info">안녕하세요. 저는 주니어 개발자 주민찬입니다.</div>
-      <div className='subinfo'>{intro}</div>
+    <div>
+      <div className="big purple italic ts">Introduction</div>
 
+      <div className="info ts">안녕하세요. 저는 주니어 개발자 주민찬입니다.</div>
+      <div className='subinfo ts'>{intro}</div>
+
+      <br />
+      <div className="flexRow gap10">
+        <div className="flex1 info ts">Info</div>
+        <div className="flex1 info ts">학력</div>
+      </div>
+      <hr />
       <div className="flexRow gap10">
         <div className='flex1'>
-          <div className="info">Info</div>
-          <hr />
-          <div className="subinfo">
+          <div className="subinfo ts">
             <div>이름 : 주민찬</div>
             <div>생년월일 : 2002.02.07</div>
             <div>전화번호 : 010-8592-7570</div>
@@ -33,11 +37,8 @@ const IntroductionView: React.FC = () => {
             <div>주소 : 경기도 수원시 영통구 원천동</div>
           </div>
         </div>
-
         <div className='flex1'>
-          <div className="info">학력</div>
-          <hr />
-          <div className="subinfo">
+          <div className="subinfo ts">
             <div>학교 : 아주대학교</div>
             <div>입학년도 : 2020.03</div>
             <div>졸업년도(예정) : 2026.02</div>

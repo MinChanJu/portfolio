@@ -3,13 +3,14 @@
   line-height: 1.5;
   font-weight: 400;
 
-  color: rgba(0, 0, 0, 0.87);
+  color: rgb(0, 0, 0);
   background-color: rgb(241, 241, 241);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-html, body {
+html,
+body {
   height: 100%;
 }
 
@@ -21,50 +22,15 @@ body {
 }
 
 div {
-  white-space: pre-wrap;
+  white-space: pre-line;
   word-break: break-all;
 }
 
-ul, li {
+ul,
+li {
   width: 100%;
   box-sizing: border-box;
-}
-
-.big {
-  font-size: 50px;
-  color: rgb(131, 13, 242);
-  font-weight: 700;
-  font-style: italic;
-  font-family: 'Times New Roman', Times, serif;
-  text-align: start;
-  margin-top: 0px;
-}
-
-.title {
-  font-size: 30px;
-  margin-top: 30px;
-  text-align: start;
-  font-weight: 700;
-}
-
-.info {
-  font-size: 25px;
-  font-weight: 700;
-  margin-top: 30px;
-  text-align: start;
-}
-
-.subinfo {
-  width: 100%;
-  font-size: 18px;
-  text-align: start;
-}
-
-.center {
-  width: 100%;
-  justify-items: center;
-}
-
-.margin {
-  margin: 0px 50px;
+  margin: 0px;
+  padding: 0px;
+  margin-left: 10px;
 }

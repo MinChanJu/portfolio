@@ -8,10 +8,10 @@ type CareerViewProps = {
 
 const CareerView: React.FC<CareerViewProps> = ({ careers }) => {
   return (
-    <div className='margin'>
-      <div className="big">Careers</div>
+    <div>
+      <div className="big purple italic ts">Careers</div>
 
-      <div className="info">경력</div>
+      <div className="info ts">경력</div>
       <hr />
       <Table
         columnName={["번호", "구분", "내용", "기간"]}

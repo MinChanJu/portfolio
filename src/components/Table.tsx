@@ -18,13 +18,13 @@ const Table = <T extends Object>({ columnName, columnClass, columnFunc, data, da
       <thead>
         <tr>
           {columnName.map((col, idx) => (
-            <th key={idx} className={styles.tableHead + " " + styles[columnClass[idx]]}>{columnFunc?.(col, idx) ? columnFunc(col, idx) : col}</th>
+            <th key={idx} className={styles.tableHead + " small " + styles[columnClass[idx]]}>{columnFunc?.(col, idx) ? columnFunc(col, idx) : col}</th>
           ))}
         </tr>
       </thead>
       <tbody>
         {data.map((row, rowIndex) => (
-          <tr key={rowIndex} onClick={() => onClick?.(row)}>
+          <tr key={rowIndex} className='small' onClick={() => onClick?.(row)}>
             {dataKey.map((key, idx) => {
               if (key in row) {
                 return (

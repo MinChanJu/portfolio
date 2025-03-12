@@ -9,10 +9,10 @@ type AwardViewProps = {
 
 const AwardView: React.FC<AwardViewProps> = ({ prizes, certificates }) => {
   return (
-    <div className='margin'>
-      <div className="big">Prizes and Certificates</div>
+    <div>
+      <div className="big purple italic ts">Prizes and Certificates</div>
 
-      <div className="info">수상</div>
+      <div className="info ts">수상</div>
       <hr />
       <Table
         columnName={["번호", "대회명", "수상명", "주관", "수상일"]}
@@ -20,7 +20,7 @@ const AwardView: React.FC<AwardViewProps> = ({ prizes, certificates }) => {
         data={prizes}
         dataKey={["idx", "name", "rank", "host", "date"]} />
 
-      <div className="info">자격증</div>
+      <div className="info ts">자격증</div>
       <hr />
       <Table
         columnName={["번호", "자격증명", "점수/급수", "발급처", "취득일"]}

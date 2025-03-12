@@ -4,15 +4,14 @@ import { useLocation } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Swiper as SwiperType } from "swiper";
 import "swiper/swiper-bundle.css"; // 최신 스타일 로드
-import { Navigation, Pagination } from "swiper/modules";
+import { Navigation } from "swiper/modules";
 
 interface GridProps {
   title: string;
   images: string[];
-  height: number;
 }
 
-const ImageSlider: React.FC<GridProps> = ({ title, images, height }) => {
+const ImageSlider: React.FC<GridProps> = ({ title, images }) => {
   const location = useLocation();
   const scrollRef = useRef<HTMLDivElement>(null);
   const swiperRef = useRef<SwiperType | null>(null);
@@ -32,18 +31,16 @@ const ImageSlider: React.FC<GridProps> = ({ title, images, height }) => {
 
   return (
     <div className={styles.container}>
-      <div className={styles.title}>{`${title} 사진 ${currentIndex + 1}`}</div>
+      <div className="info">{`${title} 사진 ${currentIndex + 1}`}</div>
       <div className={styles.swiperContainer}>
         <Swiper
-          modules={[Navigation, Pagination]}
+          modules={[Navigation]}
           spaceBetween={20}
           slidesPerView={1}
           navigation
-          pagination={{ clickable: true }}
           onSwiper={(swiper) => (swiperRef.current = swiper)} // ✅ Swiper 인스턴스 저장
           onSlideChange={(swiper) => setCurrentIndex(swiper.activeIndex)}
           className={styles.swiper}
-          style={{height: height}}
         >
           {images.map((src, index) => (
             <SwiperSlide key={index} className={styles.swiperSlide}>

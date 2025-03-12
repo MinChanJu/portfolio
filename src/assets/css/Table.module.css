@@ -19,31 +19,30 @@
 }
 
 .num {
-  width: 28px;
+  padding: 0px 5px;
+  white-space: nowrap;
   text-align: center;
-  font-size: 15px;
 }
 
 .date {
-  width: 90px;
-  font-size: 15px;
+  padding: 0px 5px;
+  white-space: nowrap;
   text-align: center;
 }
 
 .period {
-  width: 140px;
-  font-size: 15px;
+  padding: 0px 5px;
+  white-space: nowrap;
   text-align: center;
 }
 
 .class {
-  width: 74px;
-  font-size: 15px;
+  padding: 0px 5px;
+  white-space: nowrap;
   text-align: center;
 }
 
 .description {
-  font-size: 15px;
   text-align: start;
 }
 

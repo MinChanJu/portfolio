@@ -4,12 +4,12 @@ import CustomLink from '../components/CustomLink'
 
 const LinkView: React.FC = () => {
   return (
-    <div className='margin'>
-      <div className="big">Link</div>
+    <div>
+      <div className="big purple italic ts">Link</div>
 
-      <div className="info">GitHub</div>
+      <div className="info ts">GitHub</div>
       <hr />
-      <div className="subinfo"><CustomLink href={URL.GITHUB} /></div>
+      <div className="subinfo ts"><CustomLink href={URL.GITHUB} /></div>
       <div className="imageContainer">
         <img style={{ width: "42.5%" }} src={URL.GITHUB_TOP_LANGS} alt="Top Languages" />
         <img style={{ width: "55.5%" }} src={URL.GITHUB_STATS} alt="GitHub Stats" />
@@ -17,7 +17,7 @@ const LinkView: React.FC = () => {
 
       <br />
 
-      <div className="info">BAEKJOON</div>
+      <div className="info ts">BAEKJOON</div>
       <hr />
 
       <div className="imageContainer">

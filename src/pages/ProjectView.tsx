@@ -1,7 +1,6 @@
 import React from 'react'
 import { IMG, PROJECT } from '../constants/URLManage'
 import CustomLink from '../components/CustomLink'
-import styles from "../assets/css/Project.module.css"
 import { useParams } from 'react-router-dom'
 import Error from '../components/Error'
 import { Project } from '../types'
@@ -22,39 +21,39 @@ const ProjectView: React.FC<ProjectViewProps> = ({ index, projects }) => {
   const project = projects[idx];
 
   return (
-    <div className='margin'>
-      <div className="big">Project {idx + 1}</div>
-      <div className="info">{project.project}</div>
+    <div>
+      <div className="big purple italic ts">Project {idx + 1}</div>
+      <div className="info ts">{project.project}</div>
       <hr />
       <br />
-      <div className="subinfo">
-        <div className={styles.group}>
-          <span className={styles.line}>개발기간 : </span>
-          <span className={styles.linePre}>{project.period}</span>
+      <div className="subinfo ts">
+        <div className="flexRow gap10">
+          <span className='darkBlue nowrap'>개발기간:</span>
+          <span>{project.period}</span>
         </div>
-        <div className={styles.group}>
-          <span className={styles.line}>팀구성 : </span>
-          <span className={styles.linePre}>{project.team}</span>
+        <div className="flexRow gap10">
+          <span className='darkBlue nowrap'>팀구성:</span>
+          <span>{project.team}</span>
         </div>
-        <div className={styles.group}>
-          <span className={styles.line}>담당역할 : </span>
-          <span className={styles.linePre}>{project.role}</span>
+        <div className="flexRow gap10">
+          <span className='darkBlue nowrap'>담당역할:</span>
+          <span>{project.role}</span>
         </div>
-        <div className={styles.group}>
-          <span className={styles.line}>사용기술 : </span>
-          <span className={styles.linePre}>{project.skills}</span>
+        <div className="flexRow gap10">
+          <span className='darkBlue nowrap'>사용기술:</span>
+          <span>{project.skills}</span>
         </div>
         {PROJECT[project.name].map((project, idx) => (
-          <div key={idx} className={styles.group}>
-            <span className={styles.line}>{project[0]} : </span>
-            <span className={styles.linePre}><CustomLink href={project[1]} /></span>
+          <div key={idx} className="flexRow gap10">
+            <span className='darkBlue nowrap'>{project[0]} : </span>
+            <span><CustomLink href={project[1]} /></span>
           </div>
         ))}
-        <div className={styles.group}>
-          <div className={styles.line}>설명 : </div>
-          <div className={styles.description}>{project.description}</div>
+        <div className="flexRow gap10">
+          <div className='darkBlue nowrap'>설명 : </div>
+          <div className="orange">{project.description}</div>
         </div>
-        <ImageSlider title={project.project} images={IMG[project.name]} height={500} />
+        <ImageSlider title={project.project} images={IMG[project.name]} />
       </div>
       <br /><br />
     </div>

@@ -1,0 +1,80 @@
+.ts {
+  text-align: start;
+}
+
+.tc {
+  text-align: center;
+}
+
+.te {
+  text-align: end;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+.italic {
+  font-style: italic;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.big {
+  font-size: 50px;
+  font-weight: 700;
+}
+
+.title {
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.info {
+  font-size: 25px;
+  font-weight: 700;
+}
+
+.subtitle {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.subinfo {
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.small {
+  font-size: 15px;
+  font-weight: 400;
+}
+
+@media (max-width: 900px) {
+  .big {
+    font-size: 30px;
+  }
+
+  .title {
+    font-size: 25px;
+  }
+
+  .info {
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  .subtitle {
+    font-size: 18px;
+    font-weight: 400;
+  }
+
+  .subinfo {
+    font-size: 15px;
+    font-weight: 400;
+  }
+
+  .small {
+    font-size: 12px;
+    font-weight: 400;
+  }
+}

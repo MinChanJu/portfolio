@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import data from './assets/data.json'
-import { AppRoutes, SideBar } from './components'
+import { AppRoutes, PageTitle, SideBar } from './components'
 import { HashRouter } from 'react-router-dom'
 import './styles'
 
@@ -9,6 +9,7 @@ const App: React.FC = () => {
 
   return (
     <HashRouter>
+      <PageTitle projects={data.projects} />
       <SideBar isSidebarOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen} projects={data.projects} />
       <AppRoutes isSidebarOpen={isSidebarOpen} data={data} />
     </HashRouter>
