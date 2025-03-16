@@ -6,7 +6,7 @@ import { useLocation } from "react-router-dom"
 import { Project } from "../types"
 import { getPathId } from "../utils/Path"
 
-type SideBarProps = {
+interface SideBarProps {
   isSidebarOpen: boolean;
   setIsSidebarOpen: React.Dispatch<React.SetStateAction<boolean>>;
   projects: Project[];
@@ -50,7 +50,6 @@ const SideBar: React.FC<SideBarProps> = ({ isSidebarOpen, setIsSidebarOpen, proj
         <button className={getSelectBtnClass(5)} onClick={goToLink}>링크</button>
       </div>
     </div>
-
   )
 }
 

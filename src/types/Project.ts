@@ -6,5 +6,4 @@ export type Project = {
   skills: string;
   description: string;
   name: string;
-  cnt: number;
 }

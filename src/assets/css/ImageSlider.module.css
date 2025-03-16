@@ -54,7 +54,7 @@
 }
 
 .selectImage {
-  height: 50px;
+  height: 100px;
   border-radius: 5px;
   object-fit: contain;
 }
@@ -80,4 +80,14 @@
 
 .selectContainer::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(180deg, #4d4c4c, #274951);
+}
+
+@media (max-width: 900px) {
+  .selectImage {
+    height: 50px;
+  }
+
+  .swiper {
+    aspect-ratio: 1.5;
+  }
 }

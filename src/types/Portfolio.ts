@@ -2,7 +2,7 @@ import { Career, Project, Skill, Prize, Certificate } from ".";
 
 export type Portfolio = {
   languages: Skill[];
-  librarys: Skill[];
+  libraries: Skill[];
   tools: Skill[];
   projects: Project[];
   prizes: Prize[];

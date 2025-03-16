@@ -3,10 +3,10 @@ export const ROUTES = {
   INTRO: '/intro',
   SKILL: '/skill',
   AWARD: '/award',
-  CARRER: '/carrer',
+  CAREER: '/career',
   LINK: '/link',
   PROJECT: '/project/:projectId',
-  PROJECCT_ID: (projectId: number) => `/project/${projectId}`,
+  PROJECT_ID: (projectId: number) => `/project/${projectId}`,
   
   NOT_FOUND: '*',
 };

@@ -9,9 +9,9 @@ const useNavigation = () => {
 		goToHome: () => navigate(ROUTES.HOME),
 		goToIntro: () => navigate(ROUTES.INTRO),
 		goToSkill: () => navigate(ROUTES.SKILL),
-		goToProjectId: (projectId: number) => navigate(ROUTES.PROJECCT_ID(projectId)),
+		goToProjectId: (projectId: number) => navigate(ROUTES.PROJECT_ID(projectId)),
 		goToAward: () => navigate(ROUTES.AWARD),
-		goToCarrer: () => navigate(ROUTES.CARRER),
+		goToCarrer: () => navigate(ROUTES.CAREER),
 		goToLink: () => navigate(ROUTES.LINK),
 	};
 };

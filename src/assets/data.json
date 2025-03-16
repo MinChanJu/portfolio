@@ -45,9 +45,9 @@
       "level": 6
     }
   ],
-  "librarys": [
+  "libraries": [
     {
-      "name": "Spring Boot",
+      "name": "Spring",
       "level": 7
     },
     {
@@ -60,6 +60,18 @@
     },
     {
       "name": "Unity",
+      "level": 5
+    },
+    {
+      "name": "Django",
+      "level": 4
+    },
+    {
+      "name": "NodeJS",
+      "level": 5
+    },
+    {
+      "name": "NextJS",
       "level": 5
     }
   ],
@@ -79,6 +91,10 @@
     {
       "name": "IntelliJ",
       "level": 6
+    },
+    {
+      "name": "PyCharm",
+      "level": 6
     }
   ],
   "projects": [
@@ -89,8 +105,7 @@
       "role": "BackEnd - 70%\nFrontEnd - 70%\nDataBase - 100%",
       "skills": "Spring Boot, Java, Flutter, Dart, SupaBase, PostgreSQL",
       "description": "Spring Boot - BackEnd | Flutter - Mobile App | SupaBase - DataBase.\n\n이 앱은 사용자들 끼리 랜덤으로 매칭하여 채팅을 진행할 수가 있고 친구를 맺어 영구적으로 채팅도 할 수 있습니다.채팅은 웹소켓을 통해 서로 소통하며 서버에서 수신하여 각 사용자 세션에게 보내지게 하였습니다. 만약 상대방의 웹소켓 세션이 없는 경우(앱을 켠 상태가 아닌 경우) FCM을 사용하여 앱 알림이 가도록 설정하였습니다.\n\n보안성을 위해 .env 파일을 통해 api키들을 관리하였고 아직 서버를 배포하지 않았기에 cors 설정은 안되어있습니다. 추후 배포하면 cors 설정을 할 예정입니다.\n\n이 프로젝트는 현재 개발 중입니다.",
-      "name": "dating_app",
-      "cnt": 3
+      "name": "dating_app"
     },
     {
       "project": "코딩대회 사이트",
@@ -99,18 +114,16 @@
       "role": "BackEnd - 100%\nFrontEnd - 100%\nDataBase - 100%",
       "skills": "Spring Boot, Java, React, TypeScript, SupaBase, PostgreSQL",
       "description": "Spring Boot - BackEnd | React - FrontEnd | SupaBase - DataBase.\n\n이 사이트는 승인된 사용자가 대회를 출제하고 참가자들을 관리하며 참가자들은 시간에 맞춰 대회에 출전할 수 있습니다. 대회 아이디를 따로 생성하여 관리할 수도 있고 스코어보드를 볼 수도 있습니다. 대회 관리자는 문제를 출제할 수 있으며 참가자들에게는 1개의 예제만 보이고 출제자는 여러 테스트 케이스를 설정할 수 있습니다. 이 사이트를 통해 작성한 코드를 제출하면 보이는 예제와 숨겨진 여러 테스트 케이스를 실행하며 맞은 개수를 비율로 점수를 소수점 1자리까지 보여줍니다. 제출할 수 있는 언어는 현재 C언어, Python, Java입니다. \n\n관리자는 관리자 페이지에 접근할 수 있으며 JWT토큰을 통해 접근 권한 인증을 합니다. 기간이 끝난 대회는 open으로 바뀌며 모든 사용자가 접근가능해집니다. 사용자는 회원가입을 언제든 할 수 있습니다. 사용자는 open된 모든 대회에 대한 문제들을 풀어 볼 수 있으며, 내가 푼 문제들을 볼 수 있습니다.\n\n보안성을 위해 cors 설정을 하여 선택한 url에서 보낸 요청만 처리하도록 설정하였고 .env 파일을 통해 api키들을 관리했습니다.",
-      "name": "coding_contest",
-      "cnt": 2
+      "name": "coding_contest"
     },
     {
       "project": "포트폴리오",
-      "period": "2024.12 ~ 2025.01 (약 1주일)",
+      "period": "2024.12 ~ 2025.01 (약 1주일, 주기적으로 업데이트 중)",
       "team": "1명 (총괄)",
       "role": "FrontEnd - 100%",
       "skills": "React, TypeScript",
       "description": "React - FrontEnd.\n\n이 사이트는 저의 포트폴리오를 위해 제작하였습니다. 데이터들은 모두 src/assets/data.json에 src/types 폴더 안에 있는 타입대로 관리했습니다. 또한 component를 구분하여 프로젝트 구조를 완성하였고 CSS 파일은 CSS Modules 방식을 이용하여 관리했습니다. 또한 이미지와 url 관리는 src/constants 폴더에서 관리하고 있습니다.",
-      "name": "portfolio",
-      "cnt": 2
+      "name": "portfolio"
     },
     {
       "project": "소학회 앱",
@@ -119,8 +132,7 @@
       "role": "BackEnd - 100%\nMobile App - 100%\nDataBase - 100%",
       "skills": "Spring Boot, Java, Flutter, Dart, SupaBase, PostgreSQL",
       "description": "Spring Boot - BackEnd | Flutter - Mobile App | SupaBase - DataBase.\n\n이 앱은 코딩대회 사이트에서 착안하여 앱으로 만드면 좋겠다라는 생각이 들어 만들게 되었습니다. 코딩대회 사이트와 비슷하게 사용자들은 등록된 대회에 대한 문제를 풀 수 있고 대회를 개최할 수 있습니다. 데이터베이스와 서버는 코딩대회 사이트와 동일한 서버와 데이터베이스를 사용하였습니다. 물론 코딩대회 사이트에 비해 빠진 기능들이 있습니다. JWT 토큰은 없었고 대회에 대한 기간과 접근 권한을 확인하지 않았습니다.\n\n코딩대회 사이트의 제작기간보다 빠른 이유는 이전에 코딩대회를 만들었었습니다. 그때 당시 spring web을 이용하여 만들어서 프론트엔드와, 백엔드를 구분하고 싶어 새로 만들었습니다.",
-      "name": "mic_app",
-      "cnt": 3
+      "name": "mic_app"
     },
     {
       "project": "쓰레기 처리 게임",
@@ -129,8 +141,7 @@
       "role": "Game Engine - 100%",
       "skills": "Unity, C#",
       "description": "Unity - Game Engine.\n\n이 게임은 Unity를 이용한 첫 게임 개발이었습니다. 먼저 사용자는 드래그를 통해 캐릭터를 움직일 수 있고 발사할 수 있는 무기는 총 3개입니다. 업그레이드를 통해 업그레이드 되며 각 단계마다 공격력이 강해집니다. 업그레이드는 코인을 통해 할 수 있고 30개를 모으면 자동으로 업그레이드 됩니다. 코인은 내려오는 쓰레기를 처리하면 코인이 뿌려져 움직여서 얻을 수 있고 쓰레기의 종류는 6개입니다. 각 쓰레기마다 주는 코인도 다르고 시간에 따라 더 많은 코인을 주는 쓰레기가 나옵니다. 또한 시간에 따라 내려오는 속도도 더욱 빨라집니다. 쓰레기와 부딪힐 경우 게임이 끝나며 다시 시작할 수 있습니다.",
-      "name": "trash_game",
-      "cnt": 3
+      "name": "trash_game"
     }
   ],
   "prizes": [

@@ -10,10 +10,8 @@ const HomeView: React.FC<HomeViewProps> = ({ data }) => {
   return (
     <div className="flexCol gap100">
       <IntroductionView />
-      <SkillView languages={data.languages} librarys={data.librarys} tools={data.tools} />
-      {data.projects.map((_, index) => (
-        <ProjectView key={index} index={index} projects={data.projects} />
-      ))}
+      <SkillView languages={data.languages} libraries={data.libraries} tools={data.tools} />
+      {data.projects.map((_, index) => <ProjectView key={index} index={index} projects={data.projects} />)}
       <AwardView prizes={data.prizes} certificates={data.certificates} />
       <CareerView careers={data.careers} />
       <LinkView />

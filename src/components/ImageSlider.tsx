@@ -1,10 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
-import styles from "../assets/css/ImageSlider.module.css";
 import { useLocation } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Swiper as SwiperType } from "swiper";
-import "swiper/swiper-bundle.css"; // 최신 스타일 로드
 import { Navigation } from "swiper/modules";
+import "swiper/swiper-bundle.css";
+import styles from "../assets/css/ImageSlider.module.css";
 
 interface GridProps {
   title: string;
@@ -17,7 +17,7 @@ const ImageSlider: React.FC<GridProps> = ({ title, images }) => {
   const swiperRef = useRef<SwiperType | null>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const handleThumbnailClick = (index: number) => {
+  const handleClick = (index: number) => {
     if (swiperRef.current) {
       swiperRef.current.slideTo(index);
     }
@@ -28,6 +28,8 @@ const ImageSlider: React.FC<GridProps> = ({ title, images }) => {
     scrollRef.current?.scrollTo(0, 0);
     swiperRef.current?.slideTo(0);
   }, [location.pathname]);
+
+  if (images.length == 0) return;
 
   return (
     <div className={styles.container}>
@@ -51,7 +53,7 @@ const ImageSlider: React.FC<GridProps> = ({ title, images }) => {
       </div>
       <div ref={scrollRef} className={styles.selectContainer}>
         {images.map((src, index) => (
-          <div className={styles.selectImageWrapper} key={index} onClick={() => handleThumbnailClick(index)} >
+          <div className={styles.selectImageWrapper} key={index} onClick={() => handleClick(index)} >
             <img className={styles.selectImage + " " + (currentIndex == index ? styles.selected : "")} src={src} alt={`Select ${index}`} />
           </div>
         ))}

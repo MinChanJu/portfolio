@@ -1,10 +1,11 @@
 import React from 'react'
-import { IMG, PROJECT } from '../constants/URLManage'
 import CustomLink from '../components/CustomLink'
 import { useParams } from 'react-router-dom'
 import Error from '../components/Error'
 import { Project } from '../types'
 import { ImageSlider } from '../components'
+import { getImages } from '../utils/Image'
+import { getSourceCodes } from '../utils/SourceCode'
 
 type ProjectViewProps = {
   index?: number;
@@ -27,7 +28,7 @@ const ProjectView: React.FC<ProjectViewProps> = ({ index, projects }) => {
       <br />
       <div className="info ts">{project.project}</div>
       <hr />
-      <div className="subinfo ts">
+      <div className="subInfo ts">
         <div className="flexRow gap10">
           <span className='darkBlue nowrap'>개발기간:</span>
           <span>{project.period}</span>
@@ -44,7 +45,7 @@ const ProjectView: React.FC<ProjectViewProps> = ({ index, projects }) => {
           <span className='darkBlue nowrap'>사용기술:</span>
           <span>{project.skills}</span>
         </div>
-        {PROJECT[project.name].map((project, idx) => (
+        {getSourceCodes(project.name).map((project, idx) => (
           <div key={idx} className="flexRow gap10">
             <span className='darkBlue nowrap'>{project[0]} : </span>
             <span><CustomLink href={project[1]} /></span>
@@ -54,7 +55,7 @@ const ProjectView: React.FC<ProjectViewProps> = ({ index, projects }) => {
           <div className='darkBlue nowrap'>설명 : </div>
           <div className="orange">{project.description}</div>
         </div>
-        <ImageSlider title={project.project} images={IMG[project.name]} />
+        <ImageSlider title={project.project} images={getImages(project.name)} />
       </div>
       <br /><br />
     </div>

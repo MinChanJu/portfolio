@@ -4,7 +4,7 @@ import { Project } from "../types";
 import { ROUTES } from "../constants/routes";
 import { getLastPathParam } from "../utils/Path";
 
-type PageTitleProps = {
+interface PageTitleProps {
   projects: Project[];
 }
 
@@ -21,7 +21,7 @@ const PageTitle: React.FC<PageTitleProps> = ({ projects }) => {
       [ROUTES.INTRO] : "자기 소개",
       [ROUTES.SKILL] : "기술 스택",
       [ROUTES.AWARD] : "수상 및 자격증",
-      [ROUTES.CARRER] : "경력",
+      [ROUTES.CAREER] : "경력",
       [ROUTES.LINK] : "링크",
     };
 

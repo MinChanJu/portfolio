@@ -4,7 +4,7 @@ import { CustomLink } from '../components';
 
 const IntroductionView: React.FC = () => {
   const intro = `
- 저는 대학 입학 후, 처음 프로그래밍을 접했고, 코드가 정상적으로 실행될 때의 성취감에 매료되었습니다. 이후 소프트웨어학과를 복수전공하며 알고리즘 문제 해결에 흥미를 느껴 꾸준히 학습한 끝에 solved.ac P5 티어를 달성하였습니다. 또한, 2023 아주대학교 산업수학 프로그래밍 경진대회 2등, 2024 아주대학교 프로그래밍 경진대회(APC) Div.2 대상(1등)을 수상하며 실력을 인정받았습니다.
+ 저는 대학 입학 후, 처음 프로그래밍을 접했고, 코드가 정상적으로 실행될 때의 성취감에 매료되었습니다. 이후 소프트웨어학과를 복수전공하며 알고리즘 문제 해결에 흥미를 느껴 꾸준히 학습한 끝에 solved.ac P5(상위 약 4%) 티어를 달성하였습니다. 또한, 2023 아주대학교 산업수학 프로그래밍 경진대회 2등, 2024 아주대학교 프로그래밍 경진대회(APC) Div.2 대상(1등)을 수상하며 실력을 인정받았습니다.
 
  2024년에는 수학과 소학회 MiC의 회장을 맡아 프로그래밍 멘토링과 코딩 대회를 기획·운영하며 교육 방식과 리더십을 배웠습니다. 특히, 더 나은 학습 환경을 제공하기 위해 직접 코딩 대회 사이트를 개발하며 백엔드(Spring Boot), 프론트엔드(React), 데이터베이스(Supabase)를 활용하며 실무적인 개발 경험을 쌓을 수 있었습니다. 그렇게 저는 개발자의 꿈으로 한걸음 다가갔다고 생각합니다.
 
@@ -19,7 +19,7 @@ const IntroductionView: React.FC = () => {
 
       <br />
       <div className="info ts">안녕하세요. 저는 주니어 개발자 주민찬입니다.</div>
-      <div className='subinfo ts'>{intro}</div>
+      <div className='subInfo ts'>{intro}</div>
 
       <br />
       <div className="flexRow gap10">
@@ -29,7 +29,7 @@ const IntroductionView: React.FC = () => {
       <hr />
       <div className="flexRow gap10">
         <div className='flex1'>
-          <div className="subinfo ts">
+          <div className="subInfo ts">
             <div>이름 : 주민찬</div>
             <div>생년월일 : 2002.02.07</div>
             <div>전화번호 : 010-8592-7570</div>
@@ -39,7 +39,7 @@ const IntroductionView: React.FC = () => {
           </div>
         </div>
         <div className='flex1'>
-          <div className="subinfo ts">
+          <div className="subInfo ts">
             <div>학교 : 아주대학교</div>
             <div>입학년도 : 2020.03</div>
             <div>졸업년도(예정) : 2026.02</div>
