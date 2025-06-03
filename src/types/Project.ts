@@ -4,6 +4,10 @@ export type Project = {
   team: string;
   role: string;
   skills: string;
+  source?: string;
+  back?: string;
+  front?: string;
+  site?: string;
   description: string;
   name: string;
 }

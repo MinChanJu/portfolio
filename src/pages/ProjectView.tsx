@@ -5,7 +5,6 @@ import Error from '../components/Error'
 import { Project } from '../types'
 import { ImageSlider } from '../components'
 import { getImages } from '../utils/Image'
-import { getSourceCodes } from '../utils/SourceCode'
 
 type ProjectViewProps = {
   index?: number;
@@ -45,15 +44,27 @@ const ProjectView: React.FC<ProjectViewProps> = ({ index, projects }) => {
           <span className='darkBlue nowrap'>사용기술:</span>
           <span>{project.skills}</span>
         </div>
-        {getSourceCodes(project.name).map((project, idx) => (
-          <div key={idx} className="flexRow gap10">
-            <span className='darkBlue nowrap'>{project[0]} : </span>
-            <span><CustomLink href={project[1]} /></span>
+        {project.back && <div className="flexRow gap10">
+          <span className='darkBlue nowrap'>백엔드 : </span>
+          <span><CustomLink href={project.back} /></span>
+        </div>}
+        {project.front && <div className="flexRow gap10">
+          <span className='darkBlue nowrap'>프론트엔드 : </span>
+          <span><CustomLink href={project.front} /></span>
+        </div>}
+        {project.source && <div className="flexRow gap10">
+          <span className='darkBlue nowrap'>소스코드 : </span>
+          <span><CustomLink href={project.source} /></span>
+        </div>}
+        {project.site &&
+          <div className="flexRow gap10">
+            <span className='darkBlue nowrap'>사이트 : </span>
+            <span><CustomLink href={project.site} /></span>
           </div>
-        ))}
+        }
         <div className="flexRow gap10">
           <div className='darkBlue nowrap'>설명 : </div>
-          <div className="orange">{project.description}</div>
+          <div className="dark" dangerouslySetInnerHTML={{ __html: project.description }} />
         </div>
         <ImageSlider title={project.project} images={getImages(project.name)} />
       </div>
