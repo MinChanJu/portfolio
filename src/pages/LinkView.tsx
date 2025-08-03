@@ -12,8 +12,8 @@ const LinkView: React.FC = () => {
       <hr />
       <div className="subInfo ts"><CustomLink href={URL.GITHUB} /></div>
       <div className="imageContainer">
-        <img style={{ width: "42.5%" }} src={URL.GITHUB_TOP_LANGS} alt="Top Languages" />
-        <img style={{ width: "55.5%" }} src={URL.GITHUB_STATS} alt="GitHub Stats" />
+        <img src={URL.GITHUB_TOP_LANGS} alt="Top Languages" />
+        <img src={URL.GITHUB_STATS} alt="GitHub Stats" />
       </div>
 
       <br />

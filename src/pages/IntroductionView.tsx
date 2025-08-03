@@ -35,7 +35,7 @@ const IntroductionView: React.FC = () => {
             <div>전화번호 : 010-8592-7570</div>
             <div>이메일 : mcj00220077@gmail.com</div>
             <div>깃허브 : <CustomLink href={URL.GITHUB} /></div>
-            <div>주소 : 경기도 수원시 영통구 원천동</div>
+            <div>주소 : 경기도 수원시 영통구</div>
           </div>
         </div>
         <div className='flex1'>
@@ -45,7 +45,7 @@ const IntroductionView: React.FC = () => {
             <div>졸업년도(예정) : 2026.02</div>
             <div>제 1전공 : 수학과</div>
             <div>복수전공 : 소프트웨어학과</div>
-            <div>학기 : 4-1(재학) 2025.03 기준</div>
+            <div>학기 : 4-2(재학) 2025.08 기준</div>
           </div>
         </div>
       </div>
