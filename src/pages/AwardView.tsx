@@ -1,6 +1,7 @@
 import React from 'react'
 import { Certificate, Prize } from '../types';
-import { Table } from '../components';
+import { ImageSlider, Table } from '../components';
+import { getImages } from '../utils/Image';
 
 type AwardViewProps = {
   prizes: Prize[];
@@ -29,6 +30,11 @@ const AwardView: React.FC<AwardViewProps> = ({ prizes, certificates }) => {
         columnClass={["num", "", "", "", "date"]}
         data={certificates}
         dataKey={["idx", "name", "score", "issuer", "date"]} />
+
+      <br />
+      <div className="info ts">증명자료</div>
+      <hr />
+      <ImageSlider images={getImages("certification")} imageName={true} />
     </div>
   );
 };

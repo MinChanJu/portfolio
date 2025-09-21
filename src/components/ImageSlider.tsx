@@ -7,11 +7,12 @@ import "swiper/swiper-bundle.css";
 import styles from "../assets/css/ImageSlider.module.css";
 
 interface GridProps {
-  title: string;
   images: string[];
+  title?: string;
+  imageName?: boolean;
 }
 
-const ImageSlider: React.FC<GridProps> = ({ title, images }) => {
+const ImageSlider: React.FC<GridProps> = ({ title, images, imageName }) => {
   const location = useLocation();
   const scrollRef = useRef<HTMLDivElement>(null);
   const swiperRef = useRef<SwiperType | null>(null);
@@ -33,7 +34,7 @@ const ImageSlider: React.FC<GridProps> = ({ title, images }) => {
 
   return (
     <div className={styles.container}>
-      <div className="info">{`${title} 사진 ${currentIndex + 1}`}</div>
+      <div className="info">{imageName ? decodeURIComponent(images[currentIndex].split("/").pop() ?? "").split(".")[0] : `${title} 사진 ${currentIndex + 1}`}</div>
       <div className={styles.swiperContainer}>
         <Swiper
           modules={[Navigation]}
