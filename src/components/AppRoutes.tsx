@@ -3,7 +3,6 @@ import { Error } from ".";
 import { useEffect } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
 
-import styles from "../assets/css/AppRoutes.module.css";
 import { ROUTES } from "../constants/routes";
 import { AwardView, CareerView, HomeView, IntroductionView, LinkView, ProjectView, SkillView } from "../pages";
 import { Portfolio } from "../types";
@@ -21,16 +20,16 @@ const AppRoutes: React.FC<AppRoutesProps> = ({ isSidebarOpen, data }) => {
   }, [location.pathname]);
 
   return (
-    <div className={`${styles.content} ${isSidebarOpen ? styles.closed : ""}`}>
+    <div className={`transition-all duration-300 ${isSidebarOpen ? "ml-75 w-[calc(100%-300px)]" : "ml-0 w-full"}`}>
       <header>
         <img
-          style={{ width: "100%", display: "block" }}
+          className="w-full"
           src="https://capsule-render.vercel.app/api?type=waving&color=0:f50000,100:6dfde0&height=180&animation=twinkling"
           alt="웨이브 물결 위"
         />
       </header>
 
-      <main className={styles.main}>
+      <main className="mx-12.5">
         <Routes>
           <Route path={ROUTES.HOME} element={<HomeView data={data} />} />
           <Route path={ROUTES.INTRO} element={<IntroductionView />} />
@@ -48,12 +47,12 @@ const AppRoutes: React.FC<AppRoutesProps> = ({ isSidebarOpen, data }) => {
 
       <footer>
         <img
-          style={{ marginTop: "100px" }}
+          className="mx-auto mt-25"
           src="https://readme-typing-svg.demolab.com/?lines=포트폴리오를+방문해+주셔서+감사합니다!;좋은+하루+되세요!+😊&font=Fira%20Code&duration=2000&pause=1000&center=true&height=50"
           alt="마지막 문구"
         ></img>
         <img
-          style={{ width: "100%", display: "block" }}
+          className="w-full"
           src="https://capsule-render.vercel.app/api?type=waving&color=1d5&height=150&section=footer"
           alt="웨이브 물결 아래"
         />

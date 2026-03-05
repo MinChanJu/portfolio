@@ -10,11 +10,12 @@ type CareerViewProps = {
 const CareerView: React.FC<CareerViewProps> = ({ careers }) => {
   return (
     <div>
-      <div className="big purple ts italic">Careers</div>
+      <div className="text-start text-5xl font-bold text-purple-600 italic">Careers</div>
 
       <br />
-      <div className="info ts">경력</div>
+      <div className="text-start text-2xl font-bold">경력</div>
       <hr />
+      <br />
       <Table
         columnName={["번호", "구분", "내용", "기간"]}
         columnClass={["num", "class", "", "period"]}

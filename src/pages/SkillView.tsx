@@ -18,7 +18,7 @@ const SkillView: React.FC<SkillViewProps> = ({ languages, libraries, tools }) =>
     }
 
     return (
-      <ul key={idx} className="subInfo ts flex1">
+      <ul key={idx} className="flex-1 text-start text-lg font-normal">
         {sub.map((lang, index) => (
           <li key={index}>
             {lang.name} ({lang.level}/10)
@@ -30,23 +30,23 @@ const SkillView: React.FC<SkillViewProps> = ({ languages, libraries, tools }) =>
 
   return (
     <div>
-      <div className="big purple ts italic">Skill Set</div>
+      <div className="text-start text-5xl font-bold text-purple-600 italic">Skill Set</div>
 
       <br />
-      <div className="info ts">언어</div>
+      <div className="text-start text-2xl font-bold">언어</div>
       <hr />
-      <div className="flexRow">{Array.from({ length: divide }, (_, i) => getLanguage(i))}</div>
+      <div className="flex flex-row">{Array.from({ length: divide }, (_, i) => getLanguage(i))}</div>
 
       <br />
       <br />
-      <div className="flexRow gap10">
-        <div className="info flex1 ts">프레임워크 및 라이브러리</div>
-        <div className="info flex1 ts">도구</div>
+      <div className="flex flex-row gap-2.5">
+        <div className="flex-1 text-start text-2xl font-bold">프레임워크 및 라이브러리</div>
+        <div className="flex-1 text-start text-2xl font-bold">도구</div>
       </div>
       <hr />
-      <div className="flexRow gap10">
-        <div className="flex1">
-          <ul className="subInfo ts">
+      <div className="flex flex-row gap-2.5">
+        <div className="flex-1">
+          <ul className="text-start text-lg font-normal">
             {libraries.map((library, index) => (
               <li key={index}>
                 {library.name} ({library.level}/10)
@@ -54,8 +54,8 @@ const SkillView: React.FC<SkillViewProps> = ({ languages, libraries, tools }) =>
             ))}
           </ul>
         </div>
-        <div className="flex1">
-          <ul className="subInfo ts">
+        <div className="flex-1">
+          <ul className="text-start text-lg font-normal">
             {tools.map((tool, index) => (
               <li key={index}>
                 {tool.name} ({tool.level}/10)

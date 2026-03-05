@@ -18,14 +18,14 @@ const Error: React.FC<ErrorProps> = ({ big, small, weight, message, subMessage, 
 
   return (
     <div
-      className="center"
+      className="flex flex-col items-center"
       style={{ marginTop: `${marginTop}px`, marginBottom: `${marginBottom == null ? "auto" : `${marginBottom}px`}` }}
     >
-      <div className="blue" style={{ fontSize: `${big}px`, fontWeight: `${weight}` }}>
+      <div className="text-blue-600" style={{ fontSize: `${big}px`, fontWeight: `${weight}` }}>
         {message}
       </div>
       <br />
-      <div className="red" style={{ fontSize: `${small}px`, fontWeight: `${weight}` }}>
+      <div className="text-red-600" style={{ fontSize: `${small}px`, fontWeight: `${weight}` }}>
         {subMessage}
       </div>
     </div>

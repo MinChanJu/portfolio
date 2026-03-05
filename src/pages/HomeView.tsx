@@ -10,7 +10,7 @@ type HomeViewProps = {
 
 const HomeView: React.FC<HomeViewProps> = ({ data }) => {
   return (
-    <div className="flexCol gap100">
+    <div className="flex w-full flex-col gap-25">
       <IntroductionView />
       <SkillView languages={data.languages} libraries={data.libraries} tools={data.tools} />
       {data.projects.map((_, index) => (

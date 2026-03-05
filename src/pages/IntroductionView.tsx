@@ -16,21 +16,21 @@ const IntroductionView: React.FC = () => {
 
   return (
     <div>
-      <div className="big purple ts italic">Introduction</div>
+      <div className="text-start text-5xl font-bold text-purple-600 italic">Introduction</div>
 
       <br />
-      <div className="info ts">안녕하세요. 저는 주니어 개발자 주민찬입니다.</div>
-      <div className="subInfo ts">{intro}</div>
+      <div className="text-start text-2xl font-bold">안녕하세요. 저는 주니어 개발자 주민찬입니다.</div>
+      <div className="text-start text-lg font-normal break-all whitespace-pre-wrap">{intro}</div>
 
       <br />
-      <div className="flexRow gap10">
-        <div className="flex1 info ts">Info</div>
-        <div className="flex1 info ts">학력</div>
+      <div className="flex flex-row gap-2.5">
+        <div className="flex-1 text-start text-2xl font-bold">Info</div>
+        <div className="flex-1 text-start text-2xl font-bold">학력</div>
       </div>
       <hr />
-      <div className="flexRow gap10">
-        <div className="flex1">
-          <div className="subInfo ts">
+      <div className="flex flex-row gap-2.5">
+        <div className="flex-1">
+          <div className="text-start text-lg font-normal">
             <div>이름 : 주민찬</div>
             <div>생년월일 : 2002.02.07</div>
             <div>전화번호 : 010-8592-7570</div>
@@ -41,8 +41,8 @@ const IntroductionView: React.FC = () => {
             <div>주소 : 경기도 수원시 영통구</div>
           </div>
         </div>
-        <div className="flex1">
-          <div className="subInfo ts">
+        <div className="flex-1">
+          <div className="text-start text-lg font-normal">
             <div>학교 : 아주대학교</div>
             <div>입학년도 : 2020.03</div>
             <div>졸업년도(예정) : 2026.02</div>

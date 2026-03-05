@@ -3,10 +3,10 @@ import { BrowserRouter } from "react-router-dom";
 
 import data from "./assets/data.json";
 import { AppRoutes, PageTitle, SideBar } from "./components";
-import "./styles";
+import "./index.css";
 
 const App: React.FC = () => {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false); // 사이드바 열림 여부
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true); // 사이드바 열림 여부
 
   return (
     <BrowserRouter basename="/portfolio">

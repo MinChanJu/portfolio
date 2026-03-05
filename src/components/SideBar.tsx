@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
 
-import styles from "../assets/css/SideBar.module.css";
 import profile from "../assets/image/profile.jpeg";
 import useNavigation from "../hooks/useNavigation";
 import { Project } from "../types";
@@ -27,20 +26,29 @@ const SideBar: React.FC<SideBarProps> = ({ isSidebarOpen, setIsSidebarOpen, proj
   }, [location.pathname, projects]);
 
   const getSelectBtnClass = (idx: number) => {
-    let style = styles.selectBtn;
-    if (idx >= 10) style += " " + styles.project;
-    if (idx == tab) style += " " + styles.selected;
+    let style = "w-full border-t border-b border-gray-400 py-2 text-xl";
+    if (idx >= 10) style += " " + "bg-gray-100";
+    if (idx == tab) style += " " + "bg-gray-200 font-semibold";
     return style;
   };
 
   return (
-    <div ref={scrollRef} className={`${styles.sidebar} ${isSidebarOpen ? styles.closed : ""}`}>
-      <button className={styles.toggleBtn} onClick={() => setIsSidebarOpen(!isSidebarOpen)}>
-        {isSidebarOpen ? "☰" : "⏎"}
+    <div
+      ref={scrollRef}
+      className={`fixed top-0 bottom-0 left-0 z-5 box-border flex w-75 flex-col items-center border-r border-gray-500 bg-white transition-transform duration-300 ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"}`}
+    >
+      <button
+        className="absolute top-2.5 -right-12.5 h-10 w-10 rounded-xl bg-gray-500/80 text-xl text-white"
+        onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+      >
+        {isSidebarOpen ? "⏎" : "☰"}
       </button>
-      <img src={profile} alt="프로필 사진" />
-      <img src="https://readme-typing-svg.demolab.com/?lines=Min+Chan+Ju;Junior+Developer&font=Emblema+One&duration=1000&pause=3000&center=true&width=200&color=BE58F7"></img>
-      <div className={styles.selectList}>
+      <img className="mt-5 w-4/5 rounded-[40%]" src={profile} alt="프로필 사진" />
+      <img
+        className="mt-5 w-4/5"
+        src="https://readme-typing-svg.demolab.com/?lines=Min+Chan+Ju;Junior+Developer&font=Emblema+One&duration=1000&pause=3000&center=true&width=200&color=BE58F7"
+      ></img>
+      <div className="scrollbar relative mb-7.5 flex w-full flex-col gap-2.5 overflow-y-scroll pl-2.5">
         <button className={getSelectBtnClass(0)} onClick={goToHome}>
           전체보기
         </button>

@@ -6,8 +6,6 @@ import { Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.css";
 
-import styles from "../assets/css/ImageSlider.module.css";
-
 interface GridProps {
   images: string[];
   title?: string;
@@ -35,13 +33,13 @@ const ImageSlider: React.FC<GridProps> = ({ title, images, imageName }) => {
   if (images.length == 0) return;
 
   return (
-    <div className={styles.container}>
-      <div className="info">
+    <div className="mt-12.5 box-border flex w-full flex-col gap-5 rounded-xl bg-gray-300 p-5">
+      <div className="text-start text-2xl font-bold">
         {imageName
           ? decodeURIComponent(images[currentIndex].split("/").pop() ?? "").split(".")[0]
           : `${title} 사진 ${currentIndex + 1}`}
       </div>
-      <div className={styles.swiperContainer}>
+      <div className="mx-auto w-full overflow-hidden">
         <Swiper
           modules={[Navigation]}
           spaceBetween={20}
@@ -49,20 +47,27 @@ const ImageSlider: React.FC<GridProps> = ({ title, images, imageName }) => {
           navigation
           onSwiper={(swiper) => (swiperRef.current = swiper)} // ✅ Swiper 인스턴스 저장
           onSlideChange={(swiper) => setCurrentIndex(swiper.activeIndex)}
-          className={styles.swiper}
+          className="aspect-[2] w-full max-[900px]:aspect-[1.5]"
         >
           {images.map((src, index) => (
-            <SwiperSlide key={index} className={styles.swiperSlide}>
-              <img className={styles.swiperImage} src={src} alt={`Slide ${index}`} />
+            <SwiperSlide key={index} className="flex items-center justify-center">
+              <img className="h-full w-full object-contain" src={src} alt={`Slide ${index}`} />
             </SwiperSlide>
           ))}
         </Swiper>
       </div>
-      <div ref={scrollRef} className={styles.selectContainer}>
+      <div ref={scrollRef} className="slider-scrollbar flex w-full gap-3 overflow-x-auto pb-5">
         {images.map((src, index) => (
-          <div className={styles.selectImageWrapper} key={index} onClick={() => handleClick(index)}>
+          <div
+            className="flex shrink-0 cursor-pointer items-center justify-center hover:brightness-90"
+            key={index}
+            onClick={() => handleClick(index)}
+          >
             <img
-              className={styles.selectImage + " " + (currentIndex == index ? styles.selected : "")}
+              className={
+                "h-25 w-25 rounded-lg object-contain max-[900px]:h-12.5 max-[900px]:w-12.5 " +
+                (currentIndex == index ? "brightness-90" : "")
+              }
               src={src}
               alt={`Select ${index}`}
             />
