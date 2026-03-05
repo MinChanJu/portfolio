@@ -13,8 +13,7 @@ export default defineConfig({
           if (!id.includes("node_modules")) return;
 
           if (id.includes("swiper")) return "swiper";
-          if (id.includes("highlight")) return "highlight-vendor";
-          if (id.includes("react")) return "react-vendor";
+          if (id.includes("react-dom")) return "react-vendor";
 
           return "vendor";
         },
