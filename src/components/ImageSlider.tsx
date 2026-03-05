@@ -1,9 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
-import { Swiper, SwiperSlide } from "swiper/react";
+
 import { Swiper as SwiperType } from "swiper";
 import { Navigation } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.css";
+
 import styles from "../assets/css/ImageSlider.module.css";
 
 interface GridProps {
@@ -34,7 +36,11 @@ const ImageSlider: React.FC<GridProps> = ({ title, images, imageName }) => {
 
   return (
     <div className={styles.container}>
-      <div className="info">{imageName ? decodeURIComponent(images[currentIndex].split("/").pop() ?? "").split(".")[0] : `${title} 사진 ${currentIndex + 1}`}</div>
+      <div className="info">
+        {imageName
+          ? decodeURIComponent(images[currentIndex].split("/").pop() ?? "").split(".")[0]
+          : `${title} 사진 ${currentIndex + 1}`}
+      </div>
       <div className={styles.swiperContainer}>
         <Swiper
           modules={[Navigation]}
@@ -54,8 +60,12 @@ const ImageSlider: React.FC<GridProps> = ({ title, images, imageName }) => {
       </div>
       <div ref={scrollRef} className={styles.selectContainer}>
         {images.map((src, index) => (
-          <div className={styles.selectImageWrapper} key={index} onClick={() => handleClick(index)} >
-            <img className={styles.selectImage + " " + (currentIndex == index ? styles.selected : "")} src={src} alt={`Select ${index}`} />
+          <div className={styles.selectImageWrapper} key={index} onClick={() => handleClick(index)}>
+            <img
+              className={styles.selectImage + " " + (currentIndex == index ? styles.selected : "")}
+              src={src}
+              alt={`Select ${index}`}
+            />
           </div>
         ))}
       </div>

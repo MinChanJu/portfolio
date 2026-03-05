@@ -74,7 +74,7 @@
 }
 
 .selectContainer::-webkit-scrollbar-thumb {
-  background:  linear-gradient(180deg, #878686, #45808f);
+  background: linear-gradient(180deg, #878686, #45808f);
   border-radius: 10px;
 }
 

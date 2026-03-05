@@ -1,6 +1,7 @@
-import React from 'react'
-import { URL } from '../constants/URLManage';
-import { CustomLink } from '../components';
+import React from "react";
+
+import { CustomLink } from "../components";
+import { URL } from "../constants/URLManage";
 
 const IntroductionView: React.FC = () => {
   const intro = `
@@ -15,11 +16,11 @@ const IntroductionView: React.FC = () => {
 
   return (
     <div>
-      <div className="big purple italic ts">Introduction</div>
+      <div className="big purple ts italic">Introduction</div>
 
       <br />
       <div className="info ts">안녕하세요. 저는 주니어 개발자 주민찬입니다.</div>
-      <div className='subInfo ts'>{intro}</div>
+      <div className="subInfo ts">{intro}</div>
 
       <br />
       <div className="flexRow gap10">
@@ -28,17 +29,19 @@ const IntroductionView: React.FC = () => {
       </div>
       <hr />
       <div className="flexRow gap10">
-        <div className='flex1'>
+        <div className="flex1">
           <div className="subInfo ts">
             <div>이름 : 주민찬</div>
             <div>생년월일 : 2002.02.07</div>
             <div>전화번호 : 010-8592-7570</div>
             <div>이메일 : mcj00220077@gmail.com</div>
-            <div>깃허브 : <CustomLink href={URL.GITHUB} /></div>
+            <div>
+              깃허브 : <CustomLink href={URL.GITHUB} />
+            </div>
             <div>주소 : 경기도 수원시 영통구</div>
           </div>
         </div>
-        <div className='flex1'>
+        <div className="flex1">
           <div className="subInfo ts">
             <div>학교 : 아주대학교</div>
             <div>입학년도 : 2020.03</div>
@@ -50,7 +53,6 @@ const IntroductionView: React.FC = () => {
         </div>
       </div>
     </div>
-
   );
 };
 

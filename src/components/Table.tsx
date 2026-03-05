@@ -1,4 +1,4 @@
-import styles from '../assets/css/Table.module.css'
+import styles from "../assets/css/Table.module.css";
 
 interface tableProps<T> {
   columnName: string[]; // 헤더 이름
@@ -11,43 +11,69 @@ interface tableProps<T> {
   rowClass?: string[]; // 행 스타일
 }
 
-const Table = <T extends Object>({ columnName, columnClass, columnFunc, data, dataKey, dataFunc, onClick, rowClass }: tableProps<T>) => {
-
+const Table = <T extends object>({
+  columnName,
+  columnClass,
+  columnFunc,
+  data,
+  dataKey,
+  dataFunc,
+  onClick,
+  rowClass,
+}: tableProps<T>) => {
   return (
     <table className={styles.tableContainer}>
       <thead>
         <tr>
           {columnName.map((col, idx) => (
-            <th key={idx} className={styles.tableHead + " small " + styles[columnClass[idx]]}>{columnFunc?.(col, idx) ? columnFunc(col, idx) : col}</th>
+            <th key={idx} className={styles.tableHead + " small " + styles[columnClass[idx]]}>
+              {columnFunc?.(col, idx) ? columnFunc(col, idx) : col}
+            </th>
           ))}
         </tr>
       </thead>
       <tbody>
         {data.map((row, rowIndex) => (
-          <tr key={rowIndex} className='small' onClick={() => onClick?.(row)}>
+          <tr key={rowIndex} className="small" onClick={() => onClick?.(row)}>
             {dataKey.map((key, idx) => {
               if (key in row) {
                 return (
-                  <td key={idx} className={(onClick ? styles.cursor : '') + " " + (rowClass ? styles[rowClass[idx]] : '') + " " + styles.tableCell + " " + styles[columnClass[idx]]}>
+                  <td
+                    key={idx}
+                    className={
+                      (onClick ? styles.cursor : "") +
+                      " " +
+                      (rowClass ? styles[rowClass[idx]] : "") +
+                      " " +
+                      styles.tableCell +
+                      " " +
+                      styles[columnClass[idx]]
+                    }
+                  >
                     {(() => {
                       const cellFunc = dataFunc?.[key as keyof T];
-                      return cellFunc ? cellFunc(row[key as keyof T], rowIndex, idx) : (row[key as keyof T] as React.ReactNode);
+                      return cellFunc
+                        ? cellFunc(row[key as keyof T], rowIndex, idx)
+                        : (row[key as keyof T] as React.ReactNode);
                     })()}
                   </td>
                 );
               } else if (key == "idx") {
                 return (
-                  <td key={idx} className={(onClick ? styles.cursor : '') + " " + styles.tableCell + " " + styles[columnClass[idx]]}>
-                    {rowIndex+1}
+                  <td
+                    key={idx}
+                    className={(onClick ? styles.cursor : "") + " " + styles.tableCell + " " + styles[columnClass[idx]]}
+                  >
+                    {rowIndex + 1}
                   </td>
-                )
+                );
               }
-              })}
+            })}
           </tr>
         ))}
       </tbody>
     </table>
   );
-}
+};
 
 export default Table;

@@ -3,4 +3,4 @@ export type Certificate = {
   issuer: string;
   date: string;
   score: string;
-}
+};

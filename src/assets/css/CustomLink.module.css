@@ -1,8 +1,8 @@
 .link {
-    word-break: break-all;
-    color: rgb(0, 98, 255);
+  word-break: break-all;
+  color: rgb(0, 98, 255);
 }
 
 .link:hover {
-    color: rgb(0, 0, 255);
+  color: rgb(0, 0, 255);
 }

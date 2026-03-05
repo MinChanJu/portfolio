@@ -1,19 +1,20 @@
-import React, { useState } from 'react'
-import data from './assets/data.json'
-import { AppRoutes, PageTitle, SideBar } from './components'
-import { BrowserRouter } from 'react-router-dom'
-import './styles'
+import React, { useState } from "react";
+import { BrowserRouter } from "react-router-dom";
+
+import data from "./assets/data.json";
+import { AppRoutes, PageTitle, SideBar } from "./components";
+import "./styles";
 
 const App: React.FC = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false); // 사이드바 열림 여부
 
   return (
-    <BrowserRouter basename='/portfolio'>
+    <BrowserRouter basename="/portfolio">
       <PageTitle projects={data.projects} />
       <SideBar isSidebarOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen} projects={data.projects} />
       <AppRoutes isSidebarOpen={isSidebarOpen} data={data} />
     </BrowserRouter>
-  )
-}
+  );
+};
 
-export default App
+export default App;

@@ -3,4 +3,4 @@ export type Prize = {
   host: string;
   date: string;
   rank: string;
-}
+};

@@ -11,7 +11,8 @@
   border-radius: 10px;
 }
 
-.imageContainer > div, a {
+.imageContainer > div,
+a {
   flex: 1;
   width: 100%;
   text-align: center;

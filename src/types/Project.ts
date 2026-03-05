@@ -10,4 +10,4 @@ export type Project = {
   site?: string;
   description: string;
   name: string;
-}
+};

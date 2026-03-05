@@ -1,16 +1,19 @@
-import React from 'react'
-import { URL } from '../constants/URLManage'
-import CustomLink from '../components/CustomLink'
+import React from "react";
+
+import CustomLink from "../components/CustomLink";
+import { URL } from "../constants/URLManage";
 
 const LinkView: React.FC = () => {
   return (
     <div>
-      <div className="big purple italic ts">Link</div>
+      <div className="big purple ts italic">Link</div>
 
       <br />
       <div className="info ts">GitHub</div>
       <hr />
-      <div className="subInfo ts"><CustomLink href={URL.GITHUB} /></div>
+      <div className="subInfo ts">
+        <CustomLink href={URL.GITHUB} />
+      </div>
       <div className="imageContainer">
         <img src={URL.GITHUB_TOP_LANGS} alt="Top Languages" />
         <img src={URL.GITHUB_STATS} alt="GitHub Stats" />
@@ -27,8 +30,12 @@ const LinkView: React.FC = () => {
         <div>JAVA</div>
       </div>
       <div className="imageContainer">
-        <a href={URL.BAEKJOON_PYTHON} target="_blank" rel="noopener noreferrer"><img src={URL.BAEKJOON_PYTHON_TIER} alt="BAEKJOON_PYTHON_TIER" /></a>
-        <a href={URL.BAEKJOON_JAVA} target="_blank" rel="noopener noreferrer"><img src={URL.BAEKJOON_JAVA_TIER} alt="BAEKJOON_JAVA_TIER" /></a>
+        <a href={URL.BAEKJOON_PYTHON} target="_blank" rel="noopener noreferrer">
+          <img src={URL.BAEKJOON_PYTHON_TIER} alt="BAEKJOON_PYTHON_TIER" />
+        </a>
+        <a href={URL.BAEKJOON_JAVA} target="_blank" rel="noopener noreferrer">
+          <img src={URL.BAEKJOON_JAVA_TIER} alt="BAEKJOON_JAVA_TIER" />
+        </a>
       </div>
 
       <div className="imageContainer">
@@ -36,8 +43,12 @@ const LinkView: React.FC = () => {
         <div>C++</div>
       </div>
       <div className="imageContainer">
-        <a href={URL.BAEKJOON_CLANG} target="_blank" rel="noopener noreferrer"><img src={URL.BAEKJOON_CLANG_TIER} alt="BAEKJOON_CLANG_TIER" /></a>
-        <a href={URL.BAEKJOON_CPP} target="_blank" rel="noopener noreferrer"><img src={URL.BAEKJOON_CPP_TIER} alt="BAEKJOON_CPP_TIER" /></a>
+        <a href={URL.BAEKJOON_CLANG} target="_blank" rel="noopener noreferrer">
+          <img src={URL.BAEKJOON_CLANG_TIER} alt="BAEKJOON_CLANG_TIER" />
+        </a>
+        <a href={URL.BAEKJOON_CPP} target="_blank" rel="noopener noreferrer">
+          <img src={URL.BAEKJOON_CPP_TIER} alt="BAEKJOON_CPP_TIER" />
+        </a>
       </div>
     </div>
   );
