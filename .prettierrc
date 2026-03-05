@@ -11,7 +11,11 @@
 
   "importOrder": [
     "^react",
-    "^next",
+    "^@pages/(.*)$",
+    "^@widgets/(.*)$",
+    "^@features/(.*)$",
+    "^@entities/(.*)$",
+    "^@shared/(.*)$",
     "^@?\\w",
     "^@/",
     "^\\.{1,2}/",
