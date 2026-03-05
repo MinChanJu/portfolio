@@ -33,13 +33,19 @@ const ImageSlider = ({ title, images, imageName }: ImageSliderProps) => {
   if (images.length == 0) return;
 
   return (
-    <div className="mt-12.5 box-border flex w-full flex-col gap-5 rounded-xl bg-gray-300 p-5">
-      <div className="text-start text-2xl font-bold">
-        {imageName
-          ? decodeURIComponent(images[currentIndex].split("/").pop() ?? "").split("-")[0]
-          : `${title} 사진 ${currentIndex + 1}`}
+    <div className="flex flex-col gap-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+      <div className="flex items-center gap-3">
+        <p className="text-sm font-semibold text-slate-700">
+          {imageName
+            ? decodeURIComponent(images[currentIndex].split("/").pop() ?? "").split("-")[0]
+            : `${title} 사진 ${currentIndex + 1}`}
+        </p>
+        <span className="rounded-full bg-slate-100 px-2 py-0.5 text-xs text-slate-400">
+          {currentIndex + 1} / {images.length}
+        </span>
       </div>
-      <div className="mx-auto w-full overflow-hidden">
+
+      <div className="overflow-hidden rounded-xl bg-slate-50">
         <Swiper
           modules={[Navigation]}
           spaceBetween={20}
@@ -56,22 +62,24 @@ const ImageSlider = ({ title, images, imageName }: ImageSliderProps) => {
           ))}
         </Swiper>
       </div>
-      <div ref={scrollRef} className="slider-scrollbar flex w-full gap-3 overflow-x-auto pb-5">
+
+      <div ref={scrollRef} className="slider-scrollbar flex w-full gap-2 overflow-x-auto pb-1">
         {images.map((src, index) => (
-          <div
-            className="flex shrink-0 cursor-pointer items-center justify-center hover:brightness-90"
+          <button
             key={index}
             onClick={() => handleClick(index)}
+            className={`shrink-0 overflow-hidden rounded-lg border-2 transition-all ${
+              currentIndex === index
+                ? "border-purple-400 opacity-100 shadow-sm"
+                : "border-transparent opacity-50 hover:opacity-80"
+            }`}
           >
             <img
-              className={
-                "h-25 w-25 rounded-lg object-contain max-[900px]:h-12.5 max-[900px]:w-12.5 " +
-                (currentIndex == index ? "brightness-90" : "")
-              }
+              className="h-16 w-16 object-contain max-[900px]:h-10 max-[900px]:w-10"
               src={src}
               alt={`Select ${index}`}
             />
-          </div>
+          </button>
         ))}
       </div>
     </div>

@@ -1,1 +1,1 @@
-export { default as ProjectPage } from "./ui";
+export { default as Project } from "./ui/Project";

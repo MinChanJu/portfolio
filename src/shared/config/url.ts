@@ -15,7 +15,10 @@ export const URL = {
   BAEKJOON_CPP_TIER: "https://mazassumnida.wtf/api/v2/generate_badge?boj=mcj8592",
 
   GITHUB: "https://github.com/MinChanJu",
+  GITHUB_STREAK: "https://ghchart.rshah.org/MinChanJu",
+  GITHUB_STATS: "https://github-profile-summary-cards.vercel.app/api/cards/stats?username=MinChanJu&theme=buefy",
   GITHUB_TOP_LANGS:
-    "https://github-readme-stats.vercel.app/api/top-langs/?username=MinChanJu&layout=compact&theme=radical",
-  GITHUB_STATS: "https://github-readme-stats.vercel.app/api?username=MinChanJu&show_icons=true&theme=radical",
+    "https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=MinChanJu&theme=buefy",
+  GITHUB_SUMMARY:
+    "https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=MinChanJu&theme=buefy",
 };

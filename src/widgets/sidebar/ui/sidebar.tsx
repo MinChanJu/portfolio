@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 
 import { useNavigation } from "@features/navigation";
 
-import { Project } from "@entities/project";
+import { PROJECTS } from "@entities/project";
 
 import profile from "@shared/assets/image/profile.jpeg";
 import { getPathId } from "@shared/lib/path";
@@ -11,10 +11,9 @@ import { getPathId } from "@shared/lib/path";
 interface SidebarProps {
   isSidebarOpen: boolean;
   setIsSidebarOpen: React.Dispatch<React.SetStateAction<boolean>>;
-  projects: Project[];
 }
 
-const Sidebar = ({ isSidebarOpen, setIsSidebarOpen, projects }: SidebarProps) => {
+const Sidebar = ({ isSidebarOpen, setIsSidebarOpen }: SidebarProps) => {
   const scrollRef = useRef<HTMLDivElement>(null);
   const { goToHome, goToIntro, goToSkill, goToProjectId, goToAward, goToCareer, goToLink } = useNavigation();
   const [tab, setTab] = useState(0);
@@ -24,11 +23,11 @@ const Sidebar = ({ isSidebarOpen, setIsSidebarOpen, projects }: SidebarProps) =>
 
   useEffect(() => {
     const path = location.pathname;
-    setTab(getPathId(path, projects));
-  }, [location.pathname, projects]);
+    setTab(getPathId(path, PROJECTS));
+  }, [location.pathname]);
 
   const getSelectBtnClass = (idx: number) => {
-    let style = "w-full border-t border-b border-gray-400 py-2 text-xl";
+    let style = "w-full border-t border-b border-gray-400 py-2 text-base";
     if (idx >= 10) style += " " + "bg-gray-100";
     if (idx == tab) style += " " + "bg-gray-200 font-semibold";
     return style;
@@ -64,7 +63,7 @@ const Sidebar = ({ isSidebarOpen, setIsSidebarOpen, projects }: SidebarProps) =>
           프로젝트 {isOpen ? "▲" : "▼"}
         </button>
         {isOpen &&
-          projects.map((project, index) => (
+          PROJECTS.map((project, index) => (
             <button key={index} className={getSelectBtnClass(10 + index + 1)} onClick={() => goToProjectId(index + 1)}>
               {index + 1}. {project.project}
             </button>

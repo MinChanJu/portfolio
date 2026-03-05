@@ -1,1 +1,1 @@
-export { default as CareerPage } from "./ui";
+export { default as Career } from "./ui/Career";

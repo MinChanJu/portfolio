@@ -1,16 +1,12 @@
 import { useEffect } from "react";
 import { matchPath, useLocation } from "react-router-dom";
 
-import { Project } from "@entities/project";
+import { PROJECTS } from "@entities/project";
 
 import { ROUTES } from "@shared/config/routes";
 import { getLastPathParam } from "@shared/lib/path/model/path";
 
-interface UsePageTitleProps {
-  projects: Project[];
-}
-
-const usePageTitle = ({ projects }: UsePageTitleProps) => {
+const usePageTitle = () => {
   const location = useLocation();
 
   useEffect(() => {
@@ -30,15 +26,15 @@ const usePageTitle = ({ projects }: UsePageTitleProps) => {
 
     if (matchPath(ROUTES.PROJECT, path)) {
       const index = Number(param);
-      if (!Number.isNaN(index) && 1 <= index && index <= projects.length) {
-        title = projects[index - 1].project;
+      if (!Number.isNaN(index) && 1 <= index && index <= PROJECTS.length) {
+        title = PROJECTS[index - 1].project;
       } else {
         title = "프로젝트 오류";
       }
     }
 
     document.title = title + " | MinChanJu";
-  }, [location.pathname, projects]);
+  }, [location.pathname]);
 
   return null;
 };

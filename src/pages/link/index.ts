@@ -1,1 +1,1 @@
-export { default as LinkPage } from "./ui";
+export { default as Link } from "./ui/Link";
