@@ -7,9 +7,11 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build && cp dist/index.html dist/404.html",
-    "lint": "eslint .",
+    "lint": "eslint \"**/*.{ts,tsx}\" --fix",
+    "format": "prettier --write .",
     "preview": "vite preview",
-    "deploy": "npm run build && gh-pages -d dist"
+    "deploy": "pnpm build && gh-pages -d dist",
+    "prepare": "husky"
   },
   "dependencies": {
     "react": "^18.3.1",
@@ -29,6 +31,18 @@
     "globals": "^15.14.0",
     "typescript": "~5.6.2",
     "typescript-eslint": "^8.18.2",
-    "vite": "^6.0.5"
+    "vite": "^6.0.5",
+    "@trivago/prettier-plugin-sort-imports": "^6.0.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.7",
+    "prettier": "^3.7.4",
+    "prettier-plugin-tailwindcss": "^0.7.2"
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js,jsx}": [
+      "pnpm format",
+      "pnpm lint",
+      "git add"
+    ]
   }
 }
