@@ -1,0 +1,70 @@
+import { useState } from "react";
+
+import { PROJECTS } from "@entities/project";
+
+interface NavItem {
+  label: string;
+  action: () => void;
+  path: string;
+}
+
+interface MobileMenuProps {
+  isOpen: boolean;
+  onClose: () => void;
+  isActive: (path: string) => boolean;
+  isProjectActive: boolean;
+  navItems: NavItem[];
+  onProjectNavigate: (index: number) => void;
+}
+
+const MobileMenu = ({ isOpen, onClose, isActive, isProjectActive, navItems, onProjectNavigate }: MobileMenuProps) => {
+  const [projectOpen, setProjectOpen] = useState(false);
+
+  if (!isOpen) return null;
+
+  return (
+    <div className="border-t border-gray-100 bg-white px-6 py-4 md:hidden">
+      <div className="flex flex-col gap-3">
+        {navItems.map(({ label, action, path }) => (
+          <button
+            key={path}
+            onClick={() => {
+              action();
+              onClose();
+            }}
+            className={`text-left text-sm font-medium ${isActive(path) ? "text-violet-600" : "text-gray-600"}`}
+          >
+            {label}
+          </button>
+        ))}
+        <div>
+          <button
+            onClick={() => setProjectOpen((v) => !v)}
+            className={`text-left text-sm font-medium ${isProjectActive ? "text-violet-600" : "text-gray-600"}`}
+          >
+            프로젝트 {projectOpen ? "▲" : "▼"}
+          </button>
+          {projectOpen && (
+            <div className="mt-2 ml-3 flex flex-col gap-2">
+              {PROJECTS.map((project, index) => (
+                <button
+                  key={index}
+                  onClick={() => {
+                    onProjectNavigate(index + 1);
+                    onClose();
+                    setProjectOpen(false);
+                  }}
+                  className="text-left text-xs text-gray-500 hover:text-violet-600"
+                >
+                  {index + 1}. {project.project}
+                </button>
+              ))}
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default MobileMenu;

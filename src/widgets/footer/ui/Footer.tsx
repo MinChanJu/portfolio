@@ -1,16 +1,12 @@
 const Footer = () => {
   return (
-    <footer>
-      <img
-        className="mx-auto mt-25"
-        src="https://readme-typing-svg.demolab.com/?lines=포트폴리오를+방문해+주셔서+감사합니다!;좋은+하루+되세요!+😊&font=Fira%20Code&duration=2000&pause=1000&center=true&height=50"
-        alt="마지막 문구"
-      />
-      <img
-        className="w-full"
-        src="https://capsule-render.vercel.app/api?type=waving&color=1d5&height=150&section=footer"
-        alt="웨이브 물결 아래"
-      />
+    <footer className="w-full border-t border-gray-200 bg-white/80 py-8 backdrop-blur-sm">
+      <div className="flex flex-col items-center gap-1.5">
+        <span className="bg-linear-to-r from-violet-500 via-sky-500 to-teal-500 bg-clip-text text-sm font-semibold tracking-wide text-transparent">
+          포트폴리오를 방문해 주셔서 감사합니다!
+        </span>
+        <p className="text-[11px] tracking-widest text-gray-400">좋은 하루 되세요 😊</p>
+      </div>
     </footer>
   );
 };

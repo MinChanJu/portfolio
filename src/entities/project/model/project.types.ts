@@ -1,13 +1,21 @@
+export type ProjectLink = {
+  label: string;
+  url: string;
+};
+
+export type ProjectSite = {
+  url: string;
+  favicon?: string;
+};
+
 export type Project = {
   project: string;
   period: string;
   team: string;
   role: string;
   skills: string;
-  source?: string;
-  back?: string;
-  front?: string;
-  site?: string;
+  site?: ProjectSite;
+  links?: ProjectLink[];
   description: string;
   name: string;
 };

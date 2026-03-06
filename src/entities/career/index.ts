@@ -1,2 +1,2 @@
-export type { Career } from "./model/career.types";
-export { CAREERS } from "./model/career.constants";
+export type { Career, CareerType } from "./model/career.types";
+export { CAREERS, ALL_CAREER_TYPES } from "./model/career.constants";

@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import { PROJECTS } from "@entities/project";
 
 import { getImages } from "@shared/lib/image/model/image";
-import { Card, CustomLink, Error, ImageSlider, PageHeader } from "@shared/ui";
+import { Card, CustomLink, Error, ImageSlider, PageHeader, SectionTitle } from "@shared/ui";
 
 import "highlight.js/styles/github.css";
 import rehypeHighlight from "rehype-highlight";
@@ -27,9 +27,20 @@ const Project = ({ index }: ProjectProps) => {
 
   return (
     <div className="flex flex-col gap-8 pb-10">
-      <PageHeader caption={`Project ${idx + 1}`} title={project.project} />
+      <PageHeader
+        caption={`Project ${idx + 1}`}
+        title={
+          <div className="mt-5 flex flex-row items-center gap-2">
+            {project.site?.favicon && (
+              <img src={project.site.favicon} alt="favicon" className="h-6 w-6 md:h-10 md:w-10" />
+            )}
+            <div>{project.project}</div>
+          </div>
+        }
+      />
 
-      <Card className="bg-slate-50 px-6 py-5">
+      <Card className="flex flex-col gap-3 bg-slate-50 px-6 py-5">
+        <SectionTitle>📌 프로젝트 정보</SectionTitle>
         <div className="flex flex-col gap-3">
           <InfoRow label="기간">{project.period}</InfoRow>
           <InfoRow label="팀구성">{project.team}</InfoRow>
@@ -48,28 +59,26 @@ const Project = ({ index }: ProjectProps) => {
               ))}
             </div>
           </InfoRow>
-          {project.source && (
-            <InfoRow label="소스코드">
-              <CustomLink href={project.source} />
-            </InfoRow>
-          )}
-          {project.back && (
-            <InfoRow label="백엔드">
-              <CustomLink href={project.back} />
-            </InfoRow>
-          )}
-          {project.front && (
-            <InfoRow label="프론트엔드">
-              <CustomLink href={project.front} />
-            </InfoRow>
-          )}
-          {project.site && (
-            <InfoRow label="사이트">
-              <CustomLink href={project.site} />
-            </InfoRow>
-          )}
         </div>
       </Card>
+
+      {(project.links || project.site) && (
+        <Card className="flex flex-col gap-3 bg-slate-50 px-6 py-5">
+          <SectionTitle>🔗 Links</SectionTitle>
+          <div className="flex flex-col gap-3">
+            {project.links?.map(({ label, url }, i) => (
+              <InfoRow key={i} label={label}>
+                <CustomLink href={url} />
+              </InfoRow>
+            ))}
+            {project.site && (
+              <InfoRow label="사이트">
+                <CustomLink href={project.site.url} />
+              </InfoRow>
+            )}
+          </div>
+        </Card>
+      )}
 
       <Card className="prose prose-slate prose-sm max-w-none px-6 py-5">
         <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeHighlight]}>

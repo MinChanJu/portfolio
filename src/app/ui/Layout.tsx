@@ -1,14 +1,12 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 
 import { Footer } from "@widgets/footer";
 import { Header } from "@widgets/header";
-import { Sidebar } from "@widgets/sidebar";
 
 import usePageTitle from "../model/usePageTitle";
 
 const Layout = () => {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const location = useLocation();
   usePageTitle();
 
@@ -17,17 +15,12 @@ const Layout = () => {
   }, [location.pathname]);
 
   return (
-    <div>
-      <Sidebar isSidebarOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen} />
-      <div className={`transition-all duration-300 ${isSidebarOpen ? "ml-75 w-[calc(100%-300px)]" : "ml-0 w-full"}`}>
-        <Header />
-
-        <main className="mx-12.5">
-          <Outlet />
-        </main>
-
-        <Footer />
-      </div>
+    <div className="flex min-h-screen flex-col bg-gray-50">
+      <Header />
+      <main className="mx-auto w-full max-w-5xl flex-1 px-10 py-8">
+        <Outlet />
+      </main>
+      <Footer />
     </div>
   );
 };

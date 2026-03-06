@@ -1,1 +1,1 @@
-export { getLastPathParam, getPathId } from "./model/path";
+export { getLastPathParam } from "./model/path";

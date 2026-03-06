@@ -7,8 +7,13 @@ export const PROJECTS: Project[] = [
     team: "4명",
     role: "Full Stack - 50%",
     skills: "React, TypeScript, NestJS, MySQL, TypeORM",
-    source: "https://github.com/boostcampwm2025/web13-isj-dle",
-    site: "https://www.moyo.asia",
+    site: { url: "https://www.moyo.asia", favicon: "https://www.moyo.asia/favicon.svg" },
+    links: [
+      {
+        label: "소스코드",
+        url: "https://github.com/boostcampwm2025/web13-isj-dle",
+      },
+    ],
     description: `## 🏠 프로젝트 개요
 
 [네이버 부스트캠프 10기](https://boostcamp.connect.or.kr/) 기간 중 **ISJ-DLE 팀**(4인)이 개발한 **2D 가상 공간 기반 협업 플랫폼**입니다.
@@ -84,7 +89,12 @@ export const PROJECTS: Project[] = [
     team: "4명 (FrontEnd)",
     role: "FrontEnd - 60%",
     skills: "React, TypeScript",
-    source: "https://github.com/MinChanJu/classroom-reservation",
+    links: [
+      {
+        label: "소스코드",
+        url: "https://github.com/MinChanJu/classroom-reservation",
+      },
+    ],
     description: `## 🏫 프로젝트 개요
 
 **2025 아주대학교 제2회 아주톤(해커톤)** 참가작으로, 약 20시간의 개발 기간 동안 제작한 강의실 예약 시스템입니다.
@@ -138,9 +148,17 @@ export const PROJECTS: Project[] = [
     team: "1명 (총괄)",
     role: `Full Stack - 100%`,
     skills: "Spring Boot, Java, React, TypeScript, SupaBase, PostgreSQL",
-    back: "https://github.com/MinChanJu/mic-spring",
-    front: "https://github.com/MinChanJu/MiC",
-    site: "https://minchanju.github.io/MiC",
+    site: { url: "https://minchanju.github.io/MiC", favicon: "https://minchanju.github.io/MiC/logo.jpeg" },
+    links: [
+      {
+        label: "백엔드",
+        url: "https://github.com/MinChanJu/mic-spring",
+      },
+      {
+        label: "프론트엔드",
+        url: "https://github.com/MinChanJu/MiC",
+      },
+    ],
     description: `## 💻 프로젝트 개요
 
 아주대학교 수학과 소학회 **MiC(Mathematics in Coding)** 의 온라인 프로그래밍 대회 플랫폼입니다.
@@ -197,8 +215,16 @@ export const PROJECTS: Project[] = [
     team: "1명 (총괄)",
     role: "FrontEnd - 100%",
     skills: "React, TypeScript",
-    source: "https://github.com/MinChanJu/portfolio",
-    site: "https://minchanju.github.io/portfolio",
+    site: {
+      url: "https://minchanju.github.io/portfolio",
+      favicon: "https://minchanju.github.io/portfolio/favicon.svg",
+    },
+    links: [
+      {
+        label: "소스코드",
+        url: "https://github.com/MinChanJu/portfolio",
+      },
+    ],
     description: `## 🗂 프로젝트 개요
 
 개인 포트폴리오 웹 애플리케이션으로, 설계부터 배포까지 직접 진행하였으며 아키텍처 개선을 지속적으로 반영하고 있습니다.
@@ -243,7 +269,12 @@ export const PROJECTS: Project[] = [
     team: "2명 (팀장)",
     role: `Full Stack - 70%`,
     skills: "Spring Boot, Java, Flutter, Dart, SupaBase, PostgreSQL",
-    source: "https://github.com/MinChanJu/BuckTanley",
+    links: [
+      {
+        label: "소스코드",
+        url: "https://github.com/MinChanJu/BuckTanley",
+      },
+    ],
     description: `## 💘 프로젝트 개요
 
 한국인을 위한 랜덤 매칭 기반 채팅 앱입니다.

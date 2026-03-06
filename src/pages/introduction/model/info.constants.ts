@@ -18,8 +18,8 @@ export const INFO_ROWS: Info[] = [
 export const EDU_ROWS: Info[] = [
   { label: "학교", value: "아주대학교" },
   { label: "입학", value: "2020.03" },
-  { label: "졸업(예정)", value: "2026.02" },
+  { label: "졸업(예정)", value: "2026.08" },
   { label: "1전공", value: "수학과" },
   { label: "복수전공", value: "소프트웨어학과" },
-  { label: "학기", value: "4-2 (재학, 2025.08 기준)" },
+  { label: "학기", value: "4-2 (이수, 2026.02 기준)" },
 ];

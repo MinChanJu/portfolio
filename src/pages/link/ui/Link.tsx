@@ -12,11 +12,11 @@ const Link = () => {
         <SectionTitle>🐙 GitHub</SectionTitle>
         <Card className="px-5 py-4">
           <CustomLink href={URL.GITHUB} />
-          <div className="mt-4 flex flex-col gap-3">
+          <div className="mx-auto flex max-w-2xl flex-col gap-3">
             <img src={URL.GITHUB_SUMMARY} alt="GitHub Summary" className="w-full rounded-lg" />
             <div className="flex w-full">
-              <img src={URL.GITHUB_TOP_LANGS} alt="Top Languages" className="flex-1 rounded-lg" />
-              <img src={URL.GITHUB_STATS} alt="GitHub Stats" className="flex-1 rounded-lg" />
+              <img src={URL.GITHUB_TOP_LANGS} alt="Top Languages" className="min-w-0 flex-1 rounded-lg" />
+              <img src={URL.GITHUB_STATS} alt="GitHub Stats" className="min-w-0 flex-1 rounded-lg" />
             </div>
             <img src={URL.GITHUB_STREAK} alt="GitHub Streak" className="w-full rounded-lg" />
           </div>

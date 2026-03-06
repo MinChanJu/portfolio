@@ -9,7 +9,7 @@ import { PROJECTS } from "@entities/project";
 
 const Home = () => {
   return (
-    <div className="flex w-full flex-col gap-25">
+    <div className="flex w-full flex-col gap-10">
       <Introduction />
       <Skill />
       {PROJECTS.map((_, index) => (

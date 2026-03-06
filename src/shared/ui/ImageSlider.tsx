@@ -53,7 +53,7 @@ const ImageSlider = ({ title, images, imageName }: ImageSliderProps) => {
           navigation
           onSwiper={(swiper) => (swiperRef.current = swiper)}
           onSlideChange={(swiper) => setCurrentIndex(swiper.activeIndex)}
-          className="aspect-[2] w-full max-[900px]:aspect-[1.5]"
+          className="aspect-[1.5] w-full md:aspect-[2]"
         >
           {images.map((src, index) => (
             <SwiperSlide key={index} className="flex items-center justify-center">
@@ -74,11 +74,7 @@ const ImageSlider = ({ title, images, imageName }: ImageSliderProps) => {
                 : "border-transparent opacity-50 hover:opacity-80"
             }`}
           >
-            <img
-              className="h-16 w-16 object-contain max-[900px]:h-10 max-[900px]:w-10"
-              src={src}
-              alt={`Select ${index}`}
-            />
+            <img className="h-10 w-10 object-contain md:h-20 md:w-20" src={src} alt={`Select ${index}`} />
           </button>
         ))}
       </div>
