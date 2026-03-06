@@ -9,7 +9,7 @@ import PrizeCard from "./PrizeCard";
 
 const Award = () => {
   return (
-    <div className="flex flex-col gap-10 pb-10">
+    <div className="flex flex-col gap-10">
       <PageHeader caption="Awards" title="Prizes & Certificates" />
 
       <div className="flex flex-col gap-3">

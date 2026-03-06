@@ -23,7 +23,7 @@ const Career = () => {
   };
 
   return (
-    <div className="flex flex-col gap-8 pb-10">
+    <div className="flex flex-col gap-8">
       <PageHeader caption="Timeline" title="Careers" />
 
       <div className="flex flex-wrap gap-2">

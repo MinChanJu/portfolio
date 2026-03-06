@@ -5,7 +5,7 @@ import MobileMenu from "./MobileMenu";
 import ProjectDropdown from "./ProjectDropdown";
 
 const Header = () => {
-  const { goToHome, goToProjectId, navItems, isActive, isProjectActive, navItemClass } = useHeaderNav();
+  const { goToHome, goToProjectId, navItems, isActive, navItemClass } = useHeaderNav();
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
@@ -19,12 +19,16 @@ const Header = () => {
         </button>
 
         <nav className="hidden items-center gap-6 md:flex">
-          {navItems.map(({ label, action, path }) => (
-            <button key={path} onClick={action} className={navItemClass(path)}>
-              {label}
-            </button>
-          ))}
-          <ProjectDropdown isProjectActive={isProjectActive} onNavigate={goToProjectId} />
+          {navItems.map(({ label, action, path }) => {
+            if (label === "프로젝트") {
+              return <ProjectDropdown key={path} className={navItemClass(path)} onNavigate={goToProjectId} />;
+            }
+            return (
+              <button key={path} onClick={action} className={navItemClass(path)}>
+                {label}
+              </button>
+            );
+          })}
           <button
             onClick={() => window.print()}
             className="rounded-full border border-slate-200 px-3.5 py-1 text-sm font-medium text-slate-500 transition-colors duration-200 hover:border-slate-300 hover:text-slate-700"
@@ -50,7 +54,6 @@ const Header = () => {
         isOpen={mobileOpen}
         onClose={() => setMobileOpen(false)}
         isActive={isActive}
-        isProjectActive={isProjectActive}
         navItems={navItems}
         onProjectNavigate={goToProjectId}
       />

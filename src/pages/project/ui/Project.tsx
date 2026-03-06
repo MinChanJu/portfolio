@@ -26,7 +26,7 @@ const Project = ({ index }: ProjectProps) => {
   const project = PROJECTS[idx];
 
   return (
-    <div className="flex flex-col gap-8 pb-10">
+    <div className="flex flex-col gap-8">
       <PageHeader
         caption={`Project ${idx + 1}`}
         title={
@@ -39,7 +39,7 @@ const Project = ({ index }: ProjectProps) => {
         }
       />
 
-      <Card className="flex flex-col gap-3 bg-slate-50 px-6 py-5">
+      <Card className="flex flex-col gap-3 bg-slate-50">
         <SectionTitle>📌 프로젝트 정보</SectionTitle>
         <div className="flex flex-col gap-3">
           <InfoRow label="기간">{project.period}</InfoRow>
@@ -63,7 +63,7 @@ const Project = ({ index }: ProjectProps) => {
       </Card>
 
       {(project.links || project.site) && (
-        <Card className="flex flex-col gap-3 bg-slate-50 px-6 py-5">
+        <Card className="flex flex-col gap-3 bg-slate-50">
           <SectionTitle>🔗 Links</SectionTitle>
           <div className="flex flex-col gap-3">
             {project.links?.map(({ label, url }, i) => (
@@ -80,7 +80,7 @@ const Project = ({ index }: ProjectProps) => {
         </Card>
       )}
 
-      <Card className="prose prose-slate prose-sm max-w-none px-6 py-5">
+      <Card className="prose prose-slate max-w-none">
         <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeHighlight]}>
           {project.description}
         </ReactMarkdown>

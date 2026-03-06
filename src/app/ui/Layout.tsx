@@ -35,7 +35,7 @@ const Layout = () => {
   return (
     <div className="flex min-h-screen flex-col bg-gray-50">
       <Header />
-      <main id="screen-content" className="mx-auto w-full max-w-5xl flex-1 px-10 py-8 print:hidden">
+      <main id="screen-content" className="mx-auto w-full max-w-5xl flex-1 p-4 md:p-8 print:hidden">
         <Outlet />
       </main>
       <Footer />

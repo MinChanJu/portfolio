@@ -1,7 +1,9 @@
 import { Certificate } from "@entities/certificate";
 
+import { Card } from "@shared/ui";
+
 const CertCard = ({ name, issuer, date, score }: Certificate) => (
-  <div className="flex items-center justify-between gap-4 rounded-xl border border-slate-200 bg-white px-5 py-4 shadow-sm transition-shadow hover:shadow-md">
+  <Card className="flex items-center justify-between gap-4 rounded-xl transition-shadow hover:shadow-md">
     <div className="flex flex-col gap-1">
       <span className="font-semibold text-slate-800">{name}</span>
       <span className="text-xs text-slate-400">{issuer}</span>
@@ -12,7 +14,7 @@ const CertCard = ({ name, issuer, date, score }: Certificate) => (
       </span>
       <span className="text-xs text-slate-400">{date}</span>
     </div>
-  </div>
+  </Card>
 );
 
 export default CertCard;

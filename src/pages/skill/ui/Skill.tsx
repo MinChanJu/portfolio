@@ -7,7 +7,7 @@ import SkillGroup from "./SkillGroup";
 
 const Skill = () => {
   return (
-    <div className="flex flex-col gap-10 pb-10">
+    <div className="flex flex-col gap-10">
       <PageHeader caption="Tech Stack" title="Skill Set" />
 
       <SkillGroup title="🖥 언어" skills={LANGUAGES} />

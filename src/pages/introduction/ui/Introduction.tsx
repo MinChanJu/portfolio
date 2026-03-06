@@ -7,7 +7,7 @@ import InfoTable from "./InfoTable";
 
 const Introduction = () => {
   return (
-    <div className="flex flex-col gap-10 pb-10">
+    <div className="flex flex-col gap-10">
       <PageHeader
         caption="About Me"
         title={
@@ -21,16 +21,16 @@ const Introduction = () => {
         }
       />
 
-      <Card className="flex flex-col gap-4 px-6 py-5">
+      <Card className="flex flex-col gap-4">
         {paragraphs.map((p, i) => (
           <p key={i} className="text-sm leading-relaxed whitespace-pre-wrap text-slate-600">
-            {"\t" + p}
+            {" " + p}
           </p>
         ))}
       </Card>
 
       <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
-        <Card className="flex flex-col gap-3 px-5 py-4">
+        <Card className="flex flex-col gap-3">
           <SectionTitle>📋 Info</SectionTitle>
           <InfoTable
             rows={[
@@ -42,7 +42,7 @@ const Introduction = () => {
             ]}
           />
         </Card>
-        <Card className="flex flex-col gap-3 px-5 py-4">
+        <Card className="flex flex-col gap-3">
           <SectionTitle>🎓 학력</SectionTitle>
           <InfoTable rows={EDU_ROWS} />
         </Card>

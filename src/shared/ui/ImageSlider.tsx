@@ -6,6 +6,8 @@ import { Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.css";
 
+import Card from "./Card";
+
 interface ImageSliderProps {
   images: string[];
   title?: string;
@@ -34,7 +36,7 @@ const ImageSlider = ({ title, images, imageName }: ImageSliderProps) => {
 
   return (
     <>
-      <div className="flex flex-col gap-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm print:hidden">
+      <Card className="flex flex-col gap-4 print:hidden">
         <div className="flex items-center gap-3">
           <p className="text-sm font-semibold text-slate-700">
             {imageName
@@ -79,7 +81,7 @@ const ImageSlider = ({ title, images, imageName }: ImageSliderProps) => {
             </button>
           ))}
         </div>
-      </div>
+      </Card>
       <div className="hidden print:block">
         <div className="mb-2 text-center text-sm text-slate-500">{`${title ? title + " " : ""}사진 (${images.length}장)`}</div>
         <div className="flex flex-wrap justify-center gap-4">

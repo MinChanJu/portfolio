@@ -3,19 +3,16 @@ import { PROJECTS } from "@entities/project";
 import useProjectDropdown from "../model/useProjectDropdown";
 
 interface ProjectDropdownProps {
-  isProjectActive: boolean;
+  className: string;
   onNavigate: (index: number) => void;
 }
 
-const ProjectDropdown = ({ isProjectActive, onNavigate }: ProjectDropdownProps) => {
+const ProjectDropdown = ({ className, onNavigate }: ProjectDropdownProps) => {
   const { projectOpen, setProjectOpen, dropdownRef } = useProjectDropdown();
 
   return (
-    <div className="relative" ref={dropdownRef}>
-      <button
-        onClick={() => setProjectOpen((v) => !v)}
-        className={`text-sm font-medium transition-colors duration-200 ${isProjectActive ? "text-violet-600" : "text-gray-500 hover:text-gray-900"}`}
-      >
+    <div className="relative flex" ref={dropdownRef}>
+      <button onClick={() => setProjectOpen((v) => !v)} className={className}>
         프로젝트 {projectOpen ? "▲" : "▼"}
       </button>
       {projectOpen && (
