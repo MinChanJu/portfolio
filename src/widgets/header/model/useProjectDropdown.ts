@@ -5,12 +5,15 @@ const useProjectDropdown = () => {
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    if (!dropdownRef.current) return;
+
     const handleClickOutside = (e: MouseEvent) => {
       if (!dropdownRef.current?.offsetParent) return;
       if (!dropdownRef.current.contains(e.target as Node)) {
         setProjectOpen(false);
       }
     };
+
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);

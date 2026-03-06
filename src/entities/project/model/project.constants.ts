@@ -2,7 +2,7 @@ import { Project } from "./project.types";
 
 export const PROJECTS: Project[] = [
   {
-    project: "Moyo - 2D 가상 공간 기반 협업 플랫폼",
+    title: "Moyo - 2D 가상 공간 기반 협업 플랫폼",
     period: "2025.12 ~ 2026.02 (2개월, 네이버 부스트캠프 10기에서 진행)",
     team: "4명",
     role: "Full Stack - 50%",
@@ -84,7 +84,7 @@ export const PROJECTS: Project[] = [
     name: "moyo",
   },
   {
-    project: "강의실 예약 사이트",
+    title: "강의실 예약 사이트",
     period: "2025.05 ~ 2025.05 (1일, 아주대학교 해커톤에서 진행)",
     team: "4명 (FrontEnd)",
     role: "FrontEnd - 60%",
@@ -143,7 +143,7 @@ export const PROJECTS: Project[] = [
     name: "ajou_ton",
   },
   {
-    project: "코딩대회 사이트",
+    title: "코딩대회 사이트",
     period: "2024.11 ~ 2025.01 (약 3개월)",
     team: "1명 (총괄)",
     role: `Full Stack - 100%`,
@@ -210,7 +210,7 @@ export const PROJECTS: Project[] = [
     name: "coding_contest",
   },
   {
-    project: "포트폴리오",
+    title: "포트폴리오",
     period: "2024.12 ~ 2025.01 (약 1주일, 주기적으로 업데이트)",
     team: "1명 (총괄)",
     role: "FrontEnd - 100%",
@@ -264,7 +264,7 @@ export const PROJECTS: Project[] = [
     name: "portfolio",
   },
   {
-    project: "데이팅 앱",
+    title: "데이팅 앱",
     period: "2025.01 ~ 2025.02 (잠시 중단)",
     team: "2명 (팀장)",
     role: `Full Stack - 70%`,

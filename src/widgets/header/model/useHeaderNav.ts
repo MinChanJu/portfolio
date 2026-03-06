@@ -1,32 +1,56 @@
-import { useLocation } from "react-router-dom";
+import { useEffect, useState } from "react";
 
-import { useNavigation } from "@features/navigation";
-
-import { ROUTES } from "@shared/config/routes";
+import { SECTION_ID, SectionId } from "@shared/config";
 
 const useHeaderNav = () => {
-  const { goToHome, goToIntro, goToSkill, goToProjectId, goToAward, goToCareer, goToLink } = useNavigation();
-  const location = useLocation();
+  const [activeSection, setActiveSection] = useState<SectionId | "">("");
 
-  const isActive = (path: string) => {
-    return path.startsWith("/project") ? location.pathname.startsWith("/project") : location.pathname === path;
+  useEffect(() => {
+    const sectionElements = document.querySelectorAll("section[id]");
+
+    const handleScroll = () => {
+      const mid = window.innerHeight / 2;
+      let current: SectionId | "" = "";
+
+      for (const el of sectionElements) {
+        const rect = el.getBoundingClientRect();
+        if (rect.top >= mid || rect.bottom <= mid) continue;
+        current = el.id.startsWith(SECTION_ID.PROJECT)
+          ? SECTION_ID.PROJECT
+          : Object.values(SECTION_ID).find((id) => id === el.id) || "";
+        break;
+      }
+      setActiveSection(current);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const goToHome = () => window.scrollTo({ top: 0, behavior: "smooth" });
+
+  const goToSection = (sectionId: SectionId, projectIndex?: number) => {
+    const id = projectIndex !== undefined ? `${SECTION_ID.PROJECT}-${projectIndex}` : sectionId;
+    const el = document.getElementById(id);
+    if (el) {
+      const headerHeight = 56 + (window.innerWidth >= 768 ? 20 : 12);
+      const top = el.getBoundingClientRect().top + window.scrollY - headerHeight;
+      window.scrollTo({ top, behavior: "smooth" });
+    }
   };
 
-  const navItemClass = (path: string) => {
-    return `text-sm font-medium transition-colors duration-200 ${isActive(path) ? "text-violet-600" : "text-gray-500 hover:text-gray-900"}`;
+  const getDesktopNavItemClass = (sectionId: SectionId) => {
+    const className = activeSection === sectionId ? "text-violet-600" : "text-gray-500 hover:text-gray-900";
+    return `text-sm font-medium transition-colors duration-200 ${className}`;
   };
 
-  const navItems = [
-    { label: "전체보기", action: goToHome, path: ROUTES.HOME },
-    { label: "자기소개", action: goToIntro, path: ROUTES.INTRO },
-    { label: "기술스택", action: goToSkill, path: ROUTES.SKILL },
-    { label: "프로젝트", action: () => goToProjectId(1), path: ROUTES.PROJECT },
-    { label: "수상/자격증", action: goToAward, path: ROUTES.AWARD },
-    { label: "경력", action: goToCareer, path: ROUTES.CAREER },
-    { label: "링크", action: goToLink, path: ROUTES.LINK },
-  ];
+  const getMobileNavItemClass = (sectionId: SectionId) => {
+    const className = activeSection === sectionId ? "text-violet-600" : "text-gray-600";
+    return `text-left text-sm font-medium ${className}`;
+  };
 
-  return { goToHome, goToProjectId, navItems, isActive, navItemClass };
+  return { goToHome, goToSection, getDesktopNavItemClass, getMobileNavItemClass };
 };
 
 export default useHeaderNav;

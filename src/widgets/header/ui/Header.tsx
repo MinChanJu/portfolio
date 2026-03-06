@@ -1,11 +1,11 @@
 import { useState } from "react";
 
 import useHeaderNav from "../model/useHeaderNav";
+import DesktopMenu from "./DesktopMenu";
 import MobileMenu from "./MobileMenu";
-import ProjectDropdown from "./ProjectDropdown";
 
 const Header = () => {
-  const { goToHome, goToProjectId, navItems, isActive, navItemClass } = useHeaderNav();
+  const { goToHome, goToSection, getDesktopNavItemClass, getMobileNavItemClass } = useHeaderNav();
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
@@ -18,24 +18,9 @@ const Header = () => {
           MIN CHAN JU
         </button>
 
-        <nav className="hidden items-center gap-6 md:flex">
-          {navItems.map(({ label, action, path }) => {
-            if (label === "프로젝트") {
-              return <ProjectDropdown key={path} className={navItemClass(path)} onNavigate={goToProjectId} />;
-            }
-            return (
-              <button key={path} onClick={action} className={navItemClass(path)}>
-                {label}
-              </button>
-            );
-          })}
-          <button
-            onClick={() => window.print()}
-            className="rounded-full border border-slate-200 px-3.5 py-1 text-sm font-medium text-slate-500 transition-colors duration-200 hover:border-slate-300 hover:text-slate-700"
-          >
-            PDF
-          </button>
-        </nav>
+        <div className="hidden md:block">
+          <DesktopMenu goToSection={goToSection} getDesktopNavItemClass={getDesktopNavItemClass} />
+        </div>
 
         <button className="flex flex-col gap-1.5 md:hidden" onClick={() => setMobileOpen((v) => !v)}>
           <span
@@ -53,9 +38,8 @@ const Header = () => {
       <MobileMenu
         isOpen={mobileOpen}
         onClose={() => setMobileOpen(false)}
-        isActive={isActive}
-        navItems={navItems}
-        onProjectNavigate={goToProjectId}
+        getMobileNavItemClass={getMobileNavItemClass}
+        goToSection={goToSection}
       />
     </header>
   );

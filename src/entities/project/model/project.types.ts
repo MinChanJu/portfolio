@@ -9,7 +9,7 @@ export type ProjectSite = {
 };
 
 export type Project = {
-  project: string;
+  title: string;
   period: string;
   team: string;
   role: string;

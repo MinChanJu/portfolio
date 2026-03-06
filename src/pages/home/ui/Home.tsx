@@ -1,23 +1,37 @@
-import { Award } from "@pages/award";
-import { Career } from "@pages/career";
-import { Introduction } from "@pages/introduction";
-import { Link } from "@pages/link";
-import { Project } from "@pages/project";
-import { Skill } from "@pages/skill";
+import { Award } from "@widgets/award";
+import { Career } from "@widgets/career";
+import { Introduction } from "@widgets/introduction";
+import { Link } from "@widgets/link";
+import { Project } from "@widgets/project";
+import { Skill } from "@widgets/skill";
 
 import { PROJECTS } from "@entities/project";
 
+import { SECTION_ID } from "@shared/config";
+
 const Home = () => {
   return (
-    <div className="flex w-full flex-col gap-10">
-      <Introduction />
-      <Skill />
+    <div className="flex w-full flex-col gap-12 md:gap-20">
+      <section id={SECTION_ID.INTRODUCTION}>
+        <Introduction />
+      </section>
+      <section id={SECTION_ID.SKILL}>
+        <Skill />
+      </section>
       {PROJECTS.map((_, index) => (
-        <Project key={index} index={index} />
+        <section key={index} id={`${SECTION_ID.PROJECT}-${index + 1}`}>
+          <Project index={index} />
+        </section>
       ))}
-      <Award />
-      <Career />
-      <Link />
+      <section id={SECTION_ID.AWARD}>
+        <Award />
+      </section>
+      <section id={SECTION_ID.CAREER}>
+        <Career />
+      </section>
+      <section id={SECTION_ID.LINK}>
+        <Link />
+      </section>
     </div>
   );
 };

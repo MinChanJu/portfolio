@@ -1,5 +1,4 @@
-import { useEffect, useRef, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useRef, useState } from "react";
 
 import { Swiper as SwiperType } from "swiper";
 import { Navigation } from "swiper/modules";
@@ -15,7 +14,6 @@ interface ImageSliderProps {
 }
 
 const ImageSlider = ({ title, images, imageName }: ImageSliderProps) => {
-  const location = useLocation();
   const scrollRef = useRef<HTMLDivElement>(null);
   const swiperRef = useRef<SwiperType | null>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -25,12 +23,6 @@ const ImageSlider = ({ title, images, imageName }: ImageSliderProps) => {
       swiperRef.current.slideTo(index);
     }
   };
-
-  useEffect(() => {
-    setCurrentIndex(0);
-    scrollRef.current?.scrollTo(0, 0);
-    swiperRef.current?.slideTo(0);
-  }, [location.pathname]);
 
   if (images.length == 0) return;
 

@@ -1,2 +1,2 @@
-export type { Certificate } from "./model/certificate.types";
 export { CERTIFICATES } from "./model/certificate.constants";
+export { default as CertCard } from "./ui/CertCard";
