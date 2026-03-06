@@ -1,5 +1,5 @@
 import { URL } from "@shared/config/url";
-import { Card, CustomLink, PageHeader, SectionTitle } from "@shared/ui";
+import { Card, CustomLink, InlineSvg, PageHeader, SectionTitle } from "@shared/ui";
 
 import { BAEKJOON_ACCOUNTS } from "../model/link.constants";
 
@@ -37,7 +37,7 @@ const Link = () => {
               <span className="rounded-full border border-slate-200 bg-slate-50 px-2.5 py-0.5 text-xs font-semibold text-slate-600">
                 {label}
               </span>
-              <img src={tier} alt={`BAEKJOON ${label} tier`} className="w-full" />
+              <InlineSvg src={tier} alt={`BAEKJOON ${label} tier`} className="w-full" />
             </a>
           ))}
         </div>

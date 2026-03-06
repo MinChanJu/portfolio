@@ -29,7 +29,7 @@ const Introduction = () => {
         ))}
       </Card>
 
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+      <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
         <Card className="flex flex-col gap-3 px-5 py-4">
           <SectionTitle>📋 Info</SectionTitle>
           <InfoTable

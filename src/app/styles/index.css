@@ -43,3 +43,32 @@ ul {
   list-style: disc;
   padding-left: 20px;
 }
+
+@media print {
+  @page {
+    margin: 10mm;
+    margin-top: 15mm;
+    size: A4;
+  }
+
+  header,
+  footer {
+    display: none !important;
+  }
+
+  body {
+    background: white !important;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    box-shadow: none !important;
+  }
+
+  svg * {
+    animation-delay: -9999s !important;
+    animation-fill-mode: forwards !important;
+    animation-iteration-count: 1 !important;
+  }
+}
