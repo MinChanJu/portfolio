@@ -1,4 +1,4 @@
-import profile from "@shared/assets/image/profile.png";
+import profile from "@shared/assets/image/profile.webp";
 import { URL } from "@shared/config";
 import { Card, CustomLink, SectionLayout, SectionTitle } from "@shared/ui";
 

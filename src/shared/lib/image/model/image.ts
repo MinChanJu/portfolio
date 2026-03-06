@@ -1,4 +1,4 @@
-const allImages = import.meta.glob("/src/shared/assets/image/*/*.{png,jpg,jpeg,svg}", {
+const allImages = import.meta.glob("/src/shared/assets/image/*/*.{png,jpg,jpeg,svg,webp}", {
   eager: true,
   import: "default",
 });

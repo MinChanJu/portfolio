@@ -52,7 +52,7 @@ const ImageSlider = ({ title, images, imageName }: ImageSliderProps) => {
           >
             {images.map((src, index) => (
               <SwiperSlide key={index} className="flex items-center justify-center">
-                <img className="h-full w-full object-contain" src={src} alt={`Slide ${index}`} />
+                <img className="h-full w-full object-contain" src={src} alt={`Slide ${index}`} loading="lazy" />
               </SwiperSlide>
             ))}
           </Swiper>
