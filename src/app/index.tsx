@@ -3,7 +3,7 @@ import { Home } from "@pages/home";
 import { Footer } from "@widgets/footer";
 import { Header } from "@widgets/header";
 
-import "./styles/index.css";
+import "./styles";
 
 const App = () => {
   return (
