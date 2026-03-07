@@ -1,10 +1,10 @@
-import { Card } from "@shared/ui";
+import { SectionCard } from "@shared/ui";
 
 import { Prize } from "../model/prize.types";
 import { getRankStyle } from "../model/prize.utils";
 
 const PrizeCard = ({ name, host, date, rank }: Prize) => (
-  <Card className="flex items-center justify-between gap-4 rounded-xl transition-shadow hover:shadow-md">
+  <SectionCard className="flex items-center justify-between gap-4 rounded-xl transition-shadow hover:shadow-md">
     <div className="flex flex-col gap-1">
       <span className="font-semibold text-slate-800">{name}</span>
       <span className="text-xs text-slate-400">{host}</span>
@@ -13,7 +13,7 @@ const PrizeCard = ({ name, host, date, rank }: Prize) => (
       <span className={`rounded-full border px-3 py-0.5 text-xs font-semibold ${getRankStyle(rank)}`}>{rank}</span>
       <span className="text-xs text-slate-400">{date}</span>
     </div>
-  </Card>
+  </SectionCard>
 );
 
 export default PrizeCard;

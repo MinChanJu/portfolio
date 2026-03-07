@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import useHeaderNav from "../model/useHeaderNav";
+import { useHeaderNav } from "../model/use-header-nav";
 import DesktopMenu from "./DesktopMenu";
 import MobileMenu from "./MobileMenu";
 

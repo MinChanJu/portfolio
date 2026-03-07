@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 
-const useProjectDropdown = () => {
+export const useProjectDropdown = () => {
   const [projectOpen, setProjectOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -20,5 +20,3 @@ const useProjectDropdown = () => {
 
   return { projectOpen, setProjectOpen, dropdownRef };
 };
-
-export default useProjectDropdown;

@@ -1,9 +1,11 @@
 import ReactMarkdown from "react-markdown";
 
+import { ImageSlider } from "@features/image-slider";
+
 import { PROJECTS } from "@entities/project";
 
 import { getImages } from "@shared/lib/image";
-import { Card, CustomLink, ImageSlider, InfoRow, SectionLayout, SectionTitle } from "@shared/ui";
+import { CustomLink, InfoRow, SectionCard, SectionLayout } from "@shared/ui";
 
 import "highlight.js/styles/github.css";
 import rehypeHighlight from "rehype-highlight";
@@ -28,8 +30,7 @@ const Project = ({ index }: ProjectProps) => {
         </div>
       }
     >
-      <Card className="flex flex-col gap-3 bg-slate-50">
-        <SectionTitle>📌 프로젝트 정보</SectionTitle>
+      <SectionCard title="📌 프로젝트 정보">
         <div className="flex flex-col gap-3">
           <InfoRow label="기간">{project.period}</InfoRow>
           <InfoRow label="팀구성">{project.team}</InfoRow>
@@ -49,11 +50,10 @@ const Project = ({ index }: ProjectProps) => {
             </div>
           </InfoRow>
         </div>
-      </Card>
+      </SectionCard>
 
       {(project.links || project.site) && (
-        <Card className="flex flex-col gap-3 bg-slate-50">
-          <SectionTitle>🔗 Links</SectionTitle>
+        <SectionCard title="🔗 Links">
           <div className="flex flex-col gap-3">
             {project.links?.map(({ label, url }, i) => (
               <InfoRow key={i} label={label}>
@@ -66,14 +66,14 @@ const Project = ({ index }: ProjectProps) => {
               </InfoRow>
             )}
           </div>
-        </Card>
+        </SectionCard>
       )}
 
-      <Card className="prose prose-slate max-w-none">
+      <SectionCard className="prose prose-slate max-w-none">
         <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeHighlight]}>
           {project.description}
         </ReactMarkdown>
-      </Card>
+      </SectionCard>
 
       <ImageSlider title={project.title} images={getImages(project.name)} />
     </SectionLayout>

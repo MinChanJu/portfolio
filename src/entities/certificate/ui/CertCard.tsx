@@ -1,9 +1,9 @@
-import { Card } from "@shared/ui";
+import { SectionCard } from "@shared/ui";
 
 import { Certificate } from "../model/certificate.types";
 
 const CertCard = ({ name, issuer, date, score }: Certificate) => (
-  <Card className="flex items-center justify-between gap-4 rounded-xl transition-shadow hover:shadow-md">
+  <SectionCard className="flex items-center justify-between gap-4 rounded-xl transition-shadow hover:shadow-md">
     <div className="flex flex-col gap-1">
       <span className="font-semibold text-slate-800">{name}</span>
       <span className="text-xs text-slate-400">{issuer}</span>
@@ -14,7 +14,7 @@ const CertCard = ({ name, issuer, date, score }: Certificate) => (
       </span>
       <span className="text-xs text-slate-400">{date}</span>
     </div>
-  </Card>
+  </SectionCard>
 );
 
 export default CertCard;

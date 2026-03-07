@@ -1,5 +1,5 @@
 import { URL } from "@shared/config";
-import { Card, CustomLink, SectionLayout, SectionTitle } from "@shared/ui";
+import { CustomLink, SectionCard, SectionLayout, SectionTitle } from "@shared/ui";
 
 import { BAEKJOON_ACCOUNTS } from "../model/link.constants";
 
@@ -7,8 +7,8 @@ const Link = () => {
   return (
     <SectionLayout caption="Contact" title="Links">
       <div className="flex flex-col gap-4">
-        <SectionTitle>🐙 GitHub</SectionTitle>
-        <Card>
+        <SectionTitle title="🐙 GitHub" />
+        <SectionCard>
           <CustomLink href={URL.GITHUB} />
           <div className="mx-auto flex max-w-2xl flex-col gap-3">
             <img src={URL.GITHUB_SUMMARY} alt="GitHub Summary" className="w-full rounded-lg" />
@@ -18,11 +18,11 @@ const Link = () => {
             </div>
             <img src={URL.GITHUB_STREAK} alt="GitHub Streak" className="w-full rounded-lg" />
           </div>
-        </Card>
+        </SectionCard>
       </div>
 
       <div className="flex flex-col gap-4">
-        <SectionTitle>⚔️ BAEKJOON</SectionTitle>
+        <SectionTitle title="⚔️ BAEKJOON" />
         <div className="grid grid-cols-2 gap-3 md:gap-5">
           {BAEKJOON_ACCOUNTS.map(({ label, href, tier }) => (
             <a

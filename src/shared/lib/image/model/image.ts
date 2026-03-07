@@ -13,6 +13,14 @@ Object.entries(allImages).forEach(([path, image]) => {
   categorizedImages[folderName].push(image as string);
 });
 
+Object.keys(categorizedImages).forEach((folderName) => {
+  categorizedImages[folderName].sort((a, b) => {
+    const aName = a.split("/").pop() ?? "";
+    const bName = b.split("/").pop() ?? "";
+    return aName.localeCompare(bName, undefined, { numeric: true, sensitivity: "base" });
+  });
+});
+
 export const getImages = (key: string): string[] => {
   const images = categorizedImages[key];
   return images ? images : [];

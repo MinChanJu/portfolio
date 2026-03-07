@@ -1,6 +1,6 @@
 import { CAREER_BADGE_STYLE, CAREER_DOT_STYLE, Career } from "@entities/career";
 
-import { Card } from "@shared/ui";
+import { SectionCard } from "@shared/ui";
 
 interface TimelineItemProps {
   item: Career;
@@ -18,7 +18,7 @@ const TimelineItem = ({ item, isLast }: TimelineItemProps) => {
         {!isLast && <div className="mt-1 w-px flex-1 bg-slate-200" />}
       </div>
 
-      <Card className="mb-4 flex flex-1 items-start justify-between gap-3 rounded-xl">
+      <SectionCard className="mb-4 flex flex-1 items-start justify-between gap-3 rounded-xl">
         <div className="flex flex-col gap-0.5">
           <span className="font-semibold text-slate-800">{item.title}</span>
           <span className={`mt-1 w-fit rounded-full border px-2.5 py-0.5 text-xs font-medium ${badge}`}>
@@ -26,7 +26,7 @@ const TimelineItem = ({ item, isLast }: TimelineItemProps) => {
           </span>
         </div>
         <span className="shrink-0 text-xs text-slate-400">{item.period}</span>
-      </Card>
+      </SectionCard>
     </div>
   );
 };

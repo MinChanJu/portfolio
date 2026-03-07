@@ -1,6 +1,6 @@
 import profile from "@shared/assets/image/profile.webp";
 import { URL } from "@shared/config";
-import { Card, CustomLink, SectionLayout, SectionTitle } from "@shared/ui";
+import { CustomLink, SectionCard, SectionLayout } from "@shared/ui";
 
 import { EDU_ROWS, INFO_ROWS, PARAGRAPHS } from "../model/info.constants";
 import InfoTable from "./InfoTable";
@@ -19,17 +19,18 @@ const Introduction = () => {
         </div>
       }
     >
-      <Card className="flex flex-col gap-4">
-        {PARAGRAPHS.map((p, i) => (
-          <p key={i} className="text-sm leading-relaxed whitespace-pre-wrap text-slate-600">
-            {" " + p}
-          </p>
-        ))}
-      </Card>
+      <SectionCard title="👋 인사말">
+        <div className="flex flex-col gap-4">
+          {PARAGRAPHS.map((p, i) => (
+            <p key={i} className="text-sm leading-relaxed whitespace-pre-wrap text-slate-600">
+              {" " + p}
+            </p>
+          ))}
+        </div>
+      </SectionCard>
 
       <div className="grid grid-cols-1 gap-3 md:grid-cols-2 md:gap-5">
-        <Card className="flex flex-col gap-3">
-          <SectionTitle>📋 Info</SectionTitle>
+        <SectionCard title="📋 Info">
           <InfoTable
             rows={[
               ...INFO_ROWS,
@@ -39,11 +40,10 @@ const Introduction = () => {
               },
             ]}
           />
-        </Card>
-        <Card className="flex flex-col gap-3">
-          <SectionTitle>🎓 학력</SectionTitle>
+        </SectionCard>
+        <SectionCard title="🎓 학력">
           <InfoTable rows={EDU_ROWS} />
-        </Card>
+        </SectionCard>
       </div>
     </SectionLayout>
   );

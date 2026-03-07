@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 import { SECTION_ID, SectionId } from "@shared/config";
 
-const useHeaderNav = () => {
+export const useHeaderNav = () => {
   const [activeSection, setActiveSection] = useState<SectionId | "">("");
 
   useEffect(() => {
@@ -52,5 +52,3 @@ const useHeaderNav = () => {
 
   return { goToHome, goToSection, getDesktopNavItemClass, getMobileNavItemClass };
 };
-
-export default useHeaderNav;

@@ -2,7 +2,7 @@ import { PROJECTS } from "@entities/project";
 
 import { SECTION_ID, SectionId } from "@shared/config";
 
-import useProjectDropdown from "../model/useProjectDropdown";
+import { useProjectDropdown } from "../model/use-project-dropdown";
 
 interface DesktopProjectDropdownProps {
   className: string;
