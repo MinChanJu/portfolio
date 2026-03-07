@@ -6,6 +6,9 @@ const allImages = import.meta.glob("/src/shared/assets/image/*/*.{png,jpg,jpeg,s
 const categorizedImages: { [key: string]: string[] } = {};
 
 Object.entries(allImages).forEach(([path, image]) => {
+  const fileName = path.split("/").pop() ?? "";
+  if (fileName.startsWith("favicon")) return;
+
   const folderName = path.split("/")[5];
   if (!categorizedImages[folderName]) {
     categorizedImages[folderName] = [];

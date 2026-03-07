@@ -24,7 +24,7 @@ const Project = ({ index }: ProjectProps) => {
       title={
         <div className="mt-5 flex flex-row items-center gap-2">
           {project.site?.favicon && (
-            <img src={project.site.favicon} alt="favicon" className="h-6 w-6 md:h-10 md:w-10" crossOrigin="anonymous" />
+            <img src={project.site.favicon} alt="favicon" className="h-6 w-6 md:h-10 md:w-10" />
           )}
           <div>{project.title}</div>
         </div>

@@ -1,3 +1,7 @@
+import codingContestFavicon from "@shared/assets/image/coding_contest/favicon.svg";
+import moyoFavicon from "@shared/assets/image/moyo/favicon.svg";
+import portfolioFavicon from "@shared/assets/image/portfolio/favicon.svg";
+
 import { Project } from "./project.types";
 
 export const PROJECTS: Project[] = [
@@ -7,7 +11,7 @@ export const PROJECTS: Project[] = [
     team: "4명",
     role: "Full Stack - 50%",
     skills: "React, TypeScript, NestJS, MySQL, TypeORM",
-    site: { url: "https://www.moyo.asia", favicon: "https://www.moyo.asia/favicon.svg" },
+    site: { url: "https://www.moyo.asia", favicon: moyoFavicon },
     links: [
       {
         label: "소스코드",
@@ -148,7 +152,7 @@ export const PROJECTS: Project[] = [
     team: "1명 (총괄)",
     role: `Full Stack - 100%`,
     skills: "Spring Boot, Java, React, TypeScript, SupaBase, PostgreSQL",
-    site: { url: "https://minchanju.github.io/MiC", favicon: "https://minchanju.github.io/MiC/logo.jpeg" },
+    site: { url: "https://minchanju.github.io/MiC", favicon: codingContestFavicon },
     links: [
       {
         label: "백엔드",
@@ -217,7 +221,7 @@ export const PROJECTS: Project[] = [
     skills: "React, TypeScript",
     site: {
       url: "https://minchanju.github.io/portfolio",
-      favicon: "https://minchanju.github.io/portfolio/favicon.svg",
+      favicon: portfolioFavicon,
     },
     links: [
       {
