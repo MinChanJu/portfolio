@@ -40,6 +40,10 @@ html::---webkit-scrollbar {
   display: none;
 }
 
+body {
+  background-color: #f9fafb;
+}
+
 button {
   cursor: pointer;
 }
