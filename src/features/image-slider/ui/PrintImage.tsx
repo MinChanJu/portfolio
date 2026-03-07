@@ -7,7 +7,7 @@ interface PrintImageProps {
 
 const PrintImage = ({ title, images }: PrintImageProps) => {
   return (
-    <div className="print:block">
+    <div className="hidden print:block">
       <SectionTitle title={`${title ? title + " " : ""}사진 (${images.length}장)`} titlePosition="center" />
       <div className="h-4" />
       <div className="flex flex-wrap gap-4">
