@@ -28,7 +28,7 @@ const ImageSlider = ({ title, images, imageName }: ImageSliderProps) => {
               ? decodeURIComponent(images[currentIndex].split("/").pop() ?? "").split("-")[0]
               : `${title} 사진 ${currentIndex + 1}`}
           </p>
-          <span className="rounded-full bg-slate-100 px-2 py-0.5 text-sm text-slate-500">
+          <span className="rounded-full bg-slate-100 px-2 py-0.5 text-sm text-slate-600">
             {currentIndex + 1} / {images.length}
           </span>
         </div>

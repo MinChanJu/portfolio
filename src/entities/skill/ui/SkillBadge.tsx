@@ -7,7 +7,7 @@ const SkillBadge = ({ name, level }: Skill) => (
   >
     <span className={`h-1.5 w-1.5 rounded-full ${getLevelDotColor(level)}`} />
     {name}
-    <span className="text-xs font-normal opacity-60">{level}/10</span>
+    <span className="text-xs font-normal opacity-80">{level}/10</span>
   </span>
 );
 
