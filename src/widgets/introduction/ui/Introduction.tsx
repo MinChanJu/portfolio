@@ -11,7 +11,13 @@ const Introduction = () => {
       caption="About Me"
       title={
         <div className="mt-5 flex items-center justify-start gap-5">
-          <img className="w-40 rounded-2xl border" src={profile} alt="프로필 사진" />
+          <img
+            className="w-40 rounded-2xl border"
+            src={profile}
+            alt="프로필 사진"
+            loading="eager"
+            fetchPriority="high"
+          />
           <div className="flex flex-col gap-2">
             <div>안녕하세요,</div>
             <div>주니어 개발자 주민찬입니다.</div>

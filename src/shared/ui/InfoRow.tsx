@@ -7,7 +7,7 @@ interface InfoRowProps {
 
 const InfoRow = ({ label, children }: InfoRowProps) => (
   <div className="flex items-baseline gap-3">
-    <span className="w-20 shrink-0 text-xs font-semibold tracking-widest text-slate-400 uppercase">{label}</span>
+    <span className="w-20 shrink-0 text-xs font-semibold tracking-widest text-slate-600 uppercase">{label}</span>
     <span className="text-sm text-slate-700">{children}</span>
   </div>
 );

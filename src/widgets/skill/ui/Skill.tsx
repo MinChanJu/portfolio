@@ -16,7 +16,7 @@ const Skill = () => {
           <div key={label} className="flex items-center gap-2">
             <span className={`h-2.5 w-2.5 rounded-full ${color}`} />
             <span className="text-xs text-slate-500">
-              {label} <span className="text-slate-400">({range})</span>
+              {label} <span className="text-slate-500">({range})</span>
             </span>
           </div>
         ))}

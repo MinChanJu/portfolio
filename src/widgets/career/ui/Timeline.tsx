@@ -11,7 +11,7 @@ const Timeline = ({ items }: TimelineItemProps) => {
     return (
       <div className="flex flex-col items-center gap-2 py-12 text-center">
         <span className="text-2xl">🔍</span>
-        <p className="text-sm font-medium text-slate-400">해당 유형의 경력이 없습니다.</p>
+        <p className="text-sm font-medium text-slate-500">해당 유형의 경력이 없습니다.</p>
       </div>
     );
   }

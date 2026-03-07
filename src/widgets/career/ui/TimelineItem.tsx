@@ -25,7 +25,7 @@ const TimelineItem = ({ item, isLast }: TimelineItemProps) => {
             {item.type}
           </span>
         </div>
-        <span className="shrink-0 text-xs text-slate-400">{item.period}</span>
+        <span className="shrink-0 text-xs text-slate-500">{item.period}</span>
       </SectionCard>
     </div>
   );
