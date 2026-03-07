@@ -29,7 +29,7 @@ const Introduction = () => {
         <div className="flex flex-col gap-4">
           {PARAGRAPHS.map((p, i) => (
             <p key={i} className="text-sm leading-relaxed whitespace-pre-wrap text-slate-600">
-              {" " + p}
+              {"  " + p}
             </p>
           ))}
         </div>
