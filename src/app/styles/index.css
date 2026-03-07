@@ -57,13 +57,11 @@ section {
   scroll-margin-top: 90px;
 }
 
-@media print {
-  @page {
-    margin: 10mm;
-    margin-top: 15mm;
-    size: A4;
-  }
+* {
+  box-sizing: border-box;
+}
 
+@media print {
   header,
   footer {
     display: none !important;
