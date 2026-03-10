@@ -10,7 +10,20 @@ export const PROJECTS: Project[] = [
     period: "2025.12 ~ 2026.02 (2개월, 네이버 부스트캠프 10기에서 진행)",
     team: "4명",
     role: "Full Stack - 50%",
-    skills: "React, TypeScript, NestJS, MySQL, TypeORM",
+    skills: [
+      "React",
+      "TypeScript",
+      "Phaser 3",
+      "Socket.io",
+      "NestJS",
+      "MySQL",
+      "TypeORM",
+      "LiveKit",
+      "Yjs",
+      "TLDraw",
+      "Docker",
+      "AWS S3",
+    ],
     site: { url: "https://www.moyo.asia", favicon: moyoFavicon },
     links: [
       {
@@ -18,140 +31,118 @@ export const PROJECTS: Project[] = [
         url: "https://github.com/boostcampwm2025/web13-isj-dle",
       },
     ],
+    imageName: "moyo",
     description: `## 🏠 프로젝트 개요
 
 [네이버 부스트캠프 10기](https://boostcamp.connect.or.kr/) 기간 중 **ISJ-DLE 팀**(4인)이 개발한 **2D 가상 공간 기반 협업 플랫폼**입니다.
-부스트캠프 캠퍼들이 원격 환경에서도 같은 공간에 있는 듯한 몰입감을 느끼며 학습하고 소통할 수 있도록 설계되었습니다.
+원격 환경에서의 부족한 공간감과 분산된 협업 도구 문제를 해결하기 위해 화상회의·코드 편집·화이트보드·채팅을 하나의 2D 공간으로 통합하였습니다.
 
 ---
 
-## 🛠 기술 스택
-
-| 분류 | 기술 |
-|------|------|
-| Frontend | React 19, TypeScript, Phaser (2D 게임 엔진), Socket.io Client |
-| Backend | NestJS, TypeORM, MySQL |
-| 협업 도구 | LiveKit (화상회의), Yjs + Monaco Editor (실시간 코드편집), TLDraw (화이트보드) |
-| 인프라 | Docker, Naver Cloud, AWS S3 |
-| 인증 | GitHub OAuth |
-| 아키텍처 | pnpm monorepo, Feature-Sliced Design (FSD) |
-| 코드 품질 | ESLint, Prettier, Husky, lint-staged |
+## ‍💻 담당 역할 (Full Stack 50%)
+- **FSD 아키텍처 설계** 및 Husky · lint-staged 기반 협업 환경 구축
+- **GitHub OAuth 2.0** 인증 및 JWT 세션 관리 구현
+- **EasyStar.js** 기반 공간 자동이동 기능 구현 (동적 import 최적화 포함)
+- **Yjs + Monaco Editor** 공동 코드 편집 기능 구현
+- **NestJS** 백엔드 API 개발 및 **Socket.io** 이벤트 설계
+- **Phaser 3** 2D 맵 렌더링 및 아바타 이동 시스템 구현
+- 릴리즈 및 리팩토링 주도
 
 ---
 
-## 📱 주요 기능
+## 🔧 문제 해결 과정
 
-### 🗺 2D 가상 공간
-- **아바타 이동**: 방향키 또는 마우스 클릭으로 자유로운 이동
-- **자동이동**: EasyStar.js 길찾기 알고리즘을 활용한 장애물 회피 이동
-- **미니맵**: M 키로 전체 맵 확대 조회
+### 1. 아바타 이동 시 전체 컴포넌트가 리렌더링되는 문제
 
-### 🔔 상태 & 바운더리 시스템
-- **노크 시스템**: 🟢 Available / 🔴 Focusing / 🟠 Talking 3단계 상태 관리
-- **바운더리 시스템**: Convex Hull 알고리즘을 이용한 그룹 영역 시각화
+**상황**: React Scan 브라우저 확장 프로그램으로 리렌더링 현황을 모니터링하던 중, 내 아바타를 이동할 때마다 사이드바·네비게이션 바·맵·미니맵 등 화면의 모든 컴포넌트가 동시에 리렌더링되는 것을 발견했다. 하위 컴포넌트까지 포함해 한 번 이동할 때마다 총 **105개** 컴포넌트가 리렌더링되었다.
 
-### 💬 소통 & 협업
-- **실시간 채팅**: Socket.io 기반 공간 내 채팅
-- **화상회의**: LiveKit을 활용한 실시간 영상·음성 통화
-- **공동 코드 편집**: Yjs + Monaco Editor CRDT 기반 실시간 코드 공유
-- **화이트보드**: TLDraw 기반 공유 드로잉 보드
+**원인 분석**: 로그인한 사용자 정보, 아바타 위치, 화상회의 상태 등 앱 전반에서 필요한 데이터를 \`User\` 객체 하나로 묶어 Context API로 전역 제공하고 있었다. Context 값이 변경되면 해당 Context를 구독하는 모든 컴포넌트가 리렌더링되는 React의 동작 방식 때문에, 아바타 위치만 바뀌어도 \`User\` 객체를 구독하는 사이드바·네비게이션 바·미니맵 등이 전부 다시 그려졌다.
 
-### 🏢 공간별 기능
-- **세미나실 / 소회의실 (Breakout Room)**: 랜덤 또는 자유 배정 소규모 미팅
-- **식당 공간**: 이미지 업로드(AWS S3) 및 좋아요 기능
-- **인터랙티브 튜토리얼**: Shepherd.js를 활용한 온보딩 가이드
+**해결**: 상태 관리를 **Zustand**로 전환해 사용자 인증 정보, 아바타 위치, 화상회의 상태 등을 목적별 스토어로 분리했다. 각 컴포넌트는 자신에게 필요한 슬라이스만 구독하도록 변경해, 아바타가 이동해도 위치 슬라이스를 구독하는 컴포넌트만 리렌더링되도록 했다. 추가로 자주 재사용되는 컴포넌트에는 \`memo\`를 적용해 props가 바뀌지 않으면 렌더링을 건너뛰도록 했다. 두 조치를 함께 적용한 결과 리렌더링 컴포넌트 수가 **105개 → 5개**로 줄었다.
+
+> 관련 PR: [#231](https://github.com/boostcampwm2025/web13-isj-dle/pull/231)
 
 ---
 
-## 🏗 프론트엔드 아키텍처 & 협업 환경
+### 2. 아바타 이동이 불편하다는 피드백
 
-### Feature-Sliced Design (FSD)
-- 프론트엔드 전체를 **FSD 레이어**(app / pages / widgets / features / entities / shared)로 구성
-- 레이어 간 단방향 의존성을 유지하여 코드 가독성 및 확장성 확보
+**상황**: 초기에는 방향키·WASD로 아바타를 걷게 하는 기본 이동만 구현되어 있었다. 사용성 테스트를 하면서 **"맵이 넓어서 목적지까지 너무 오래 걸린다"**, **"OO방이 어디있는지 모르겠다"** 는 의견이 나왔다. 실제로 맵 끝에서 끝까지 걸어서 이동하면 수십 초가 소요되었고, 회의실이나 특정 공간을 찾아가려면 맵 전체를 직접 탐색해야 하는 번거로움도 있었다.
 
-### 팀 컨벤션 & 코드 품질 자동화
-- **Husky** + **lint-staged**를 활용해 커밋 전 자동으로 lint·format 검사 실행
-- **ESLint**: 코드 스타일 및 잠재적 오류 사전 차단
-- **Prettier**: 팀 전체 일관된 코드 포매팅
-- **커밋 메시지 컨벤션**: 팀원 간 합의한 prefix 규칙 (feat / fix / refactor 등) 적용
+**해결**: 먼저 이동 편의성 개선 목적으로 **달리기** 기능을 추가했다. \`Shift\` 키를 누르고 있는 동안 이동 속도가 빨라지도록 Phaser의 입력 처리 로직을 수정했다. 그러나 달리기만으로는 목적지 탐색 불편함이 해소되지 않는다고 판단해, 한 걸음 더 나아가 **자동이동** 기능을 구현했다. 사이드바에서 원하는 공간을 선택하면 A* 알고리즘 기반의 EasyStar.js가 현재 위치에서 목적지까지 장애물을 고려한 최단 경로를 계산하고, 아바타가 자동으로 이동한다. 두 기능이 더해지자 넓은 맵에서의 이동 불편 피드백이 크게 줄었다.
+
+> 관련 PR: [#196](https://github.com/boostcampwm2025/web13-isj-dle/pull/196)
 
 ---
 
-## 👨‍💻 담당 역할 (Full Stack 50%)
-- 2D 맵 렌더링 및 아바타 이동 시스템 구현 (Phaser)
-- GitHub OAuth 인증 및 사용자 세션 관리
-- 공간 자동 이동 기능 구현 (EasyStar.js)
-- 코드 에디터 기능 구현 (Yjs + Monaco Editor)
-- NestJS 백엔드 API 개발 및 Socket.io 이벤트 설계
-- FSD 아키텍처 설계 및 Husky·lint-staged 기반 협업 환경 구축
-- 리팩토링 및 릴리즈 주도`,
-    name: "moyo",
+### 3. 코드 에디터가 단순 텍스트 편집기 수준에 머물러 사용 동기가 없는 문제
+
+**상황**: 초기 코드 에디터는 Monaco Editor를 공간 안에 띄워 모든 참여자가 같은 파일을 실시간으로 공동 편집하는 단일 편집기 형태였다. 직접 사용해보니 하나의 파일만 열 수 있고 파일을 저장하거나 관리하는 수단이 없어서, 로컬 IDE나 다른 협업 편집 도구에 비해 기능이 크게 부족했다. 팀 내에서 "굳이 이걸 써야 하는 이유가 없다"는 의견이 나왔고, 핵심 기능임에도 실제로 활용되지 않는 상황이었다.
+
+**원인 분석**: 단일 파일만 다루는 구조에서는 여러 파일에 걸친 작업이 불가능하고, 작업 맥락을 파일 단위로 나눌 수 없어 협업 편의성이 낮았다. 코드를 작성하다 다른 파일을 참조하거나 분리해야 할 때 에디터 밖으로 나가야 했고, 파일을 어디에도 저장할 수 없어 세션이 끊기면 작성 내용이 사라지는 것도 문제였다. 결국 단순한 공유 텍스트 창 이상의 가치를 제공하지 못하고 있었다.
+
+**해결**: 팀 논의 끝에 **폴더·파일 트리 구조**를 도입하기로 결정했다. 사이드바에 파일 탐색기를 추가해 폴더를 만들고 파일을 생성·삭제·이름 변경할 수 있도록 했다. 파일 트리와 에디터 내용을 서버에 저장해 공간을 나갔다 돌아와도 작업 상태가 유지되도록 했다. 실제 IDE와 유사한 구조가 갖춰지자 팀원들이 코드 에디터를 적극적으로 사용하기 시작했다.
+
+> 관련 PR: [#152](https://github.com/boostcampwm2025/web13-isj-dle/pull/152)`,
   },
   {
     title: "강의실 예약 사이트",
     period: "2025.05 ~ 2025.05 (1일, 아주대학교 해커톤에서 진행)",
-    team: "4명 (FrontEnd)",
+    team: "4명",
     role: "FrontEnd - 60%",
-    skills: "React, TypeScript",
+    skills: ["React", "TypeScript", "Three.js", "React Three Fiber", "PassKey", "Bootstrap", "Emotion"],
     links: [
       {
         label: "소스코드",
         url: "https://github.com/MinChanJu/classroom-reservation",
       },
     ],
-    description: `## 🏫 프로젝트 개요
+    imageName: "ajou_ton",
+    description: `## 🏠 프로젝트 개요
 
-**2025 아주대학교 제2회 아주톤(해커톤)** 참가작으로, 약 20시간의 개발 기간 동안 제작한 강의실 예약 시스템입니다.
-시간 제약으로 인해 팀원들과 협의 후 프론트엔드 중심의 웹DB 방식으로 구현하였으며, 최종 **장려상(3등)** 을 수상하였습니다.
-
----
-
-## 🛠 기술 스택
-
-| 분류 | 기술 |
-|------|------|
-| Frontend | React 19, TypeScript, Vite |
-| 3D 렌더링 | Three.js, React Three Fiber |
-| 인증 | WebAuthn API (PassKey) |
-| 스타일링 | Bootstrap 5, Emotion |
-| 기타 | QRCode.js, jQuery DateTimePicker, js-sha256 |
+**2025 아주대학교 제2회 아주톤(해커톤)** 참가작으로, 약 **20시간**의 제한된 개발 기간 안에 4인 팀이 제작한 강의실 예약 시스템입니다.
+최종 **장려상(3등)** 을 수상하였습니다.
 
 ---
 
-## 📱 주요 기능
-
-### 🏗 3D 건물 뷰어
-- Three.js + React Three Fiber 기반의 3D 건물 모델 렌더링
-- **성호관**(1~6층) 층별 강의실 배치도 제공
-- 강의실 상태: 🟢 사용 가능 / 🔴 사용 중 / 🟡 점검 중
-
-### 🔐 PassKey 인증
-- **WebAuthn API** 기반 비밀번호 없는 생체인증 (지문 / 얼굴 인식)
-- 기존 아이디·비밀번호 방식 대비 보안성 및 편의성 향상
-
-### 📱 다중 디바이스 지원
-- \`useDeviceType\` 커스텀 훅으로 디바이스 자동 감지
-- **사이니지**(강의실 앞 대형 안내 스크린), **태블릿**, **모바일** 각각 전용 UI 제공
-  - *사이니지란?* → 학교·회사 등 공공장소에서 운영되는 대형 디지털 안내판으로, 강의실 앞 예약 현황 안내 스크린을 목표로 설계하였습니다.
-
-### 🔄 기타
-- QR 코드 생성으로 강의실 정보 공유
-- 30초 자동 새로고침으로 실시간 상태 모니터링
+## ‍💻 담당 역할 (FrontEnd 60%)
+- **프론트엔드 전체 아키텍처** 및 UI/UX 설계 주도
+- **Three.js** 기반 3D 건물 뷰어 및 층별 강의실 배치 로직 개발
+- **\`useDeviceType\`** 훅 설계 및 디바이스별 화면 최적화
 
 ---
 
-## 👨‍💻 담당 역할 (FrontEnd 60%)
-- 프론트엔드 전체 아키텍처 및 UI/UX 설계 주도
-- Three.js 기반 3D 건물 뷰어 및 층별 강의실 배치 로직 개발
-- 디바이스별 화면 최적화`,
-    name: "ajou_ton",
+## 🔧 문제 해결 과정
+
+### 1. 20시간 제약 안에 실제 동작하는 서비스를 만들어야 하는 문제
+
+**상황**: 해커톤 규칙상 개발 시간은 약 20시간이었다. 팀 구성 초기에는 React 프론트엔드 + Spring Boot 백엔드 + PostgreSQL DB의 전통적인 풀스택 구성을 계획했다. 모든 팀원이 각자 맡은 파트를 빠르게 개발해 연결하는 방식으로 시작하려 했다.
+
+**판단**: 실제로 타임라인을 산정해보니, 백엔드 프로젝트 세팅·DB 스키마 작성·배포 환경 구성에만 5~6시간 이상이 소요될 것으로 예상되었다. 해커톤 심사 기준은 기술 스택의 화려함보다 완성도와 시연 가능성에 집중되어 있었다. 개발 절반을 서버 환경 세팅에 쓰고 프론트엔드가 미완성 상태로 발표에 나서는 것보다, 범위를 줄이더라도 **완성된 상태로 시연 가능한 서비스**를 만드는 것이 더 유리하다고 팀원들과 합의했다.
+
+**해결**: 백엔드 없이 **브라우저 로컬 상태와 정적 JSON 데이터**만으로 예약 로직을 처리하는 WebDB 방식을 채택했다. 범위를 줄인 덕분에 남은 개발 시간을 3D 건물 뷰어, PassKey 인증, 다중 디바이스 지원 등 차별화된 UX에 온전히 투자할 수 있었고, 최종 심사에서 장려상을 수상했다.
+
+---
+
+### 2. 사이니지·모바일·태블릿 세 가지 화면을 하나의 코드베이스로 유지하는 문제
+
+**상황**: 강의실 앞 대형 안내 스크린(사이니지), 교직원용 태블릿, 학생 모바일 등 접속 기기마다 요구하는 UI가 완전히 달랐다. 사이니지는 예약 현황을 한눈에 보여주는 대시보드 형태였고, 태블릿은 예약·조회 인터랙션 중심이었으며, 모바일은 그보다 더 간소화된 인터페이스가 필요했다. 기기별 요구가 너무 달라서 하나의 컴포넌트 안에서 CSS 미디어 쿼리로 모두 처리하면 조건 분기가 컴포넌트 전체에 산재해 수정할 때마다 다른 기기 화면에 영향을 줄 우려가 있었다.
+
+**해결**: \`useDeviceType\` 커스텀 훅을 만들어 viewport 크기를 기반으로 접속 기기 유형을 자동 판별하도록 했다. App 최상단에서 기기 유형에 따라 \`<DesktopView />\`, \`<TabletView />\`, \`<MobileView />\` 컴포넌트를 교체하는 방식으로 설계했다. 각 기기 전용 컴포넌트가 완전히 독립된 디렉토리(\`desktop/\`, \`tablet/\`, \`mobile/\`)에 존재하므로, 한 화면을 수정해도 다른 화면에 전혀 영향을 주지 않는다.
+
+---
+
+### 3. Three.js 명령형 API를 React 프로젝트에 통합하는 문제
+
+**상황**: 성호관 건물을 3D로 시각화하기 위해 Three.js를 도입했다. 처음에는 \`useEffect\` 내에서 \`new THREE.Scene()\`, \`new THREE.WebGLRenderer()\`를 직접 생성하고 \`canvas\` 엘리먼트에 마운트하는 방식으로 시도했다. 그런데 React의 상태 변경으로 컴포넌트가 리렌더링될 때마다 \`useEffect\` 클린업이 불완전하게 동작해 Scene이 중복 생성되거나 메모리가 누수되는 문제가 발생했다. Three.js의 명령형 생명주기와 React의 선언형 렌더링 사이클이 충돌하는 구조적 문제였다.
+
+**해결**: **React Three Fiber**를 도입해 Three.js 객체를 \`<mesh>\`, \`<boxGeometry>\`, \`<meshStandardMaterial>\` 같은 JSX로 선언적으로 표현했다. React Three Fiber가 내부적으로 React의 재조정(Reconciliation) 메커니즘을 통해 Three.js 오브젝트의 생성·갱신·삭제를 관리해주므로, 기존에 쓰던 React 패턴 그대로 3D 씬을 구성할 수 있었다. 해커톤의 제한된 시간 안에 Three.js 생명주기 문제를 디버깅하는 대신 기능 개발에 집중할 수 있었다.`,
   },
   {
     title: "코딩대회 사이트",
     period: "2024.11 ~ 2025.01 (약 3개월)",
     team: "1명 (총괄)",
     role: `Full Stack - 100%`,
-    skills: "Spring Boot, Java, React, TypeScript, SupaBase, PostgreSQL",
+    skills: ["React", "TypeScript", "Spring Boot", "Java", "Spring Security", "PostgreSQL", "JPA", "MathJax"],
     site: { url: "https://minchanju.github.io/MiC", favicon: codingContestFavicon },
     links: [
       {
@@ -163,62 +154,48 @@ export const PROJECTS: Project[] = [
         url: "https://github.com/MinChanJu/MiC",
       },
     ],
-    description: `## 💻 프로젝트 개요
+    imageName: "coding_contest",
+    description: `## 🏠 프로젝트 개요
 
 아주대학교 수학과 소학회 **MiC(Mathematics in Coding)** 의 온라인 프로그래밍 대회 플랫폼입니다.
-승인된 출제자가 대회를 생성하고 문제를 출제하며, 참가자들은 시간에 맞춰 코드를 제출하고 채점 결과를 확인할 수 있습니다.
+소학회장으로서 기획부터 설계·개발·배포까지 **1인 풀스택**으로 전담하였습니다.
 
 ---
 
-## 🛠 기술 스택
+## 🔧 문제 해결 과정
 
-| 분류 | 기술 |
-|------|------|
-| Frontend | React 18, TypeScript, Vite, Axios, MathJax (수식 렌더링) |
-| Backend | Spring Boot 3.4.2, Java 21, Spring Security + JWT |
-| Database | PostgreSQL, JPA/Hibernate |
-| 기타 | JavaMailSender, Spring Actuator, CORS 설정 |
+### 1. Java 코드 채점 시 응답 시간이 수 초씩 걸리는 문제
 
----
+**상황**: Java 코드가 제출되면 서버에서 컴파일·실행 후 채점 결과를 반환해야 하는데, 매 제출마다 응답에 3~5초가 소요되었다. C나 Python은 1~2초 안에 결과가 왔지만 Java만 유독 오래 걸려서, 사용자가 제출 후 한참을 기다려야 했다.
 
-## 📱 주요 기능
+**원인 분석**: 처음에는 ProcessBuilder로 외부 \`javac\` + \`java\` 명령어를 순차적으로 실행하는 방식을 택했다. 이 방식은 채점 요청마다 OS 레벨에서 완전히 새로운 JVM 인스턴스를 기동하는 과정이 포함된다. JVM 시작에는 클래스 로딩, JIT 컴파일러 초기화 등이 필요해 일반적으로 200~400ms가 소요되는데, 컴파일 단계와 실행 단계에서 각각 JVM을 기동하므로 이 비용이 두 번 중첩되었다. C/Python이 비교적 빠른 이유는 별도의 VM 기동 없이 바이너리를 바로 실행하기 때문이었다.
 
-### ⚖ 코드 채점 시스템
-- 지원 언어: **C** (\`gcc\`), **Python3** (\`python3\`), **Java** (in-memory 컴파일)
-- 실행 시간 제한: **5초**
-- 비동기 채점 처리: \`requestId\` 반환 → \`/result/{requestId}\` 폴링 방식
-- 보이는 예제 + 숨겨진 다중 테스트케이스 혼합 채점, 점수는 소수점 1자리까지 표시
-
-### 👥 대회 관리
-- 대회 생성 / 수정 / 삭제 및 기간 설정
-- 대회 종료 후 자동으로 \`open\` 상태 전환 → 모든 사용자 접근 가능
-- 실시간 스코어보드 확인
-
-### 🔐 인증 및 보안
-- JWT 토큰 기반 인증 (관리자 페이지 접근 권한 제어)
-- CORS 설정으로 허용된 도메인 요청만 처리
-- \`.env\` 파일을 통한 API 키 및 환경변수 관리
-
-### 📊 기타
-- Spring Actuator 모니터링 (\`/actuator/health\`, \`/actuator/metrics\`)
-- JavaMailSender 기반 메일 서비스 (문의 / 신고)
-- MathJax를 통한 LaTeX 수학 수식 렌더링 (문제 출제 시)
+**해결**: JDK에 내장된 \`javax.tools.JavaCompiler\` API로 전환해 이미 실행 중인 서버 JVM 프로세스 내에서 직접 컴파일·클래스 로딩·실행이 이루어지도록 변경했다. 외부 프로세스 생성과 JVM 재기동이 없어지면서 Java 채점에서 발생하던 불필요한 초기화 비용이 사라졌고, 채점 응답 속도가 눈에 띄게 개선되었다.
 
 ---
 
-## 👨‍💻 담당 역할 (1인 풀스택)
-- Spring Boot 백엔드 전체 설계 및 구현
-- React 프론트엔드 전체 구현 (대회 목록, 문제 페이지, 스코어보드 등)
-- PostgreSQL 스키마 설계 및 JPA 연동
-- 코드 실행 및 비동기 채점 파이프라인 구축`,
-    name: "coding_contest",
+### 2. 채점 중 HTTP 요청이 timeout되는 문제
+
+**상황**: C · Python · Java 코드 모두 실행 시간 제한이 최대 5초다. 서버가 채점을 완료할 때까지 HTTP 응답을 보내지 않는 동기(Synchronous) 구조였는데, 복잡한 코드나 무한 루프에 근접한 코드를 제출하면 브라우저나 중간 프록시에서 먼저 timeout 에러를 발생시켰다. 프론트엔드 입장에서는 네트워크 오류로 표시되어 채점이 실패한 건지 서버 문제인지 사용자가 구분조차 할 수 없었다.
+
+**해결**: 요청-응답 구조를 **비동기 폴링 패턴**으로 전환했다. \`POST /api/data/code\` 요청을 받으면 채점 작업을 큐에 등록하고 \`requestId\`만 즉시 반환한다. 프론트엔드는 이 \`requestId\`를 가지고 \`GET /result/{requestId}\`를 일정 간격으로 폴링해 채점 완료 여부를 확인한다. API 응답 자체는 즉시 돌아오므로 채점 시간이 아무리 길어도 HTTP timeout이 발생하지 않고, 사용자도 채점 중임을 인지한 상태로 기다릴 수 있게 되었다.
+
+---
+
+### 3. GitHub Pages에서 API 호출이 차단되는 CORS 문제
+
+**상황**: 프론트엔드를 GitHub Pages(\`minchanju.github.io\`)에 배포하고, 백엔드 API는 별도 서버에서 운영하는 구조였다. 로컬 개발 환경에서는 아무 문제가 없었는데, GitHub Pages에 배포한 직후 프론트엔드에서 API를 호출하자마자 브라우저 콘솔에 CORS 오류가 발생하며 모든 API 요청이 차단되었다. 처음에는 네트워크 설정이나 방화벽 문제인 줄 알고 서버 접근성부터 확인했다.
+
+**원인 분석**: 문제는 Spring Security의 기본 동작에 있었다. 브라우저는 크로스 오리진 요청 전에 Preflight(OPTIONS) 요청을 먼저 보내는데, Spring Security가 인증되지 않은 모든 요청을 기본적으로 차단하는 탓에 이 OPTIONS 요청이 403으로 거부되었다. Preflight가 실패하면 브라우저가 본 요청 자체를 보내지 않으므로, 서버가 정상 운영 중이어도 API 호출이 전혀 되지 않는 상태가 된 것이었다.
+
+**해결**: Spring Security 설정에서 허용할 CORS 출처 도메인을 명시하고, OPTIONS 메서드 요청은 인증 없이 통과시키도록 Security Filter Chain을 수정했다. 로컬 개발 환경(\`localhost\`)과 프로덕션(\`github.io\`) 도메인을 환경변수로 분리해 배포 환경에 따라 허용 도메인이 자동으로 적용되도록 관리했다.`,
   },
   {
     title: "포트폴리오",
     period: "2024.12 ~ 2025.01 (약 1주일, 주기적으로 업데이트)",
     team: "1명 (총괄)",
     role: "FrontEnd - 100%",
-    skills: "React, TypeScript",
+    skills: ["React", "TypeScript", "Vite", "Tailwind CSS", "GitHub Actions"],
     site: {
       url: "https://minchanju.github.io/portfolio",
       favicon: portfolioFavicon,
@@ -229,97 +206,27 @@ export const PROJECTS: Project[] = [
         url: "https://github.com/MinChanJu/portfolio",
       },
     ],
-    description: `## 🗂 프로젝트 개요
+    imageName: "portfolio",
+    description: `## 🏠 프로젝트 개요
 
 개인 포트폴리오 웹 애플리케이션으로, 설계부터 배포까지 직접 진행하였으며 아키텍처 개선을 지속적으로 반영하고 있습니다.
 
 ---
 
-## 🛠 기술 스택
+## 🔧 문제 해결 과정
 
-| 분류 | 기술 |
-|------|------|
-| Frontend | React 19, TypeScript, Vite |
-| 스타일링 | Tailwind CSS v4 |
-| 라우팅 | React Router DOM v7 (\`createBrowserRouter\`) |
-| 아키텍처 | Feature-Sliced Design (FSD) |
-| 배포 | GitHub Pages, GitHub Actions (pnpm + Node 22) |
+### 1. 프로젝트·이미지가 늘어날수록 상수 파일 관리가 번거로워지는 문제
+
+**상황**: 포트폴리오 특성상 프로젝트와 그에 딸린 이미지가 지속적으로 추가된다. 초기에는 이미지를 추가할 때마다 상수 파일 상단에 \`import img1 from './assets/project/img1.png'\`와 같이 import 구문을 직접 작성했다. 이미지가 10장을 넘어가면서 파일 경로를 하나씩 추가하는 반복 작업이 번거로워졌고, 파일명을 오타 내거나 확장자를 잘못 적으면 빌드 자체가 실패하는 문제도 있었다. 새 이미지를 추가할 때 코드 변경이 함께 필요하다는 점도 유지보수 관점에서 비효율적이었다.
+
+**해결**: Vite가 제공하는 \`import.meta.glob\` API를 활용해 지정한 폴더 경로의 이미지 파일을 빌드 타임에 자동으로 수집하도록 변경했다. 이제 이미지 파일을 해당 폴더에 넣기만 하면 별도 import 구문 추가 없이 자동으로 반영된다. 파일명을 코드에 하나씩 적을 필요가 없어 오타로 인한 빌드 에러 가능성도 사라졌다.
 
 ---
 
-## 📐 아키텍처
+### 2. 기능이 늘어날수록 컴포넌트 간 import 방향이 뒤엉키는 문제
 
-**Feature-Sliced Design(FSD)** 방법론을 도입하여 레이어 간 의존성을 명확히 구분하였습니다.
+**상황**: 초기에는 컴포넌트 구조가 단순해서 큰 문제가 없었다. 그런데 Career 필터, 이미지 슬라이더, 인쇄 버튼, 프로젝트 카드 등 기능이 늘어나면서 컴포넌트들이 서로를 자유롭게 import하기 시작했다. 특정 위젯이 공통 유틸을 가져오고, 그 유틸이 다른 도메인 모델을 참조하는 식으로 의존 관계가 복잡해졌다. 결국 어느 한 파일을 수정했을 때 어디까지 영향이 미치는지 파악하기가 어려워졌고, 새 기능을 어느 파일에 추가해야 할지 기준도 모호해졌다.
 
-- **app** — RouterProvider, 전역 스타일
-- **pages** — 각 페이지 컴포넌트
-- **widgets** — Layout, SideBar, PageTitle
-- **features** — useNavigation 커스텀 훅
-- **entities** — 도메인 타입 및 상수 (Project, Career 등)
-- **shared** — 공통 UI, 유틸, 자산, 설정
-
----
-
-## 📱 주요 기능
-- **동적 라우팅**: \`createBrowserRouter\` 기반 중첩 라우트 및 Layout 컴포넌트
-- **이미지 자동 수집**: \`import.meta.glob\`을 활용하여 폴더 내 이미지 일괄 로드
-- **반응형 사이드바**: 열림/닫힘 상태 관리 및 페이지 전환 시 스크롤 위치 초기화
-- **지속적 업데이트**: 새 프로젝트·경력 추가 시 업데이트`,
-    name: "portfolio",
-  },
-  {
-    title: "데이팅 앱",
-    period: "2025.01 ~ 2025.02 (잠시 중단)",
-    team: "2명 (팀장)",
-    role: `Full Stack - 70%`,
-    skills: "Spring Boot, Java, Flutter, Dart, SupaBase, PostgreSQL",
-    links: [
-      {
-        label: "소스코드",
-        url: "https://github.com/MinChanJu/BuckTanley",
-      },
-    ],
-    description: `## 💘 프로젝트 개요
-
-한국인을 위한 랜덤 매칭 기반 채팅 앱입니다.
-사용자들끼리 랜덤으로 매칭하여 채팅하거나, 친구를 맺어 영구적으로 소통할 수 있는 플랫폼입니다.
-
----
-
-## 🛠 기술 스택
-
-| 분류 | 기술 |
-|------|------|
-| Mobile App | Flutter, Dart |
-| Backend | Spring Boot, Java |
-| Database | Supabase, PostgreSQL |
-| 실시간 통신 | WebSocket |
-| 푸시 알림 | FCM (Firebase Cloud Messaging) |
-
----
-
-## 📱 주요 기능
-
-### 💬 채팅 시스템
-- **랜덤 매칭 채팅**: 무작위로 상대방과 연결되어 채팅 진행
-- **친구 채팅**: 친구 추가 후 영구적으로 채팅 가능
-- **WebSocket 실시간 통신**: 서버를 통해 수신 후 각 사용자 세션에 메시지 전달
-
-### 🔔 푸시 알림
-- 상대방이 앱을 켜놓지 않은 상태 (WebSocket 세션 없음) 일 때 **FCM**을 활용한 앱 알림 전송
-
-### 🔐 보안
-- \`.env\` 파일을 통한 API 키 관리
-- 서버 배포 시 CORS 설정 적용 예정
-
----
-
-## 👨‍💻 담당 역할 (팀장, 70%)
-- Spring Boot 백엔드 설계 및 WebSocket 서버 구현
-- Flutter 모바일 앱 UI 및 채팅 기능 개발
-- Supabase(PostgreSQL) 데이터베이스 스키마 설계
-
-> ⚠️ 현재 개발 중인 프로젝트입니다.`,
-    name: "dating_app",
+**해결**: **Feature-Sliced Design(FSD)** 아키텍처를 도입해 app → pages → widgets → features → entities → shared 순서의 레이어를 정의하고, 레이어 간 import는 상위에서 하위 방향으로만 허용하도록 강제했다. 레이어 규칙이 생기자 어떤 파일을 수정할 때 영향을 받는 범위가 해당 레이어 이상으로 올라가지 않는다는 것이 명확해졌다. 새 기능을 추가할 때도 기능의 성격에 따라 어느 레이어에 둬야 하는지 판단 기준이 생겨 구조적 일관성을 유지할 수 있게 되었다.`,
   },
 ];

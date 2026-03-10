@@ -1,8 +1,10 @@
+import { useEffect, useState } from "react";
 import ReactMarkdown from "react-markdown";
 
 import { ImageSlider } from "@features/image-slider";
 
 import { PROJECTS } from "@entities/project";
+import { SkillBadge, getSkillIcon } from "@entities/skill";
 
 import { getImages } from "@shared/lib/image";
 import { CustomLink, InfoRow, SectionCard, SectionLayout } from "@shared/ui";
@@ -17,6 +19,13 @@ type ProjectProps = {
 
 const Project = ({ index }: ProjectProps) => {
   const project = PROJECTS[index];
+  const [githubIcon, setGithubIcon] = useState<{ hex: string; url: string } | null>(null);
+
+  useEffect(() => {
+    getSkillIcon("GitHub").then((icon) => {
+      if (icon) setGithubIcon(icon);
+    });
+  }, []);
 
   return (
     <SectionLayout
@@ -31,43 +40,47 @@ const Project = ({ index }: ProjectProps) => {
       }
     >
       <SectionCard title="📌 프로젝트 정보">
-        <div className="flex flex-col gap-3">
-          <InfoRow label="기간">{project.period}</InfoRow>
-          <InfoRow label="팀구성">{project.team}</InfoRow>
-          <InfoRow label="역할">
-            <span className="whitespace-pre-wrap">{project.role}</span>
-          </InfoRow>
-          <InfoRow label="기술">
-            <div className="flex flex-wrap gap-1.5">
-              {project.skills.split(",").map((s, i) => (
-                <span
+        <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
+          <div className="flex flex-col gap-2 text-sm text-slate-600">
+            <InfoRow label="📅 기간">{project.period}</InfoRow>
+            <InfoRow label="👥 팀구성">{project.team}</InfoRow>
+            <InfoRow label="🙋 역할">{project.role}</InfoRow>
+          </div>
+
+          {(project.links || project.site) && (
+            <div className="flex flex-wrap gap-2">
+              {project.links?.map(({ label, url }, i) => (
+                <CustomLink
                   key={i}
-                  className="rounded-full border border-purple-200 bg-purple-50 px-2.5 py-0.5 text-xs font-medium text-purple-700"
+                  href={url}
+                  className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 bg-slate-50 px-3 py-1.5 text-xs font-medium text-slate-600 transition hover:border-slate-300 hover:bg-slate-100"
                 >
-                  {s.trim()}
-                </span>
+                  {githubIcon && (
+                    <img src={githubIcon.url + `/${githubIcon.hex}`} alt="GitHub icon" className="h-3.5 w-3.5" />
+                  )}
+                  {label}
+                </CustomLink>
               ))}
+
+              {project.site && (
+                <CustomLink
+                  href={project.site.url}
+                  className="inline-flex items-center gap-1.5 rounded-lg border border-purple-200 bg-purple-50 px-3 py-1.5 text-xs font-medium text-purple-700 transition hover:border-purple-300 hover:bg-purple-100"
+                >
+                  <img src={project.site.favicon} alt="" className="h-3.5 w-3.5" />
+                  사이트 바로가기
+                </CustomLink>
+              )}
             </div>
-          </InfoRow>
+          )}
+        </div>
+
+        <div className="mt-4 flex flex-wrap gap-1.5 border-t border-slate-100 pt-4">
+          {project.skills.map((s, i) => (
+            <SkillBadge key={i} name={s} />
+          ))}
         </div>
       </SectionCard>
-
-      {(project.links || project.site) && (
-        <SectionCard title="🔗 Links">
-          <div className="flex flex-col gap-3">
-            {project.links?.map(({ label, url }, i) => (
-              <InfoRow key={i} label={label}>
-                <CustomLink href={url} />
-              </InfoRow>
-            ))}
-            {project.site && (
-              <InfoRow label="사이트">
-                <CustomLink href={project.site.url} />
-              </InfoRow>
-            )}
-          </div>
-        </SectionCard>
-      )}
 
       <SectionCard className="prose prose-slate max-w-none">
         <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeHighlight]}>
@@ -75,7 +88,7 @@ const Project = ({ index }: ProjectProps) => {
         </ReactMarkdown>
       </SectionCard>
 
-      <ImageSlider title={project.title} images={getImages(project.name)} />
+      <ImageSlider title={project.title} images={getImages(project.imageName)} />
     </SectionLayout>
   );
 };

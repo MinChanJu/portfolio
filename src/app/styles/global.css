@@ -24,6 +24,28 @@ ul {
   padding-left: 20px;
 }
 
+.prose code::before,
+.prose code::after,
+.prose p::before,
+.prose p::after {
+  content: "" !important;
+}
+
+.prose pre {
+  background-color: #e9f4ff;
+  padding: 0.5em;
+  overflow-x: auto;
+}
+
+.prose :not(pre) > code {
+  font-weight: normal !important;
+  background-color: #efefef;
+  padding: 0.1em 0.35em;
+  border-radius: 0.25rem;
+  color: #ff3f3f;
+  font-size: 0.875em;
+}
+
 section {
   scroll-margin-top: 90px;
 }

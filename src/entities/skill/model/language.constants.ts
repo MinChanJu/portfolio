@@ -7,7 +7,7 @@ export const LANGUAGES: Skill[] = (
       level: 8,
     },
     {
-      name: "JAVA",
+      name: "Java",
       level: 8,
     },
     {
@@ -17,10 +17,6 @@ export const LANGUAGES: Skill[] = (
     {
       name: "C++",
       level: 7,
-    },
-    {
-      name: "C#",
-      level: 6,
     },
     {
       name: "Dart",
@@ -35,7 +31,7 @@ export const LANGUAGES: Skill[] = (
       level: 8,
     },
     {
-      name: "HTML",
+      name: "HTML5",
       level: 8,
     },
     {
@@ -43,7 +39,7 @@ export const LANGUAGES: Skill[] = (
       level: 7,
     },
     {
-      name: "SQL",
+      name: "MySQL",
       level: 6,
     },
   ] satisfies Skill[]

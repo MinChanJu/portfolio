@@ -8,11 +8,11 @@ export const LIBRARIES: Skill[] = (
     },
     {
       name: "Flutter",
-      level: 7,
+      level: 5,
     },
     {
       name: "React",
-      level: 7,
+      level: 8,
     },
     {
       name: "Unity",
@@ -27,7 +27,11 @@ export const LIBRARIES: Skill[] = (
       level: 7,
     },
     {
-      name: "NextJS",
+      name: "Next.JS",
+      level: 5,
+    },
+    {
+      name: "FastAPI",
       level: 5,
     },
   ] satisfies Skill[]

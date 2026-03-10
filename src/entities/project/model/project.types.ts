@@ -5,7 +5,7 @@ export type ProjectLink = {
 
 export type ProjectSite = {
   url: string;
-  favicon?: string;
+  favicon: string;
 };
 
 export type Project = {
@@ -13,9 +13,9 @@ export type Project = {
   period: string;
   team: string;
   role: string;
-  skills: string;
+  skills: string[];
   site?: ProjectSite;
   links?: ProjectLink[];
+  imageName: string;
   description: string;
-  name: string;
 };
