@@ -1,10 +1,9 @@
-import { useEffect, useState } from "react";
 import ReactMarkdown from "react-markdown";
 
 import { ImageSlider } from "@features/image-slider";
 
 import { PROJECTS } from "@entities/project";
-import { SkillBadge, getSkillIcon } from "@entities/skill";
+import { SkillBadge } from "@entities/skill";
 
 import { getImages } from "@shared/lib/image";
 import { CustomLink, InfoRow, SectionCard, SectionLayout } from "@shared/ui";
@@ -19,13 +18,6 @@ type ProjectProps = {
 
 const Project = ({ index }: ProjectProps) => {
   const project = PROJECTS[index];
-  const [githubIcon, setGithubIcon] = useState<{ hex: string; url: string } | null>(null);
-
-  useEffect(() => {
-    getSkillIcon("GitHub").then((icon) => {
-      if (icon) setGithubIcon(icon);
-    });
-  }, []);
 
   return (
     <SectionLayout
@@ -55,9 +47,7 @@ const Project = ({ index }: ProjectProps) => {
                   href={url}
                   className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 bg-slate-50 px-3 py-1.5 text-xs font-medium text-slate-600 transition hover:border-slate-300 hover:bg-slate-100"
                 >
-                  {githubIcon && (
-                    <img src={githubIcon.url + `/${githubIcon.hex}`} alt="GitHub icon" className="h-3.5 w-3.5" />
-                  )}
+                  <img src="https://cdn.simpleicons.org/github" alt="GitHub icon" className="h-3.5 w-3.5" />
                   {label}
                 </CustomLink>
               ))}

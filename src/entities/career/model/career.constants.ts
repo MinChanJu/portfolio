@@ -86,7 +86,7 @@ export const CAREERS: Career[] = (
 ).sort((a, b) => {
   const [aStart] = a.period.split(" ~ ");
   const [bStart] = b.period.split(" ~ ");
-  return new Date(aStart).getTime() - new Date(bStart).getTime();
+  return new Date(bStart).getTime() - new Date(aStart).getTime();
 });
 
 export const ALL_CAREER_TYPES: Career["type"][] = [...new Set(CAREERS.map((c) => c.type))];

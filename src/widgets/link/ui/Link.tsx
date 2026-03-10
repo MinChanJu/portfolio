@@ -7,10 +7,22 @@ const Link = () => {
   return (
     <SectionLayout caption="Contact" title="Links">
       <div className="flex flex-col gap-4">
-        <SectionTitle title="🐙 GitHub" />
+        <SectionTitle
+          title={
+            <div className="flex flex-row items-center gap-5">
+              🐙 GitHub
+              <CustomLink
+                href={URL.GITHUB}
+                className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 bg-slate-50 px-3 py-1.5 text-sm font-medium text-slate-600 transition hover:border-slate-300 hover:bg-slate-100"
+              >
+                <img src="https://cdn.simpleicons.org/github" alt="GitHub icon" className="h-5 w-5" />
+                MinChanJu
+              </CustomLink>
+            </div>
+          }
+        />
         <SectionCard>
-          <CustomLink href={URL.GITHUB} />
-          <div className="mx-auto flex max-w-2xl flex-col gap-3">
+          <div className="mx-auto flex flex-col gap-3">
             <img src={URL.GITHUB_SUMMARY} alt="GitHub Summary" className="w-full rounded-lg" />
             <div className="flex w-full">
               <img src={URL.GITHUB_TOP_LANGS} alt="Top Languages" className="min-w-0 flex-1 rounded-lg" />
