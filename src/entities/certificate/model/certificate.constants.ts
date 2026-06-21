@@ -14,6 +14,12 @@ export const CERTIFICATES: Certificate[] = (
       date: "2024.09.22",
       score: "689/Lv.3",
     },
+    {
+      name: "Oral Proficiency Interview - computer (OPIc) - English",
+      issuer: "ACTFL",
+      date: "2026.03.25",
+      score: "IL",
+    },
   ] satisfies Certificate[]
 ).sort((a, b) => {
   const aDate = new Date(a.date.replace(/\./g, "-")).getTime();
