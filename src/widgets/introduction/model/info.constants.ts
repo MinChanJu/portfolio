@@ -22,5 +22,5 @@ export const EDU_ROWS: Info[] = [
   { label: "졸업(예정)", value: "2026.08" },
   { label: "1전공", value: "수학과" },
   { label: "복수전공", value: "소프트웨어학과" },
-  { label: "학기", value: "4-2 (이수, 2026.02 기준)" },
+  { label: "학기", value: "4-2 (이수, 2026.06 기준)" },
 ];
