@@ -3,7 +3,9 @@ import { useState } from "react";
 import { ALL_CAREER_TYPES, CAREERS, type Career, type CareerType } from "@entities/career";
 
 const useCareerFilter = () => {
-  const [selectedCareerTypes, setSelectedCareerTypes] = useState<Set<CareerType>>(new Set(ALL_CAREER_TYPES));
+  const [selectedCareerTypes, setSelectedCareerTypes] = useState<Set<CareerType>>(
+    new Set(ALL_CAREER_TYPES.filter((type) => type !== "아르바이트")),
+  );
 
   const filteredCareers: Career[] = CAREERS.filter((c) => selectedCareerTypes.has(c.type));
 

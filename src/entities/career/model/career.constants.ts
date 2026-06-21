@@ -69,17 +69,17 @@ export const CAREERS: Career[] = (
     },
     {
       type: "부트캠프",
-      title: "네이버 부스트캠프 10기 베이직 수료",
+      title: "네이버 부스트캠프 10기 Web 베이직 수료",
       period: "2025.06 ~ 2025.07",
     },
     {
       type: "부트캠프",
-      title: "네이버 부스트캠프 10기 챌린지 수료",
+      title: "네이버 부스트캠프 10기 Web 챌린지 수료",
       period: "2025.07 ~ 2025.08",
     },
     {
       type: "부트캠프",
-      title: "네이버 부스트캠프 10기 멤버십 수료",
+      title: "네이버 부스트캠프 10기 Web 멤버십 수료",
       period: "2025.08 ~ 2026.02",
     },
   ] satisfies Career[]
