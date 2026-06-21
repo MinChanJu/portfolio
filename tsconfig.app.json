@@ -24,7 +24,6 @@
     "noUncheckedSideEffectImports": true,
 
     /* Path aliases */
-    "baseUrl": ".",
     "rootDir": "./src",
     "paths": {
       "@pages/*": ["./src/pages/*"],

@@ -1,5 +1,6 @@
 export type ProjectLink = {
   label: string;
+  type: "private" | "public";
   url: string;
 };
 

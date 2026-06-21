@@ -41,16 +41,26 @@ const Project = ({ index }: ProjectProps) => {
 
           {(project.links || project.site) && (
             <div className="flex flex-wrap gap-2">
-              {project.links?.map(({ label, url }, i) => (
-                <CustomLink
-                  key={i}
-                  href={url}
-                  className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 bg-slate-50 px-3 py-1.5 text-xs font-medium text-slate-600 transition hover:border-slate-300 hover:bg-slate-100"
-                >
-                  <img src="https://cdn.simpleicons.org/github" alt="GitHub icon" className="h-3.5 w-3.5" />
-                  {label}
-                </CustomLink>
-              ))}
+              {project.links?.map(({ label, type, url }, i) =>
+                type === "private" ? (
+                  <div
+                    key={i}
+                    className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 bg-slate-50 px-3 py-1.5 text-xs font-medium text-slate-600 transition"
+                  >
+                    <img src="https://cdn.simpleicons.org/github" alt="GitHub icon" className="h-3.5 w-3.5" />
+                    {label} (Private)
+                  </div>
+                ) : (
+                  <CustomLink
+                    key={i}
+                    href={url}
+                    className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 bg-slate-50 px-3 py-1.5 text-xs font-medium text-slate-600 transition hover:border-slate-300 hover:bg-slate-100"
+                  >
+                    <img src="https://cdn.simpleicons.org/github" alt="GitHub icon" className="h-3.5 w-3.5" />
+                    {label}
+                  </CustomLink>
+                ),
+              )}
 
               {project.site && (
                 <CustomLink
