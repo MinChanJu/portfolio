@@ -40,11 +40,17 @@ const ImageSlider = ({ title, images, imageName }: ImageSliderProps) => {
             navigation
             onSwiper={setSwiper}
             onSlideChange={handleSlideChange}
-            className="aspect-[1.5] w-full md:aspect-[2]"
+            className="aspect-[1.5] w-full select-none md:aspect-[2]"
           >
             {images.map((src, index) => (
               <SwiperSlide key={index} className="flex items-center justify-center">
-                <img className="h-full w-full object-contain" src={src} alt={`Slide ${index}`} loading="lazy" />
+                <img
+                  className="h-full w-full object-contain"
+                  src={src}
+                  alt={`Slide ${index}`}
+                  loading="lazy"
+                  draggable={false}
+                />
               </SwiperSlide>
             ))}
           </Swiper>
