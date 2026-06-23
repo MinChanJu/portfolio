@@ -10,7 +10,7 @@ export const PROJECTS: Project[] = [
     title: "Moyo - 2D 가상 공간 기반 협업 플랫폼",
     period: "2025.12 ~ 2026.02 (2개월, 네이버 부스트캠프 10기에서 진행)",
     team: "4명",
-    role: "Full Stack - 50%",
+    role: "Full Stack - 40%",
     skills: [
       "React",
       "TypeScript",
@@ -41,7 +41,7 @@ export const PROJECTS: Project[] = [
 
 ---
 
-## ‍💻 담당 역할 (Full Stack 50%)
+## ‍💻 담당 역할 (Full Stack 40%)
 - **FSD 아키텍처 설계** 및 Husky · lint-staged 기반 협업 환경 구축
 - **GitHub OAuth 2.0** 인증 및 JWT 세션 관리 구현
 - **EasyStar.js** 기반 공간 자동이동 기능 구현 (동적 import 최적화 포함)
