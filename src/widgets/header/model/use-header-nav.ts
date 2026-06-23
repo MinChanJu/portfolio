@@ -29,10 +29,12 @@ export const useHeaderNav = () => {
   }, []);
 
   useEffect(() => {
-    const hash = window.location.hash.replace("#", "");
-    if (!hash) return;
+    const params = new URLSearchParams(window.location.search);
+    const section = params.get("section");
 
-    const el = document.getElementById(hash);
+    if (!section) return;
+
+    const el = document.getElementById(section);
     if (!el) return;
 
     setTimeout(() => {
@@ -43,18 +45,23 @@ export const useHeaderNav = () => {
   }, []);
 
   const goToHome = () => {
-    window.history.pushState(null, "", "/");
+    window.history.pushState(null, "", window.location.pathname);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const goToSection = (sectionId: SectionId, projectIndex?: number) => {
     const id = projectIndex !== undefined ? `${SECTION_ID.PROJECT}-${projectIndex}` : sectionId;
     const el = document.getElementById(id);
+
     if (el) {
-      window.history.pushState(null, "", `#${id}`);
+      const params = new URLSearchParams(window.location.search);
+      params.set("section", id);
+
+      window.history.pushState(null, "", `${window.location.pathname}?${params.toString()}`);
 
       const headerHeight = 56 + (window.innerWidth >= 768 ? 20 : 12);
       const top = el.getBoundingClientRect().top + window.scrollY - headerHeight;
+
       window.scrollTo({ top, behavior: "smooth" });
     }
   };
