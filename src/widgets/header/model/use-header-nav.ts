@@ -28,12 +28,31 @@ export const useHeaderNav = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const goToHome = () => window.scrollTo({ top: 0, behavior: "smooth" });
+  useEffect(() => {
+    const hash = window.location.hash.replace("#", "");
+    if (!hash) return;
+
+    const el = document.getElementById(hash);
+    if (!el) return;
+
+    setTimeout(() => {
+      const headerHeight = 56 + (window.innerWidth >= 768 ? 20 : 12);
+      const top = el.getBoundingClientRect().top + window.scrollY - headerHeight;
+      window.scrollTo({ top });
+    }, 0);
+  }, []);
+
+  const goToHome = () => {
+    window.history.pushState(null, "", "/");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   const goToSection = (sectionId: SectionId, projectIndex?: number) => {
     const id = projectIndex !== undefined ? `${SECTION_ID.PROJECT}-${projectIndex}` : sectionId;
     const el = document.getElementById(id);
     if (el) {
+      window.history.pushState(null, "", `#${id}`);
+
       const headerHeight = 56 + (window.innerWidth >= 768 ? 20 : 12);
       const top = el.getBoundingClientRect().top + window.scrollY - headerHeight;
       window.scrollTo({ top, behavior: "smooth" });
