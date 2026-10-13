@@ -1,20 +1,10 @@
-import { Home } from "@pages/home";
+import { RouterProvider } from "react-router";
 
-import { Footer } from "@widgets/footer";
-import { Header } from "@widgets/header";
-
+import { router } from "./router";
 import "./styles";
 
 const App = () => {
-  return (
-    <div className="flex min-h-screen flex-col">
-      <Header />
-      <main className="mx-auto w-full max-w-5xl flex-1 p-3 md:p-5 print:p-0">
-        <Home />
-      </main>
-      <Footer />
-    </div>
-  );
+  return <RouterProvider router={router} />;
 };
 
 export default App;
