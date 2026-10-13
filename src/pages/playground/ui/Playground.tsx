@@ -1,11 +1,9 @@
-import { useState } from "react";
-
 import { PLAYGROUND_CONTENT_MAP } from "../model/playground.constants";
 import type { PlaygroundContent, PlaygroundContentDetail } from "../model/playground.types";
+import { usePlayground } from "../model/use-playground";
 
 const Playground = () => {
-  const [content, setContent] = useState<PlaygroundContent>("info");
-  const CurrentPlay = PLAYGROUND_CONTENT_MAP[content].Play;
+  const { content, changeContent, CurrentPlay } = usePlayground();
 
   return (
     <main className="min-h-screen bg-slate-50 px-4 py-10 pb-28 md:px-6 md:py-16">
@@ -28,7 +26,7 @@ const Playground = () => {
                 type="button"
                 aria-pressed={content === key}
                 aria-controls="playground-content"
-                onClick={() => setContent(key)}
+                onClick={() => changeContent(key)}
                 className={`min-h-11 rounded-full border px-5 py-2.5 text-sm font-medium transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-sky-500 ${
                   content === key
                     ? "border-sky-200 bg-sky-100 text-sky-800"
