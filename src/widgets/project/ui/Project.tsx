@@ -83,7 +83,17 @@ const Project = ({ index }: ProjectProps) => {
       </SectionCard>
 
       <SectionCard className="prose prose-slate max-w-none">
-        <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeHighlight]}>
+        <ReactMarkdown
+          remarkPlugins={[remarkGfm]}
+          rehypePlugins={[rehypeHighlight]}
+          components={{
+            a: ({ href, children, className, title }) => (
+              <a href={href} className={className} title={title} target="_blank" rel="noopener noreferrer">
+                {children}
+              </a>
+            ),
+          }}
+        >
           {project.description}
         </ReactMarkdown>
       </SectionCard>
