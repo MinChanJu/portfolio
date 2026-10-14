@@ -42,5 +42,9 @@ export const LANGUAGES: Skill[] = (
       name: "MySQL",
       level: 6,
     },
+    {
+      name: "Kotlin",
+      level: 6,
+    },
   ] satisfies Skill[]
 ).sort((a, b) => b.level - a.level);

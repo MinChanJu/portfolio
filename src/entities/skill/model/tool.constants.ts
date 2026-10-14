@@ -16,11 +16,11 @@ export const TOOLS: Skill[] = (
     },
     {
       name: "IntelliJ",
-      level: 6,
+      level: 7,
     },
     {
       name: "PyCharm",
-      level: 6,
+      level: 5,
     },
   ] satisfies Skill[]
 ).sort((a, b) => b.level - a.level);
