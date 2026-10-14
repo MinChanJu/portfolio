@@ -4,4 +4,3 @@ export { LIBRARIES } from "./model/library.constants";
 export { TOOLS } from "./model/tool.constants";
 export { LEGEND } from "./model/skill.constants";
 export { default as SkillBadge } from "./ui/SkillBadge";
-export { getSkillIcon } from "./model/skill.utils";

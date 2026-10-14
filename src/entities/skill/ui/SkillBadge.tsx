@@ -9,7 +9,7 @@ interface SkillBadgeProps {
 }
 
 const SkillBadge = ({ name, level }: SkillBadgeProps) => {
-  const [icon, setIcon] = useState<{ style?: CSSProperties; hex?: string; url?: string } | null>(null);
+  const [icon, setIcon] = useState<{ style?: CSSProperties; url?: string } | null>(null);
 
   useEffect(() => {
     getSkillIcon(name).then((icon) => {
@@ -22,7 +22,7 @@ const SkillBadge = ({ name, level }: SkillBadgeProps) => {
             color: `#${hex}`,
           }
         : undefined;
-      setIcon({ style, hex, url: icon?.url });
+      setIcon({ style, url: icon ? icon.url + (icon.type === "simple" ? `/${hex}` : "") : undefined });
     });
   }, [level, name]);
 
@@ -32,7 +32,7 @@ const SkillBadge = ({ name, level }: SkillBadgeProps) => {
       style={icon?.style}
     >
       {level && <span className={`h-1.5 w-1.5 rounded-full ${getLevelDotColor(level)}`} />}
-      {icon?.url && <img src={icon.url + `/${icon.hex}`} alt={`${name} icon`} className="h-4 w-4 shrink-0" />}
+      {icon?.url && <img src={icon.url} alt={`${name} icon`} className="h-4 w-4 shrink-0" />}
       {name}
       {level && <span className="text-xs font-normal opacity-80">{level}/10</span>}
     </span>
