@@ -2,6 +2,7 @@ import codingContestFavicon from "@shared/assets/image/coding_contest/favicon.sv
 import junctionFavicon from "@shared/assets/image/junction/favicon.svg";
 import moyoFavicon from "@shared/assets/image/moyo/favicon.svg";
 import portfolioFavicon from "@shared/assets/image/portfolio/favicon.svg";
+import tikkleFavicon from "@shared/assets/image/tikkle/favicon.svg";
 
 import { Project } from "./project.types";
 
@@ -85,6 +86,104 @@ export const PROJECTS: Project[] = [
 **해결**: 팀 논의 끝에 **폴더·파일 트리 구조**를 도입하기로 결정했다. 사이드바에 파일 탐색기를 추가해 폴더를 만들고 파일을 생성·삭제·이름 변경할 수 있도록 했다. 파일 트리와 에디터 내용을 서버에 저장해 공간을 나갔다 돌아와도 작업 상태가 유지되도록 했다. 실제 IDE와 유사한 구조가 갖춰지자 팀원들이 코드 에디터를 적극적으로 사용하기 시작했다.
 
 > 관련 PR: [#152](https://github.com/boostcampwm2025/web13-isj-dle/pull/152)`,
+  },
+  {
+    title: "Tikkle - 콘서트 예약 서비스",
+    period: "2025.07 ~ 2025.10 (약 4개월)",
+    team: "2명",
+    role: "Full Stack - 50%",
+    skills: [
+      "React",
+      "TypeScript",
+      "Zustand",
+      "Spring Boot",
+      "Kotlin",
+      "Gradle",
+      "MySQL",
+      "Redis",
+      "Lua",
+      "STOMP",
+      "OpenAPI",
+      "AsyncAPI",
+      "Playwright",
+      "Docker",
+      "GitHub Actions",
+    ],
+    links: [
+      {
+        label: "소스코드",
+        type: "public",
+        url: "https://github.com/tikkle-moa/tikkle",
+      },
+    ],
+    site: { url: "https://tikkle.site/", favicon: tikkleFavicon },
+    imageName: "tikkle",
+    description: `## 🏠 프로젝트 개요
+
+**2인 팀**으로 개발한 **콘서트 예매 서비스**입니다. 공연 탐색부터 좌석 선택·실시간 점유·예매·결제까지 이어지는 흐름을 제공하며, 함께 공연을 관람하는 사용자를 위한 그룹 예매 기능으로 확장했습니다.
+
+---
+
+## ‍💻 담당 역할 (Full Stack 50%)
+- **OAuth 인증** 백엔드 및 사용자·관리자 권한 처리, 프론트엔드 인증 상태와 접근 제어 구현
+- **콘서트·공연 회차·공연장 API** 개발 및 관리자 등록·수정 화면 구현
+- **STOMP 비동기 통신용 StompClient** 설계, 연결 복구·토큰 갱신 및 실시간 좌석 상태 연동
+- **Redis Lua** 기반 다중 좌석 점유·해제와 예매·결제 흐름 연동
+- **SVG 좌석 맵** 확대·이동·범위 선택 및 렌더링 최적화
+- **OpenAPI·AsyncAPI** 기반 요청·응답 타입 동기화, **Playwright** 동시 좌석 점유 E2E 검증
+- **Docker 배포 환경·GitHub Actions CI/CD** 구성 및 운영 오류 보정
+
+---
+
+## 🔧 문제 해결 과정
+
+### 1. 비동기 STOMP 통신과 연결 복구를 일관되게 관리하는 문제
+
+**상황**: 좌석 상태 조회·점유·해제와 예매·결제에서 STOMP 통신을 사용하면서, 각 기능이 발행 경로와 구독 경로, 메시지 파싱, 성공·실패 처리를 반복해서 다뤄야 했다. HTTP처럼 호출과 응답이 하나로 묶이지 않는 비동기 통신에서는 요청·응답 계약과 연결 생명주기를 함께 관리할 구조가 필요했다.
+
+**원인 분석**: 라이브러리의 Client를 직접 노출하고 문자열 destination과 원시 메시지를 사용하는 구조에서는 경로와 payload의 관계를 타입으로 확인하기 어려웠다. 또한 토큰 갱신과 재연결이 비동기로 진행되므로, 이전 연결의 종료나 복구 작업이 늦게 완료되면 새 연결의 상태를 변경할 수 있었다.
+
+**해결**: 공통 **StompClient**를 구현해 발행·사용자 응답 구독·공개 이벤트 구독을 분리하고, 경로별 요청·응답 타입과 필수 경로 파라미터를 TypeScript 타입으로 연결했다. 메시지 파싱과 실패 응답 분기를 클라이언트 내부로 모으고, 연결이 종료된 상태에서도 구독을 안전하게 정리하도록 했다. 연결 종료는 **async/await**로 완료를 기다린 뒤 재연결하고, 스토어에서는 복구 Promise를 공유해 중복 복구를 방지했다. 연결 생명주기 버전과 클라이언트 동일성 검사로 오래된 비동기 작업이 새 연결에 영향을 주지 않도록 했으며, 재시도에는 지수 백오프를 적용했다. 이를 통해 기능 코드가 통신 세부 처리 대신 좌석·예매 로직에 집중할 수 있도록 정리했다.
+
+> 관련 PR: [#173](https://github.com/tikkle-moa/tikkle/pull/173)
+
+---
+
+### 2. 여러 사용자가 같은 좌석을 동시에 점유하는 문제
+
+**상황**: 사용자는 여러 좌석을 한 번에 선택하거나 일부만 해제할 수 있고, 다른 사용자도 같은 좌석을 동시에 요청할 수 있었다. 좌석 점유와 결제 전환이 겹치는 경우까지 고려해야 하므로, 좌석별 처리만으로는 일부 좌석만 점유되거나 이전 조회 결과가 최신 상태를 덮어쓸 위험이 있었다.
+
+**원인 분석**: Redis에서 좌석 상태를 조회한 뒤 별도 명령으로 갱신하면 두 작업 사이에 다른 요청이 들어올 수 있다. 좌석 키, Hold 상세, 소유자별 인덱스가 함께 변경되어야 하는데 이를 각각 처리하면 데이터 간 일관성을 유지하기 어려웠다.
+
+**해결**: **Redis Lua 스크립트**로 충돌 검사와 다중 좌석 점유를 한 번에 실행해, 요청한 좌석을 모두 점유하거나 전체 요청을 실패시키도록 구현했다. 부분 해제와 결제 전환에서도 좌석 소유권과 Hold 상세 원본을 비교한 뒤 갱신해 오래된 조회 결과의 덮어쓰기를 방지하고, 남은 좌석의 TTL을 유지했다. 이후 개인·그룹 점유 소유 단위를 **scopeId**로 통합하고, 좌석 이벤트 버전이 뒤섞이거나 누락되면 최신 상태를 다시 조회하도록 보완했다. 서로 다른 브라우저 컨텍스트에서 동일 좌석을 동시에 요청하는 **Playwright E2E**로 한쪽만 점유에 성공하고 실시간 상태가 반영되는 시나리오를 검증했다.
+
+> 관련 PR: [#167](https://github.com/tikkle-moa/tikkle/pull/167), [#184](https://github.com/tikkle-moa/tikkle/pull/184), [#212](https://github.com/tikkle-moa/tikkle/pull/212)
+
+---
+
+### 3. 대규모 좌석 배치의 충돌 검증과 렌더링 부담을 개선하는 문제
+
+**상황**: 관리자 좌석 배치 편집기에서는 좌석을 일괄 생성하거나 여러 좌석을 함께 이동하면서 겹침을 즉시 확인해야 했다. 1,500석 규모의 배치에서 이동·영역 선택·확대를 처리하고, 사용자 좌석 맵에서는 실시간 점유 상태까지 표시해야 하므로 충돌 검증과 렌더링을 함께 최적화할 필요가 있었다.
+
+**원인 분석**: 좌석의 좌표가 같은지만 비교하면 좌석의 너비·높이 때문에 실제로 겹치는 경우를 놓칠 수 있었다. 모든 좌석 쌍을 비교하고 이동할 때마다 전체 충돌 맵을 다시 계산하는 방식도 좌석 수가 늘수록 부담이 커졌다. 다만 **React Scan**으로 분석한 결과, 편집기의 버벅임은 충돌 계산보다 불필요한 대량 리렌더링이 주요 원인이었다. 검증 알고리즘 개선과 별개로 렌더링 구조와 상태 갱신 범위를 줄여야 했다.
+
+**해결 — 충돌 검증**: 동일 좌표 비교를 좌석의 논리적 너비·높이를 반영한 **사각형 영역 교차 검사**로 변경해 좌석 간 겹침, 무대와의 충돌, 좌석 전체 영역의 공연장 경계 이탈을 검증했다. **공간 격자**로 탐색 범위를 현재 셀과 인접 셀로 좁히고, 이동한 좌석과 기존 충돌 관계만 갱신하도록 개선했다. 일괄 생성·폼·실시간 배치·서버 최종 검증에 같은 충돌 기준과 좌석 크기를 적용했으며, 실행 취소 시 배치와 충돌 상태가 함께 복원되도록 했다.
+
+**해결 — 렌더링과 상호작용**: 관리자 편집기의 일반 좌석은 chunk로 나누고 같은 색상끼리 하나의 **SVG path**로 합쳐 DOM 노드 수를 줄였다. 선택·오류 좌석은 별도 요소로 표시하고, 좌석 목록은 보이는 행과 주변 행만 렌더링하도록 **가상화**했다. 화면 이동·영역 선택·확대는 ref에 값을 누적한 뒤 **requestAnimationFrame** 단위로 반영했다. 사용자 좌석 맵에도 chunk와 memoization을 적용하고, viewport는 viewBox를 직접 갱신하며 실시간 점유 상태는 변경된 좌석 DOM만 동기화하도록 개선했다.
+
+**검증**: Playwright E2E로 **1,500석 SVG chunk·가상 목록 렌더링**, 목록 끝의 좌석 선택, 좌석 드래그 후 좌표 변경과 겹침 오류 표시를 확인했다. 확대·축소·영역 선택과 viewport·DOM 상태 동기화 테스트도 보강했다.
+
+> 관련 PR: [#133](https://github.com/tikkle-moa/tikkle/pull/133), [#149](https://github.com/tikkle-moa/tikkle/pull/149), [#177](https://github.com/tikkle-moa/tikkle/pull/177)
+
+---
+
+### 4. 서버와 클라이언트의 실시간 메시지 타입이 어긋나는 문제
+
+**상황**: 좌석과 예매·결제 요청을 하나의 sync 경로에서 action으로 구분하는 구조에서는 각 기능의 반환 타입이 명확하지 않았다. 서버의 STOMP 계약을 변경할 때 클라이언트 타입도 함께 맞춰야 했으며, 문서의 nullable·필수 필드가 실제 Kotlin 모델과 일치하도록 보정할 필요가 있었다.
+
+**해결**: 기능별 STOMP 엔드포인트를 분리하고, 요청에는 **requestId·data**, 응답에는 **requestId·success·data 또는 error**를 사용하는 공통 계약을 도입했다. **Springwolf AsyncAPI** 문서에 실제 응답 타입과 reply 채널이 반영되도록 customizer를 구현하고, Kotlin reflection으로 nullable·필수 프로퍼티를 보정했다. 이 문서에서 TypeScript 타입을 생성해 StompClient와 기능 코드가 같은 계약을 사용하도록 했다. REST API도 OpenAPI 기반 클라이언트로 통합해 요청·응답·오류 타입을 맞추고 CSRF 토큰 주입을 공통 미들웨어로 처리했다.
+
+> 관련 PR: [#170](https://github.com/tikkle-moa/tikkle/pull/170), [#49](https://github.com/tikkle-moa/tikkle/pull/49)`,
   },
   {
     title: "Junction - 알고리즘 문제 풀이 플랫폼",
